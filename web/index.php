@@ -103,7 +103,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								Ventas
 							</a>
 							<div class="dropdown-menu text-lg-left text-center" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item link"  href="inventario_producto.php">Compras</a>
+								<a class="dropdown-item link"  href="inventario_producto.php">Ventas</a>
 								<a class="dropdown-item link"  href="inventario_producto.php">Proveedores</a>
 								<a class="dropdown-item link"  href="inventario_producto.php">Inventario Producto</a>
 								<a class="dropdown-item link"  href="inventario_producto.php">Inventario Materia Prima</a>
