@@ -91,22 +91,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							</a>
 							<div class="dropdown-menu text-lg-left text-center" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item link"  href="compras.php">Compras</a>
-								<a class="dropdown-item link"  href="inventario_producto.php">Proveedores</a>
+								<a class="dropdown-item link"  href="ventas.php">Ventas</a>
+								<a class="dropdown-item link"  href="pedidos.php">Pedidos</a>
 								<a class="dropdown-item link"  href="inventario_producto.php">Inventario Producto</a>
-								<a class="dropdown-item link"  href="inventario_producto.php">Inventario Materia Prima</a>
+								<a class="dropdown-item link"  href="inventario_materia_prima.php">Inventario Materia Prima</a>
 
 							</div>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
 							    aria-haspopup="true" aria-expanded="false">
-								Ventas
+								Clientes
 							</a>
 							<div class="dropdown-menu text-lg-left text-center" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item link"  href="inventario_producto.php">Ventas</a>
+								<a class="dropdown-item link"  href="inventario_producto.php">Clientes</a>
+								<a class="dropdown-item link"  href="inventario_producto.php">Categorias</a>
+								<a class="dropdown-item link"  href="inventario_producto.php">Empleados</a>
 								<a class="dropdown-item link"  href="inventario_producto.php">Proveedores</a>
-								<a class="dropdown-item link"  href="inventario_producto.php">Inventario Producto</a>
-								<a class="dropdown-item link"  href="inventario_producto.php">Inventario Materia Prima</a>
 
 							</div>
 						</li>

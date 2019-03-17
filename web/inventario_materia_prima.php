@@ -176,8 +176,8 @@
 	<div class="address py-5">
 		<div class="container py-xl-5 py-lg-3">
 			<div class="title text-center mb-5">
-				<h2 class="text-dark mb-2">Inventario Productos</h2>
-				<p>Puedes crear los productos disponibles.</p>
+				<h2 class="text-dark mb-2">Inventario Materia Prima</h2>
+				<p>Puedes crear la materia prima.</p>
 			</div>
 			<div class="row address-row">
 				<div class="col-lg-6 address-right">
@@ -202,23 +202,18 @@
 					<div class="address-grid">
 						<h4 class="font-weight-bold mb-3">Crear Producto</h4>
 						<form action="#" method="post">
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Producto" name="producto_name" required="">
+						<div class="form-group">
+								<input type="text" class="form-control" placeholder="Nombre" name="nombre_producto" required="">
 							</div>
 							<div class="form-group">
-								<input type="email" class="form-control" placeholder="Precio" name="precio" required="">
+								<input type="text" class="form-control" placeholder="Medida" name="producto_medida" required="">
 							</div>
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="Cantidad" name="cantidad" required="">
 							</div>
 							<div class="form-group">
-                                Categoría
-                                <select name="Categoria">
-                                        <option value="value1">Postres</option> 
-                                        <option value="value2" selected>Pasteles</option>
-                                        <option value="value3">Repostería</option>
-                                 </select>
-                            </div>
+								<input type="email" class="form-control" placeholder="Precio" name="precio" required="">
+							</div>
                             <div class="form-group">
                                 Estado
                                 <select name="Estado">
@@ -234,16 +229,17 @@
 
 <table id="customers">
   <tr>
-    <th>Producto</th>
+		<th>Producto</th>
+		<th>Medida</th>
+		<th>Cantidad</th>
     <th>Precio</th>
-    <th>Cantidad</th>
-    <th>Categoria</th>
     <th>Estado</th>
   </tr>
   <tr>
-    <td>Pastelito de leche</td>
-    <td>0.25</td>
-    <td>10</td>
+    <td>Harina</td>
+    <td>Libras</td>
+		<td>100</td>
+		<td>1.00</td>
     <td>Activo</td>
   </tr>
 

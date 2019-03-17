@@ -92,23 +92,24 @@
 								Compras
 							</a>
 							<div class="dropdown-menu text-lg-left text-center" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item link"  href="inventario_producto.php">Compras</a>
-								<a class="dropdown-item link"  href="inventario_producto.php">Proveedores</a>
+								<a class="dropdown-item link"  href="compras.php">Compras</a>
+								<a class="dropdown-item link"  href="ventas.php">Ventas</a>
+								<a class="dropdown-item link"  href="pedidos.php">Pedidos</a>
 								<a class="dropdown-item link"  href="inventario_producto.php">Inventario Producto</a>
-								<a class="dropdown-item link"  href="inventario_producto.php">Inventario Materia Prima</a>
+								<a class="dropdown-item link"  href="inventario_materia_prima.php">Inventario Materia Prima</a>
 
 							</div>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
 							    aria-haspopup="true" aria-expanded="false">
-								Ventas
+									Clientes
 							</a>
 							<div class="dropdown-menu text-lg-left text-center" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item link"  href="inventario_producto.php">Compras</a>
+								<a class="dropdown-item link"  href="inventario_producto.php">Clientes</a>
+								<a class="dropdown-item link"  href="inventario_producto.php">Categorias</a>
+								<a class="dropdown-item link"  href="inventario_producto.php">Empleados</a>
 								<a class="dropdown-item link"  href="inventario_producto.php">Proveedores</a>
-								<a class="dropdown-item link"  href="inventario_producto.php">Inventario Producto</a>
-								<a class="dropdown-item link"  href="inventario_producto.php">Inventario Materia Prima</a>
 
 							</div>
 						</li>
@@ -181,14 +182,14 @@
 			<div class="row address-row">
 				<div class="col-lg-6 address-right">
 					<div class="address-info wow fadeInRight animated" data-wow-delay=".5s">
-                    <h4 class="font-weight-bold mb-3">Repostería </h4>
-						<p>Para endulzarte el día</p>
-					</div>
-					<div class="address-info address-mdl wow fadeInRight animated" data-wow-delay=".7s">
-						<h4 class="font-weight-bold mb-3">Pasteles </h4>
-						<p>Chocolate</p>
-						<p>Caramelo</p>
-					</div>
+										<h4 class="font-weight-bold mb-3">Harina </h4>
+										<h4 class="font-weight-bold mb-3">Azúcar </h4>
+										<h4 class="font-weight-bold mb-3">Vainilla </h4>
+										<h4 class="font-weight-bold mb-3">Leche </h4>
+                    <h4 class="font-weight-bold mb-3">Caramelo </h4>
+
+
+					</div>			
 				</div>
 				<div class="col-lg-6 address-left mt-lg-0 mt-5">
 					<div class="address-grid">
@@ -221,8 +222,8 @@
                                  </select><br/><br/>
                                  Producto
                                 <select name="Producto">
-                                        <option value="value1">Harina</option> 
-                                        <option value="value2" selected>Azúcar Morena</option>
+                                        <option value="value1">Azúcar Morena</option> 
+                                        <option value="value2" selected>Harina</option>
                                         <option value="value3" selected>Leche</option>
                                  </select>
                                  <br/><br/>
@@ -235,6 +236,7 @@
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="Descuento" name="descuento_compra" required="">
 							</div><br/>
+							<label for="name">Total:</label>
 							</div>
                             <input type="submit" value="Comprar">
 						</form>
@@ -256,6 +258,7 @@
   </tr>
 
 </table>
+
 			</div>
 		</div>
 	</div>
