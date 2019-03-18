@@ -127,7 +127,7 @@
 						<div class="toggle">
 							<ul class="toggle-menu list-unstyled">
 								<li>
-									<a href="index.html">Index Page</a>
+									<a href="index.php">Index Page</a>
 								</li>
 								<li>
 									<a class="scroll" href="#products">New Products</a>

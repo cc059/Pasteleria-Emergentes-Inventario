@@ -104,10 +104,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								Clientes
 							</a>
 							<div class="dropdown-menu text-lg-left text-center" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item link"  href="inventario_producto.php">Clientes</a>
-								<a class="dropdown-item link"  href="inventario_producto.php">Categorias</a>
-								<a class="dropdown-item link"  href="inventario_producto.php">Empleados</a>
-								<a class="dropdown-item link"  href="inventario_producto.php">Proveedores</a>
+								<a class="dropdown-item link"  href="clientes.php">Clientes</a>
+								<a class="dropdown-item link"  href="categorias.php">Categorias</a>
+								<a class="dropdown-item link"  href="empleados.php">Empleados</a>
+								<a class="dropdown-item link"  href="proveedores.php">Proveedores</a>
 
 							</div>
 						</li>
@@ -125,7 +125,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<div class="toggle">
 							<ul class="toggle-menu list-unstyled">
 								<li>
-									<a href="index.html">Index Page</a>
+									<a href="index.php">Index Page</a>
 								</li>
 								<li>
 									<a class="scroll" href="#products">New Products</a>
