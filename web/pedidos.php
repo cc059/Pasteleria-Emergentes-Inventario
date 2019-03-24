@@ -2,7 +2,7 @@
 <html lang="zxx">
 
 <head>
-	<title>Cakes Bakery Restaurants Category Bootstrap Responsive Web Template | Contact Us :: W3layouts</title>
+	<title>Lexar's Bakery|Pasteles con amor</title>
 	<!-- Meta tag Keywords -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="UTF-8" />
@@ -70,7 +70,7 @@
 				<div class="logo text-left">
 					<h1>
 						<a class="navbar-brand" href="index.php">
-							<img src="images/logo.png" alt="" class="img-fluid">Cakes Bakery</a>
+							<img src="images/logo.png" alt="" class="img-fluid">Lexar's Bakery</a>
 					</h1>
 				</div>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -82,7 +82,7 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-lg-auto text-lg-right text-center">
 						<li class="nav-item active">
-							<a class="nav-link" href="index.php">Home
+							<a class="nav-link" href="index.php">Inicio
 								<span class="sr-only">(current)</span>
 							</a>
 						</li>
