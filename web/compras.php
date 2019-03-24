@@ -2,7 +2,7 @@
 <html lang="zxx">
 
 <head>
-	<title>Cakes Bakery Restaurants Category Bootstrap Responsive Web Template | Contact Us :: W3layouts</title>
+	<title>Lexar's Bakery|Pasteles con amor</title>
 	<!-- Meta tag Keywords -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="UTF-8" />
@@ -70,7 +70,7 @@
 				<div class="logo text-left">
 					<h1>
 						<a class="navbar-brand" href="index.php">
-							<img src="images/logo.png" alt="" class="img-fluid">Cakes Bakery</a>
+							<img src="images/logo.png" alt="" class="img-fluid">Lexar's Bakery</a>
 					</h1>
 				</div>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -82,7 +82,7 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-lg-auto text-lg-right text-center">
 						<li class="nav-item active">
-							<a class="nav-link" href="index.php">Home
+							<a class="nav-link" href="index.php">Inicio
 								<span class="sr-only">(current)</span>
 							</a>
 						</li>
@@ -114,7 +114,7 @@
 							</div>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="gallery.html">Gallery</a>
+							<a class="nav-link" href="gallery.html">Galeria</a>
 						</li>
 											<!-- menu contactanos -->
 						<li class="nav-item">
@@ -130,19 +130,19 @@
 									<a href="index.php">Index Page</a>
 								</li>
 								<li>
-									<a class="scroll" href="#products">New Products</a>
+									<a class="scroll" href="#products">Nuevos Productos</a>
 								</li>
 								<li>
-									<a href="gallery.html">Latest Cakes</a>
+									<a href="gallery.html">Ultimos Pasteles</a>
 								</li>
 								<li>
-									<a class="scroll" href="#order">Order Cake</a>
+									<a class="scroll" href="#order">Ordenar Pastel</a>
 								</li>
 								<li>
-									<a class="scroll" href="#faqs">Faqs</a>
+									<a class="scroll" href="#faqs">Preguntas Frecuentes</a>
 								</li>
 								<li>
-									<a href="contact.html">Contact Us</a>
+									<a href="contact.html">Contactanos</a>
 								</li>
 							</ul>
 						</div>
@@ -165,7 +165,7 @@
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb m-0">
 				<li class="breadcrumb-item">
-					<a href="index.html">Home</a>
+					<a href="index.html">Inicio</a>
 				</li>
 			</ol>
 		</nav>
@@ -293,7 +293,7 @@
 				</ul>
 			</div>
 			<!-- copyright -->
-			<p class="copy-right-grids text-light my-lg-5 my-4 pb-4">© 2018 Cake Bakery. All Rights Reserved | Design by
+			<p class="copy-right-grids text-light my-lg-5 my-4 pb-4">© 2019 Lexar's Bakery. All Rights Reserved | Design by
 				<a href="https://w3layouts.com/" target="_blank">W3layouts</a>
 			</p>
 			<!-- //copyright -->
