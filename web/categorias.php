@@ -1,3 +1,16 @@
+<?php
+include('clases\master.php');
+$categorias= new camposCategoria();
+
+if($_POST){
+	$id_categoria=0;
+	$nombre_categoria=$_POST{'txtcate'};
+	$categorias->asignarValor($id_categoria,$nombre_categoria);
+	$categorias->guardar();
+
+}
+
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -38,7 +51,7 @@
 #customers {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 95%;
+  width: 30%;
 }
 
 #customers td, #customers th {
@@ -193,32 +206,35 @@
 				<div class="col-lg-6 address-left mt-lg-0 mt-5">
 					<div class="address-grid">
 						<h4 class="font-weight-bold mb-3">Ingresa la categoría</h4>
-						<form action="#" method="post">
+						<form action="categorias.php" method="post">
                     
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Nombre" name="nombre_cliente" required="">
+								<input type="text" class="form-control" placeholder="Nombre" name="txtcate" required="">
 							</div>						                       
 							</div>
-                            <input type="submit" value="Crear">
+                            <button type="submit">Enviar</button>
 						</form>
 					</div>
                 </div><br/><br/>
+<fieldset>
+<table  id="customers">
+  <tr>
+	<th>Nombre Categoria</th>
+	</tr>
 
-<table id="customers">
-  <tr>
-    <th>Nombre</th>
-  </tr>
-  <tr>
-    <td>Repostería</td>
-  </tr>
-  <tr>
-    <td>Pasteles</td>
-  </tr>
-  <tr>
-    <td>Bocadillos salados</td>
-  </tr>
-
+<?php
+	$datosCategorias=camposCategoria::listarCategorias();
+	foreach($datosCategorias as $categoria){
+		$id_categoria= $categoria['id_categoria'];
+		echo <<<CATEGORIAS
+		<tr>
+		<td>{$categoria['nombre_categoria']}</td><br/>
+		</tr>		
+CATEGORIAS;
+	}
+?>
 </table>
+</fieldset>
 
 			</div>
 		</div>
