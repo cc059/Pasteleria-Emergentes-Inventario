@@ -137,7 +137,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<a class="scroll" href="#order">Ordenar Pasteles</a>
 								</li>
 								<li>
-									<a class="scroll" href="#faqs">Preguntas Frecuentes</a>
+									<a class="scroll" href="faq.html">Preguntas Frecuentes</a>
 								</li>
 								<li>
 									<a href="contact.html">Contáctanos</a>
