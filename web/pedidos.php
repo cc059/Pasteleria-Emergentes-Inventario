@@ -114,7 +114,7 @@
 							</div>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="gallery.html">Gallery</a>
+							<a class="nav-link" href="gallery.html">Galeria</a>
 						</li>
 											<!-- menu contactanos -->
 						<li class="nav-item">
@@ -126,23 +126,23 @@
 						<a href="#" class="navicon"></a>
 						<div class="toggle">
 							<ul class="toggle-menu list-unstyled">
-								<li>
-									<a href="index.php">Index Page</a>
+							<li>
+									<a href="index.php">Inicio</a>
 								</li>
 								<li>
-									<a class="scroll" href="#products">New Products</a>
+									<a class="scroll" href="#products">Nuevos Productos</a>
 								</li>
 								<li>
-									<a href="gallery.html">Latest Cakes</a>
+									<a href="gallery.html">Ultimos Pasteles</a>
 								</li>
 								<li>
-									<a class="scroll" href="#order">Order Cake</a>
+									<a class="scroll" href="#order">Ordenar Pastel</a>
 								</li>
 								<li>
-									<a class="scroll" href="faq.html">Faqs</a>
+									<a class="scroll" href="faq.html">Preguntas Frecuentes</a>
 								</li>
 								<li>
-									<a href="contact.html">Contact Us</a>
+									<a href="contact.html">Contactanos</a>
 								</li>
 							</ul>
 						</div>
@@ -165,7 +165,7 @@
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb m-0">
 				<li class="breadcrumb-item">
-					<a href="index.html">Home</a>
+					<a href="index.php">Inicio</a>
 				</li>
 			</ol>
 		</nav>
