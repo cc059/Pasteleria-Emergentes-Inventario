@@ -9,25 +9,41 @@
         }
 
         function _get($atributo){
-            if($isset($this->$atributo)){
+            if(isset($this->$atributo)){
                 return $this->$atributo;
             }
         }
         function guardar(){
             $sql="INSERT INTO categoria (nombre_categoria) VALUES ('{$this->nombre_categoria}');";
-            mysqli_query(conexion::obtenerinstancia(), $sql);
+            mysqli_query(conexion::obtenerInstancia(), $sql);
         }
         static function listarCategorias(){
             $categorias=array();
             $result=0;
             $sql="SELECT * FROM categoria;";
-            $rs=mysqli_query(conexion::obtenerinstancia(), $sql);
+            $rs=mysqli_query(conexion::obtenerInstancia(), $sql);
             if(mysqli_num_rows($rs)>0) {
                 while ($fila = mysqli_fetch_assoc($rs)){
                     $categorias[] = $fila;
                 }
             }
             return $categorias;
+        }
+        function eliminar($id_categoria){
+            $sql="DELETE FROM categoria WHERE id_categoria=($id_categoria)";
+            mysqli_query(conexion::obtenerInstancia(),$sql);
+        }
+        function modificar($id_categoria){
+            $sql="SELECT * FROM categoria WHERE  id_categoria= ($id_categoria)";
+            $rs=mysqli_query(conexion::obtenerInstancia(), $sql);
+            if(mysqli_num_rows($rs)>0){
+                $fila=mysqli_fetch_assoc($rs);
+                $this->id_categoria=$fila{'id_categoria'};
+                $this->nombre_categoria=$fila{'nombre_categoria'};
+
+
+
+            }
         }
 
     }

@@ -7,8 +7,15 @@ if($_POST){
 	$nombre_categoria=$_POST{'txtcate'};
 	$categorias->asignarValor($id_categoria,$nombre_categoria);
 	$categorias->guardar();
-
 }
+elseif(isset($_GET{'eliminar'})){
+		$categorias->eliminar($_GET{'eliminar'});
+	}
+elseif(isset($_GET{'modificar'})){
+	$categorias->modificar($_GET{'modificar'});
+	}
+
+
 
 ?>
 <!DOCTYPE html>
@@ -51,7 +58,7 @@ if($_POST){
 #customers {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 30%;
+  width: 40%;
 }
 
 #customers td, #customers th {
@@ -209,10 +216,11 @@ if($_POST){
 						<form action="categorias.php" method="post">
                     
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Nombre" name="txtcate" required="">
-							</div>						                       
+								<input type="text" class="form-control" placeholder="Nombre" name="txtcate">
+							</div>	
+							<button type="submit">Enviar</button>
+					                       
 							</div>
-                            <button type="submit">Enviar</button>
 						</form>
 					</div>
                 </div><br/><br/>
@@ -229,6 +237,8 @@ if($_POST){
 		echo <<<CATEGORIAS
 		<tr>
 		<td>{$categoria['nombre_categoria']}</td><br/>
+		<td><a href ="categorias.php?eliminar=($id_categoria)">Eliminar</a></td>
+		<td><a href ="categorias.php?modificar=($id_categoria)">Modificar</a></td>
 		</tr>		
 CATEGORIAS;
 	}
