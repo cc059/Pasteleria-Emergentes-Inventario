@@ -159,7 +159,7 @@ elseif(isset($_GET{'modificar'})){
 									<a class="scroll" href="#order">Ordenar Pastel</a>
 								</li>
 								<li>
-									<a class="scroll" href="#faqs">Preguntas Frecuentes</a>
+									<a class="scroll" href="faq.html">Preguntas Frecuentes</a>
 								</li>
 								<li>
 									<a href="contact.html">Contactanos</a>

@@ -139,7 +139,7 @@
 									<a class="scroll" href="#order">Order Cake</a>
 								</li>
 								<li>
-									<a class="scroll" href="#faqs">Faqs</a>
+									<a class="scroll" href="faq.html">Faqs</a>
 								</li>
 								<li>
 									<a href="contact.html">Contact Us</a>
