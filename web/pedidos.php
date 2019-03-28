@@ -297,8 +297,7 @@
 				</ul>
 			</div>
 			<!-- copyright -->
-			<p class="copy-right-grids text-light my-lg-5 my-4 pb-4">© 2018 Cake Bakery. All Rights Reserved | Design by
-				<a href="https://w3layouts.com/" target="_blank">W3layouts</a>
+			<p class="copy-right-grids text-light my-lg-5 my-4 pb-4">© 2018 Cake Bakery. All Rights Reserved | Design by Team Lexar
 			</p>
 			<!-- //copyright -->
 		</div>
