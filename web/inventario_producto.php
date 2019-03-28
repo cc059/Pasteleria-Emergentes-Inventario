@@ -3,6 +3,7 @@
 <html lang="zxx">
 
 <head>
+	<link rel='icon' type='image/x-icon' href='images/favicon.ico' />
 	<title>Lexar's Bakery|Pasteles con amor</title>
 	<!-- Meta tag Keywords -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -81,15 +82,15 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-lg-auto text-lg-right text-center">
-						<li class="nav-item active">
+						<li class="nav-item">
 							<a class="nav-link" href="index.php">Inicio
 								<span class="sr-only">(current)</span>
 							</a>
 						</li>
-						<li class="nav-item dropdown">
+						<li class="nav-item active dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
 							    aria-haspopup="true" aria-expanded="false">
-								Compras
+								Inventario
 							</a>
 							<div class="dropdown-menu text-lg-left text-center" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item link"  href="compras.php">Compras</a>
@@ -97,17 +98,17 @@
 								<a class="dropdown-item link"  href="pedidos.php">Pedidos</a>
 								<a class="dropdown-item link"  href="inventario_producto.php">Inventario Producto</a>
 								<a class="dropdown-item link"  href="inventario_materia_prima.php">Inventario Materia Prima</a>
+								<a class="dropdown-item link"  href="categorias.php">Categorias</a>
 
 							</div>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
 							    aria-haspopup="true" aria-expanded="false">
-								Clientes
+								Personal
 							</a>
 							<div class="dropdown-menu text-lg-left text-center" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item link"  href="clientes.php">Clientes</a>
-								<a class="dropdown-item link"  href="categorias.php">Categorias</a>
 								<a class="dropdown-item link"  href="empleados.php">Empleados</a>
 								<a class="dropdown-item link"  href="proveedores.php">Proveedores</a>
 

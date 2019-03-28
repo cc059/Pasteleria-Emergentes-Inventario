@@ -53,7 +53,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<nav class="navbar navbar-expand-lg navbar-light">
 				<div class="logo text-left">
 					<h1>
-						<a class="navbar-brand" href="index.php">
+						<a class="navbar-brand" href="index_empleados.php">
 							<img src="images/logo.png" alt="" class="img-fluid">Lexar's Bakery</a>
 					</h1>
 				</div>
@@ -66,7 +66,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-lg-auto text-lg-right text-center">
 						<li class="nav-item active">
-							<a class="nav-link" href="index.php">Inicio
+							<a class="nav-link" href="index_empleados.php">Inicio
 								<span class="sr-only">(current)</span>
 							</a>
 						</li>
@@ -85,66 +85,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<a class="dropdown-item" href="about.html" title="">Team</a>
 							</div>
 						</li>-->
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-							    aria-haspopup="true" aria-expanded="false">
-								Inventario
-							</a>
-							<div class="dropdown-menu text-lg-left text-center" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item link"  href="compras.php">Compras</a>
-								<a class="dropdown-item link"  href="ventas.php">Ventas</a>
-								<a class="dropdown-item link"  href="pedidos.php">Pedidos</a>
-								<a class="dropdown-item link"  href="inventario_producto.php">Inventario Producto</a>
-								<a class="dropdown-item link"  href="inventario_materia_prima.php">Inventario Materia Prima</a>
-								<a class="dropdown-item link"  href="categorias.php">Categorias</a>
-							</div>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-							    aria-haspopup="true" aria-expanded="false">
-								Personal
-							</a>
-							<div class="dropdown-menu text-lg-left text-center" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item link"  href="clientes.php">Clientes</a>
-								<a class="dropdown-item link"  href="empleados.php">Empleados</a>
-								<a class="dropdown-item link"  href="proveedores.php">Proveedores</a>
-							</div>
+                        <li class="nav-item">
+							<a class="nav-link" href="ventas_empleados.php">Ventas</a>
+                        </li>
+                        <li class="nav-item">
+							<a class="nav-link" href="pedidos_empleados.php">Pedidos</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="gallery.html">Galeria</a>
+							<a class="nav-link" href="clientes_empleados.php">Clientes</a>
 						</li>
-											<!-- menu contactanos -->
 						<li class="nav-item">
-							<a class="nav-link" href="contact.html">Contáctanos</a>
+							<a class="nav-link" href="gallery_empleados.html">Galeria</a>
 						</li>
 					</ul>
-					<!-- menu button -->
-					<div class="menu">
-						<a href="#" class="navicon"></a>
-						<div class="toggle">
-							<ul class="toggle-menu list-unstyled">
-								<li>
-									<a href="index.php">Página de Inicio</a>
-								</li>
-								<li>
-									<a class="scroll" href="#products">Nuevos Productos</a>
-								</li>
-								<li>
-									<a href="gallery.html">Ultimos Pasteles</a>
-								</li>
-								<li>
-									<a class="scroll" href="#order">Ordenar Pasteles</a>
-								</li>
-								<li>
-									<a class="scroll" href="faq.html">Preguntas Frecuentes</a>
-								</li>
-								<li>
-									<a href="contact.html">Contáctanos</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<!-- //menu button -->
+
 				</div>
 			</nav>
 		</header>
@@ -155,8 +109,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div id="slider-main">
 			<div class="banner-text-agile text-center">
 				<div class="container">
-					<h3 class="text-white font-weight-bold mb-3">El sabor de nuestros asombrosos pasteles</h3>
-					<p class="text-light">Un sabor que recordarás toda tu vida.</p>
+					<h3 class="text-white font-weight-bold mb-3">Bienvenido a la página de empleados!</h3>
+					<p class="text-light">Tienes algunas acciones restringidas.</p>
 					<button type="button" class="btn btn-primary button mt-md-5 mt-4" data-toggle="modal" data-target=".bd-example-modal-lg">
 						<span>Mira nuestro video</span>
 					</button>
@@ -421,57 +375,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="news-agile bg-cream py-5" id="news">
 		<div class="container py-xl-5 py-lg-3">
 			<div class="row">
-				<!-- order form -->
-				<div class="col-lg-4 order-form-w3ls pl-lg-0" id="order">
-					<div class="agile_its_registration bg-white">
-						<h3 class="title-2 mb-3">Ordenar un Pastel</h3>
-						<p class="mb-4">Tus ordenes son nuestra mayor prioridad, personaliza como quieras!.</p>
-						<form action="#" method="post">
-							<div class="agileits-location form-group">
-								<label>Shape</label>
-								<select required>
-									<option value="">Redondo</option>
-									<option value="1">Rectangular</option>
-									<option value="2">Cuadrado</option>
-									<option value="2">Personalizado</option>
-								</select>
-								<div class="clear"></div>
-							</div>
-							<div class="agileits-location w3ls-1 form-group">
-								<label>Niveles</label>
-								<select required>
-									<option value="">1</option>
-									<option value="1">2</option>
-									<option value="2">3</option>
-									<option value="2">4</option>
-								</select>
-								<div class="clear"></div>
-							</div>
-							<div class="agileits-location form-group">
-								<label>Size</label>
-								<select required>
-									<option value="">4 pulgadas</option>
-									<option value="">6 pulgadas</option>
-									<option value="">8 pulgadas</option>
-									<option value="">10 pulgadas</option>
-								</select>
-								<div class="clear"></div>
-							</div>
-							<div class="agileits-location w3ls-1 form-group">
-								<label>Flavor</label>
-								<select required>
-									<option value="">Chocolate</option>
-									<option value="">Torta de yema </option>
-									<option value="">Fresa</option>
-									<option value="">Vainilla</option>
-								</select>
-								<div class="clear"></div>
-							</div>
-							<input type="submit" value="Order" class="agileinfo-order btn" />
-						</form>
-					</div>
-				</div>
-				<!-- //order form -->
 				<!-- news -->
 				<div class="col-lg-8 news-blog mt-lg-0 mt-5">
 					<h3 class="title-2 mb-md-5 mb-4">Noticias de la pastelería</h3>

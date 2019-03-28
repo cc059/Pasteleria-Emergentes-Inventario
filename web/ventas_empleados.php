@@ -70,7 +70,7 @@
 			<nav class="navbar navbar-expand-lg navbar-light">
 				<div class="logo text-left">
 					<h1>
-						<a class="navbar-brand" href="index.php">
+						<a class="navbar-brand" href="index_empleados.php">
 							<img src="images/logo.png" alt="" class="img-fluid">Lexar's Bakery</a>
 					</h1>
 				</div>
@@ -83,76 +83,42 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-lg-auto text-lg-right text-center">
 						<li class="nav-item">
-							<a class="nav-link" href="index.php">Inicio
+							<a class="nav-link" href="index_empleados.php">Inicio
 								<span class="sr-only">(current)</span>
 							</a>
 						</li>
-						<li class="nav-item active dropdown">
+					<!--<li class="nav-item">
+							<a class="nav-link" href="about.html">About Us</a>
+						</li>-->
+					<!--	<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
 							    aria-haspopup="true" aria-expanded="false">
-								Inventario
+								Dropdown
 							</a>
 							<div class="dropdown-menu text-lg-left text-center" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item link"  href="compras.php">Compras</a>
-								<a class="dropdown-item link"  href="ventas.php">Ventas</a>
-								<a class="dropdown-item link"  href="pedidos.php">Pedidos</a>
-								<a class="dropdown-item link"  href="inventario_producto.php">Inventario Producto</a>
-								<a class="dropdown-item link"  href="inventario_materia_prima.php">Inventario Materia Prima</a>
-								<a class="dropdown-item link"  href="categorias.php">Categorias</a>
-
+								<a class="dropdown-item scroll" href="#services">Services</a>
+								<a class="dropdown-item scroll" href="#products" title="">New Products</a>
+								<a class="dropdown-item scroll" href="#news" title="">Company News</a>
+								<a class="dropdown-item" href="about.html" title="">Team</a>
 							</div>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-							    aria-haspopup="true" aria-expanded="false">
-								Personal
-							</a>
-							<div class="dropdown-menu text-lg-left text-center" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item link"  href="clientes.php">Clientes</a>
-								<a class="dropdown-item link"  href="empleados.php">Empleados</a>
-								<a class="dropdown-item link"  href="proveedores.php">Proveedores</a>
-
-							</div>
+						</li>-->
+                        <li class="nav-item active">
+							<a class="nav-link" href="ventas_empleados.php">Ventas</a>
+                        </li>
+                        <li class="nav-item">
+							<a class="nav-link" href="pedidos_empleados.php">Pedidos</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="gallery.html">Gallery</a>
+							<a class="nav-link" href="clientes_empleados.php">Clientes</a>
 						</li>
-											<!-- menu contactanos -->
 						<li class="nav-item">
-							<a class="nav-link" href="contact.html">Contáctanos</a>
+							<a class="nav-link" href="gallery_empleados.html">Galeria</a>
 						</li>
 					</ul>
-					<!-- menu button -->
-					<div class="menu">
-						<a href="#" class="navicon"></a>
-						<div class="toggle">
-							<ul class="toggle-menu list-unstyled">
-								<li>
-									<a href="index.php">Index Page</a>
-								</li>
-								<li>
-									<a class="scroll" href="#products">New Products</a>
-								</li>
-								<li>
-									<a href="gallery.html">Latest Cakes</a>
-								</li>
-								<li>
-									<a class="scroll" href="#order">Order Cake</a>
-								</li>
-								<li>
-									<a class="scroll" href="faq.html">Faqs</a>
-								</li>
-								<li>
-									<a href="contact.html">Contact Us</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<!-- //menu button -->
+
 				</div>
 			</nav>
 		</header>
-		<!-- //header -->
 
 		<!-- banner 2 -->
 		<div class="banner2-w3ls">
@@ -161,30 +127,19 @@
 		<!-- //banner 2 -->
 	</div>
 	<!-- main -->
-	<!-- page details -->
-	<div class="breadcrumb-agile">
-		<nav aria-label="breadcrumb">
-			<ol class="breadcrumb m-0">
-				<li class="breadcrumb-item">
-					<a href="index.html">Home</a>
-				</li>
-			</ol>
-		</nav>
-	</div>
-	<!-- //page details -->
 
 	<!-- contact page -->
 	<div class="address py-5">
 		<div class="container py-xl-5 py-lg-3">
 			<div class="title text-center mb-5">
-				<h2 class="text-dark mb-2">Pedidos</h2>
-				<p>Registra tus pedidos.</p>
+				<h2 class="text-dark mb-2">Ventas</h2>
+				<p>Registra tus ventas.</p>
 			</div>
 			<div class="row address-row">
 				<div class="col-lg-6 address-right">
 					<div class="address-info wow fadeInRight animated" data-wow-delay=".5s">
-                    <h4 class="font-weight-bold mb-3">Repostería </h4>
-						<p>Para endulzarte el día</p>
+                    <h4 class="font-weight-bold mb-3">Postres </h4>
+						<p>Para endudíalzarte el día </p>
 					</div>
 					<div class="address-info address-mdl wow fadeInRight animated" data-wow-delay=".7s">
 						<h4 class="font-weight-bold mb-3">Pasteles </h4>
@@ -194,11 +149,11 @@
 				</div>
 				<div class="col-lg-6 address-left mt-lg-0 mt-5">
 					<div class="address-grid">
-						<h4 class="font-weight-bold mb-3">Crea tu Pedido</h4>
+						<h4 class="font-weight-bold mb-3">Crea tu Venta</h4>
 						<form action="#" method="post">
                         <div class="form-group">
                                 Cliente
-                                <select name="Cliente">
+                                <select name="cliente">
                                         <option value="value1">Carolina Rodriguez</option> 
                                         <option value="value2" selected>Eduardo Noyola</option>
                                  </select>
@@ -211,40 +166,35 @@
                                  </select>
                                  <br/><br/>
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Fecha Pedido" name="fecha_pedido" required="">
+								<input type="text" class="form-control" placeholder="Fecha" name="fecha_compra" required="">
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Fecha Entrega" name="fecha_entrega" required="">
+								<input type="email" class="form-control" placeholder="Hora" name="hora_compra" required="">
 							</div><br/>
 							Tipo Pago
                                 <select name="TipoPago">
                                         <option value="value1">Efectivo</option> 
                                         <option value="value2" selected>Crédito</option>
                                  </select><br/><br/>
-                                 Estado Pedido
-                                <select name="EstadoPedido">
-                                        <option value="value1">Entregado</option> 
-                                        <option value="value2" selected>NoEntregado</option>
-                                 </select><br/><br/>
                                  Producto
                                 <select name="Producto">
-                                        <option value="value1">Pastel de chocolate</option> 
-                                        <option value="value2" selected>Pastelito de leche</option>
-                                        <option value="value3" selected>oreja</option>
+                                        <option value="value1">Harina</option> 
+                                        <option value="value2" selected>Azúcar Morena</option>
+                                        <option value="value3" selected>Leche</option>
                                  </select>
                                  <br/><br/>
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="Cantidad" name="cantidad_compra" required="">
 							</div>
 							<div class="form-group">
-								<input type="email" class="form-control" placeholder="Precio" name="precio_compra" required="">
+								<input type="email" class="form-control" placeholder="Precio Unitario" name="precio_compra" required="">
 							</div>
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="Descuento" name="descuento_compra" required="">
-							</div><br/>
-							<label for="name">Total:</label>
+                            </div><br/>
+                            <label for="name">Total:</label>
 							</div>
-                            <input type="submit" value="Pedir">
+                            <input type="submit" value="Vender">
 						</form>
 					</div>
                 </div><br/><br/>

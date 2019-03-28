@@ -40,10 +40,8 @@
                 $fila=mysqli_fetch_assoc($rs);
                 $this->id_categoria=$fila{'id_categoria'};
                 $this->nombre_categoria=$fila{'nombre_categoria'};
-
-
-
             }
         }
 
     }
+?>

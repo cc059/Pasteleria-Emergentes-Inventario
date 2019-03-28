@@ -2,7 +2,7 @@
 <html lang="zxx">
 
 <head>
-	<link rel='icon' type='image/x-icon' href='images/favicon.ico' />
+  <link rel='icon' type='image/x-icon' href='images/favicon.ico' />
 	<title>Lexar's Bakery|Pasteles con amor</title>
 	<!-- Meta tag Keywords -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -70,7 +70,7 @@
 			<nav class="navbar navbar-expand-lg navbar-light">
 				<div class="logo text-left">
 					<h1>
-						<a class="navbar-brand" href="index.php">
+						<a class="navbar-brand" href="index_empleados.php">
 							<img src="images/logo.png" alt="" class="img-fluid">Lexar's Bakery</a>
 					</h1>
 				</div>
@@ -83,72 +83,39 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-lg-auto text-lg-right text-center">
 						<li class="nav-item">
-							<a class="nav-link" href="index.php">Inicio
+							<a class="nav-link" href="index_empleados.php">Inicio
 								<span class="sr-only">(current)</span>
 							</a>
 						</li>
-						<li class="nav-item active dropdown">
+					<!--<li class="nav-item">
+							<a class="nav-link" href="about.html">About Us</a>
+						</li>-->
+					<!--	<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
 							    aria-haspopup="true" aria-expanded="false">
-								Inventario
+								Dropdown
 							</a>
 							<div class="dropdown-menu text-lg-left text-center" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item link"  href="compras.php">Compras</a>
-								<a class="dropdown-item link"  href="ventas.php">Ventas</a>
-								<a class="dropdown-item link"  href="pedidos.php">Pedidos</a>
-								<a class="dropdown-item link"  href="inventario_producto.php">Inventario Producto</a>
-								<a class="dropdown-item link"  href="inventario_materia_prima.php">Inventario Materia Prima</a>
-								<a class="dropdown-item link"  href="categorias.php">Categorias</a>
-
+								<a class="dropdown-item scroll" href="#services">Services</a>
+								<a class="dropdown-item scroll" href="#products" title="">New Products</a>
+								<a class="dropdown-item scroll" href="#news" title="">Company News</a>
+								<a class="dropdown-item" href="about.html" title="">Team</a>
 							</div>
+						</li>-->
+                        <li class="nav-item">
+							<a class="nav-link" href="ventas_empleados.php">Ventas</a>
+                        </li>
+                        <li class="nav-item">
+							<a class="nav-link" href="pedidos_empleados.php">Pedidos</a>
 						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-							    aria-haspopup="true" aria-expanded="false">
-								Personal
-							</a>
-							<div class="dropdown-menu text-lg-left text-center" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item link"  href="clientes.php">Clientes</a>
-								<a class="dropdown-item link"  href="empleados.php">Empleados</a>
-								<a class="dropdown-item link"  href="proveedores.php">Proveedores</a>
-
-							</div>
+						<li class="nav-item active">
+							<a class="nav-link" href="clientes_empleados.php">Clientes</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="gallery.html">Gallery</a>
-						</li>
-											<!-- menu contactanos -->
-						<li class="nav-item">
-							<a class="nav-link" href="contact.html">Contáctanos</a>
+							<a class="nav-link" href="gallery_empleados.html">Galeria</a>
 						</li>
 					</ul>
-					<!-- menu button -->
-					<div class="menu">
-						<a href="#" class="navicon"></a>
-						<div class="toggle">
-							<ul class="toggle-menu list-unstyled">
-								<li>
-									<a href="index.php">Index Page</a>
-								</li>
-								<li>
-									<a class="scroll" href="#products">New Products</a>
-								</li>
-								<li>
-									<a href="gallery.html">Latest Cakes</a>
-								</li>
-								<li>
-									<a class="scroll" href="#order">Order Cake</a>
-								</li>
-								<li>
-									<a class="scroll" href="faq.html">Faqs</a>
-								</li>
-								<li>
-									<a href="contact.html">Contact Us</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<!-- //menu button -->
+
 				</div>
 			</nav>
 		</header>
@@ -166,7 +133,7 @@
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb m-0">
 				<li class="breadcrumb-item">
-					<a href="index.html">Home</a>
+					<a href="index.php">Inicio</a>
 				</li>
 			</ol>
 		</nav>
@@ -177,93 +144,73 @@
 	<div class="address py-5">
 		<div class="container py-xl-5 py-lg-3">
 			<div class="title text-center mb-5">
-				<h2 class="text-dark mb-2">Pedidos</h2>
-				<p>Registra tus pedidos.</p>
+				<h2 class="text-dark mb-2">Clientes</h2>
+				<p>Registra los clientes.</p>
 			</div>
 			<div class="row address-row">
 				<div class="col-lg-6 address-right">
 					<div class="address-info wow fadeInRight animated" data-wow-delay=".5s">
-                    <h4 class="font-weight-bold mb-3">Repostería </h4>
-						<p>Para endulzarte el día</p>
-					</div>
-					<div class="address-info address-mdl wow fadeInRight animated" data-wow-delay=".7s">
-						<h4 class="font-weight-bold mb-3">Pasteles </h4>
-						<p>Chocolate</p>
-						<p>Caramelo</p>
-					</div>
+										<h4 class="font-weight-bold mb-3">Harina </h4>
+										<h4 class="font-weight-bold mb-3">Azúcar </h4>
+										<h4 class="font-weight-bold mb-3">Vainilla </h4>
+										<h4 class="font-weight-bold mb-3">Leche </h4>
+                    <h4 class="font-weight-bold mb-3">Caramelo </h4>
+
+
+					</div>			
 				</div>
 				<div class="col-lg-6 address-left mt-lg-0 mt-5">
 					<div class="address-grid">
-						<h4 class="font-weight-bold mb-3">Crea tu Pedido</h4>
+						<h4 class="font-weight-bold mb-3">Ingresas los datos</h4>
 						<form action="#" method="post">
-                        <div class="form-group">
-                                Cliente
-                                <select name="Cliente">
-                                        <option value="value1">Carolina Rodriguez</option> 
-                                        <option value="value2" selected>Eduardo Noyola</option>
-                                 </select>
+                    
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Nombre" name="nombre_cliente" required="">
+							</div>
+							<div class="form-group">
+								<input type="email" class="form-control" placeholder="Dirección" name="direccion_cliente" required="">
                             </div>
                             <div class="form-group">
-                                Empleado
-                                <select name="Empleado">
-                                        <option value="value1">Victor Ramirez</option> 
-                                        <option value="value2" selected>Joel Figueroa</option>
-                                 </select>
-                                 <br/><br/>
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Fecha Pedido" name="fecha_pedido" required="">
-							</div>
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Fecha Entrega" name="fecha_entrega" required="">
+								<input type="text" class="form-control" placeholder="Teléfono" name="telefono_cliente" required="">
+                            </div>
+                            <div class="form-group">
+								<input type="text" class="form-control" placeholder="DUI" name="dui_cliente" required="">
 							</div><br/>
-							Tipo Pago
-                                <select name="TipoPago">
-                                        <option value="value1">Efectivo</option> 
-                                        <option value="value2" selected>Crédito</option>
+							 Sexo
+                                <select name="sexo">
+                                        <option value="value1">Femenino</option> 
+                                        <option value="value2" selected>Masculino</option>
                                  </select><br/><br/>
-                                 Estado Pedido
-                                <select name="EstadoPedido">
-                                        <option value="value1">Entregado</option> 
-                                        <option value="value2" selected>NoEntregado</option>
-                                 </select><br/><br/>
-                                 Producto
-                                <select name="Producto">
-                                        <option value="value1">Pastel de chocolate</option> 
-                                        <option value="value2" selected>Pastelito de leche</option>
-                                        <option value="value3" selected>oreja</option>
-                                 </select>
-                                 <br/><br/>
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Cantidad" name="cantidad_compra" required="">
+                                 <div class="form-group">
+								<input type="text" class="form-control" placeholder="Correo" name="correo_cliente" required="">
 							</div>
-							<div class="form-group">
-								<input type="email" class="form-control" placeholder="Precio" name="precio_compra" required="">
 							</div>
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Descuento" name="descuento_compra" required="">
-							</div><br/>
-							<label for="name">Total:</label>
-							</div>
-                            <input type="submit" value="Pedir">
+                            <input type="submit" value="Crear">
 						</form>
 					</div>
                 </div><br/><br/>
 
 <table id="customers">
   <tr>
-    <th>Producto</th>
-    <th>Cantidad</th>
-    <th>Precio</th>
-    <th>Total</th>
+    <th>Nombre</th>
+    <th>Dirección</th>
+    <th>Teléfono</th>
+    <th>Dui</th>
+    <th>Sexo</th>
+    <th>Correo</th>
+
   </tr>
   <tr>
-    <td>Huevos</td>
-    <td>50</td>
-    <td>0.10</td>
-    <td>5.00</td>
+    <td>Carolina Rodriguez</td>
+    <td>El Refugio, Ahuachapan</td>
+    <td>72663215</td>
+		<td>02587888-1</td>
+		<td>Femenino</td>
+    <td>carolina@gmail.com</td>
   </tr>
 
 </table>
+
 			</div>
 		</div>
 	</div>
@@ -298,7 +245,7 @@
 				</ul>
 			</div>
 			<!-- copyright -->
-			<p class="copy-right-grids text-light my-lg-5 my-4 pb-4">© 2019 Cake Bakery. All Rights Reserved | Design by Team Lexar
+			<p class="copy-right-grids text-light my-lg-5 my-4 pb-4">© 2019 Lexar's Bakery. All Rights Reserved| Design by Team Lexar
 			</p>
 			<!-- //copyright -->
 		</div>
