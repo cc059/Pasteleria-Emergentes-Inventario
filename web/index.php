@@ -383,11 +383,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<div class="row">
 								<div class="col-lg-6 product-name-w3l">
 									<h4 class="font-weight-bold">Roller Coaster</h4>
-									<p class="dont-inti-w3ls mt-4 mb-2">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-										accuslaudantium.</p>
-									<p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto vitae dicta sunt explicabo, Sed ut
-										perspiciatis
-										unde omnis iste natus error sit voluptatem accuslaudantium.</p>
+									<p class="dont-inti-w3ls mt-4 mb-2">Pastelitos sabor a vainilla .</p>
+									<p>Los nuevos pastelitos sabor a vainilla estan siendo todo un exito en ventas.</p>
 									<a href="#order" class="button-3 active mt-5 py-4 scroll">Ordenar</a>
 								</div>
 								<div class="col-lg-6 speioffer-agile">

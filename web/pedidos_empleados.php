@@ -128,17 +128,6 @@
 		<!-- //banner 2 -->
 	</div>
 	<!-- main -->
-	<!-- page details -->
-	<div class="breadcrumb-agile">
-		<nav aria-label="breadcrumb">
-			<ol class="breadcrumb m-0">
-				<li class="breadcrumb-item">
-					<a href="index.html">Home</a>
-				</li>
-			</ol>
-		</nav>
-	</div>
-	<!-- //page details -->
 
 	<!-- contact page -->
 	<div class="address py-5">
