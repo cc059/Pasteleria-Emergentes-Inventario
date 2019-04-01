@@ -3,7 +3,7 @@ include('clases\master.php');
 $categorias= new camposCategoria();
 
 if($_POST){
-	$id_categoria=0;
+	$id_categoria=$_POST['txtid'];
 	$nombre_categoria=$_POST{'txtcate'};
 	$categorias->asignarValor($id_categoria,$nombre_categoria);
 	$categorias->guardar();
@@ -216,7 +216,9 @@ elseif(isset($_GET{'modificar'})){
 						<form action="categorias.php" method="post">
                     
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Nombre" name="txtcate" value ="<?php echo $categorias->$nombre_categoria;?>" />
+								<input type="text" class="form-control" placeholder="Nombre" name="txtcate" value ="<?php echo $categorias->nombre_categoria;?>" />
+								<input type="hidden" class="form-control" placeholder="Nombre" name="txtid" value ="<?php echo $categorias->id_categoria;?>" />
+
 							</div>	
 							<button type="submit">Enviar</button>
 							</div>

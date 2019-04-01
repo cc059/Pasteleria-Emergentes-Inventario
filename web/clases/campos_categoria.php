@@ -1,7 +1,7 @@
 <?php
     class camposCategoria{
-        private $id_categoria=0;
-        private $nombre_categoria='';
+        public $id_categoria=0;
+        public $nombre_categoria='';
     
         function asignarValor($id_categoria, $nombre_categoria){
             $this->id_categoria=$id_categoria;
