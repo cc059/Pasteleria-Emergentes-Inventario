@@ -14,8 +14,15 @@
             }
         }
         function guardar(){
+            if($this->id_categoria>0){
+            $sql="UPDATE categoria SET nombre_categoria='{$this->nombre_categoria}' WHERE id_categoria={$this->id_categoria};";
+            mysqli_query(conexion::obtenerInstancia(), $sql);
+
+            }
+            else{
             $sql="INSERT INTO categoria (nombre_categoria) VALUES ('{$this->nombre_categoria}');";
             mysqli_query(conexion::obtenerInstancia(), $sql);
+            }
         }
         static function listarCategorias(){
             $categorias=array();

@@ -216,10 +216,9 @@ elseif(isset($_GET{'modificar'})){
 						<form action="categorias.php" method="post">
                     
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Nombre" name="txtcate">
+								<input type="text" class="form-control" placeholder="Nombre" name="txtcate" value ="<?php echo $categorias->$nombre_categoria;?>" />
 							</div>	
 							<button type="submit">Enviar</button>
-					                       
 							</div>
 						</form>
 					</div>
