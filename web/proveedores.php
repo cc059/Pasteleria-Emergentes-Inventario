@@ -1,3 +1,31 @@
+<?php
+include('clases\master.php');
+$proveedores= new camposProveedor();
+
+if($_POST){
+	$id_proveedor=$_POST['txtid'];
+	$nombre_proveedor=$_POST{'txtnombre'};
+	$direccion=$_POST{'txtdireccion'};
+	$telefono=$_POST{'txttelefono'};
+	$fax=$_POST{'txtfax'};
+	$NIT=$_POST{'txtnit'};
+	$num_registro=$_POST{'txtnumregistro'};
+	$servicio=$_POST{'txtservicio'};
+	$email=$_POST{'txtemail'};
+	$proveedores->asignarValor($id_proveedor,$nombre_proveedor,$direccion,$telefono,$fax,$NIT,$num_registro,$servicio,$email);
+	$proveedores->guardar();
+}
+elseif(isset($_GET{'eliminar'})){
+		$proveedores->eliminar($_GET{'eliminar'});
+	}
+elseif(isset($_GET{'modificar'})){
+	$proveedores->modificar($_GET{'modificar'});
+	}
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -195,41 +223,45 @@
 				<div class="col-lg-6 address-left mt-lg-0 mt-5">
 					<div class="address-grid">
 						<h4 class="font-weight-bold mb-3">Ingresas los datos</h4>
-						<form action="#" method="post">
+						<form action="proveedores.php" method="post">
                     
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Nombre" name="nombre_proveedor" required="">
+								<input type="text" class="form-control" placeholder="Nombre" name="txtnombre" required=""  value ="<?php echo $proveedores->nombre_proveedor;?>"> 
 							</div>
 							<div class="form-group">
-								<input type="email" class="form-control" placeholder="Dirección" name="direccion_proveedor" required="">
+								<input type="text" class="form-control" placeholder="Dirección" name="txtdireccion" required=""  value ="<?php echo $proveedores->direccion;?>" >
                             </div>
                             <div class="form-group">
-								<input type="text" class="form-control" placeholder="Teléfono" name="telefono_proveedor" required="">
+								<input type="text" class="form-control" placeholder="Teléfono" name="txttelefono" required=""  value ="<?php echo $proveedores->telefono;?>" >
                             </div>
                             <div class="form-group">
-								<input type="text" class="form-control" placeholder="Fax" name="fax" required="">
+								<input type="text" class="form-control" placeholder="Fax" name="txtfax" required=""  value ="<?php echo $proveedores->fax;?>" >
 							</div>							
                                  <div class="form-group">
-								<input type="text" class="form-control" placeholder="NIT" name="nit" required="">
+								<input type="text" class="form-control" placeholder="NIT" name="txtnit" required="" value ="<?php echo $proveedores->NIT;?>" >
                             </div>
                             <div class="form-group">
-								<input type="text" class="form-control" placeholder="Número de registro" name="numero_registro" required="">
+								<input type="text" class="form-control" placeholder="Número de registro" name="txtnumregistro" required=""  value ="<?php echo $proveedores->num_registro;?>" >
                             </div>
                             <div class="form-group">
-								<input type="text" class="form-control" placeholder="Servicio" name="servicio" required="">
+								<input type="text" class="form-control" placeholder="Servicio" name="txtservicio" required="" value ="<?php echo $proveedores->servicio;?>" >
                             </div>
                             <div class="form-group">
-								<input type="text" class="form-control" placeholder="Correo" name="correo" required="">
+								<input type="text" class="form-control" placeholder="Correo" name="txtemail" required="" value ="<?php echo $proveedores->email;?>" >
+								<input type="hidden" class="form-control" placeholder="Nombre" name="txtid" value ="<?php echo $proveedores->id_proveedor;?>" />
+
 							</div>
 							</div>
-                            <input type="submit" value="Crear">
+														<input type="submit" value="Crear"><br/><br/>
+														<button type="button" onclick="window.location= 'proveedores.php'">Limpiar</button>
+
 						</form>
 					</div>
                 </div><br/><br/>
-
-<table id="customers">
+								<fieldset>
+<table  id="customers">
   <tr>
-    <th>Nombre</th>
+	<th>Nombre</th>
     <th>Dirección</th>
     <th>Teléfono</th>
     <th>Fax</th>
@@ -237,19 +269,30 @@
     <th>Número de Registro</th>
     <th>Servicio</th>
     <th>Correo</th>
-  </tr>
-  <tr>
-    <td>Carolina Rodriguez</td>
-    <td>El Refugio, Ahuachapan</td>
-    <td>72663215</td>
-    <td>34934152051</td>
-    <td>0031-585417-101-1</td>
-	<td>0001-777417-101-1</td>
-    <td>Abastecimiento de leche.</td>
-    <td>carolina@gmail.com</td>
-  </tr>
+	</tr>
 
+<?php
+	$datosClientes=camposProveedor::listarProveedores();
+	foreach($datosClientes as $proveedor){
+		$id_proveedor= $proveedor['id_proveedor'];
+		echo <<<PROVEEDORES
+		<tr>
+		<td>{$proveedor['nombre_proveedor']}</td><br/>
+		<td>{$proveedor['direccion']}</td><br/>
+		<td>{$proveedor['telefono']}</td><br/>
+		<td>{$proveedor['fax']}</td><br/>
+		<td>{$proveedor['NIT']}</td><br/>
+		<td>{$proveedor['num_registro']}</td><br/>
+		<td>{$proveedor['servicio']}</td><br/>
+		<td>{$proveedor['email']}</td><br/>
+		<td><a href ="proveedores.php?eliminar=($id_proveedor)">Eliminar</a></td>
+		<td><a href ="proveedores.php?modificar=($id_proveedor)">Modificar</a></td>
+		</tr>		
+PROVEEDORES;
+	}
+?>
 </table>
+</fieldset>
 
 			</div>
 		</div>

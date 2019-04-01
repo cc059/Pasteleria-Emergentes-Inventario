@@ -235,8 +235,8 @@ elseif(isset($_GET{'modificar'})){
 							</div><br/>
 							 Sexo
                                 <select name="txtsexo">
-                                        <option value="value1">Femenino</option> 
-                                        <option value="value2" selected>Masculino</option>
+                                        <option value="1">Femenino</option> 
+                                        <option value="2" selected>Masculino</option>
                                  </select><br/><br/>
                                  <div class="form-group">
 								<input type="email" class="form-control" placeholder="Correo" name="txtemail" required="" value ="<?php echo $clientes->email;?>">
