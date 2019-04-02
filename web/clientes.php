@@ -124,6 +124,7 @@ elseif(isset($_GET{'modificar'})){
 								<a class="dropdown-item link"  href="inventario_producto.php">Inventario Producto</a>
 								<a class="dropdown-item link"  href="inventario_materia_prima.php">Inventario Materia Prima</a>
 								<a class="dropdown-item link"  href="categorias.php">Categorias</a>
+								<a class="dropdown-item link"  href="tipos_pago.php">Tipos de pago</a>
 							</div>
 						</li>
 						<li class="nav-item active dropdown">

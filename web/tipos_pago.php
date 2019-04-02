@@ -39,7 +39,7 @@
 #customers {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 95%;
+  width: 40%;
 }
 
 #customers td, #customers th {
@@ -64,6 +64,9 @@
 </head>
 
 <body>
+<!-- Hace que requiera del archivo process_tipo_pago.php -->
+<?php require_once 'process_tipo_pago.php'; ?>
+
 	<div class="mian-content">
 		<!-- header -->
 		<header>
@@ -83,7 +86,7 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-lg-auto text-lg-right text-center">
 						<li class="nav-item">
-							<a class="nav-link" href="index.php">Home
+							<a class="nav-link" href="index.php">Inicio
 								<span class="sr-only">(current)</span>
 							</a>
 						</li>
@@ -99,13 +102,13 @@
 								<a class="dropdown-item link"  href="inventario_producto.php">Inventario Producto</a>
 								<a class="dropdown-item link"  href="inventario_materia_prima.php">Inventario Materia Prima</a>
 								<a class="dropdown-item link"  href="categorias.php">Categorias</a>
-								<a class="dropdown-item link"  href="tipos_pago.php">Tipos de pago</a>
+                <a class="dropdown-item link"  href="tipos_pago.php">Tipos de pago</a>
 							</div>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
 							    aria-haspopup="true" aria-expanded="false">
-								Personal
+									Personal
 							</a>
 							<div class="dropdown-menu text-lg-left text-center" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item link"  href="clientes.php">Clientes</a>
@@ -115,7 +118,7 @@
 							</div>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="gallery.html">Galeria</a>
+							<a class="nav-link" href="gallery.html">Galería</a>
 						</li>
 											<!-- menu contactanos -->
 						<li class="nav-item">
@@ -127,7 +130,7 @@
 						<a href="#" class="navicon"></a>
 						<div class="toggle">
 							<ul class="toggle-menu list-unstyled">
-							<li>
+								<li>
 									<a href="index.php">Inicio</a>
 								</li>
 								<li>
@@ -160,106 +163,102 @@
 		</div>
 		<!-- //banner 2 -->
 	</div>
-	<!-- main -->
-	<!-- page details -->
-	<div class="breadcrumb-agile">
-		<nav aria-label="breadcrumb">
-			<ol class="breadcrumb m-0">
-				<li class="breadcrumb-item">
-					<a href="index.php">Inicio</a>
-				</li>
-			</ol>
-		</nav>
+
+<!-- ----------MENSAJE INICIO--------------- -->
+	<!-- Mostraremos un mensaje arriba segun la accion que se haya realizado este puede ser
+			 de succees si se ha guardado, warning si se ha editado y danger si se ha eliminado un registro -->
+	<?php 
+	
+		if (isset($_SESSION['message'])): ?>
+		<!-- Le pasamos el valor de la SESSION y el mensaje que queremos que muestre -->
+	<div class="alert alert-<?=$_SESSION['msg_type']?>">
+
+		<?php
+			echo $_SESSION['message'];
+			unset($_SESSION['message']);
+		?>
 	</div>
-	<!-- //page details -->
+	<?php endif ?>
+<!-- ----------MENSAJE FIN--------------- -->	
 
 	<!-- contact page -->
 	<div class="address py-5">
 		<div class="container py-xl-5 py-lg-3">
 			<div class="title text-center mb-5">
-				<h2 class="text-dark mb-2">Ventas</h2>
-				<p>Registra tus ventas.</p>
+				<h2 class="text-dark mb-2">Tipos de Pago</h2>
+				<p>Agrega, Edita y Elimina algun tipo de pago.</p>
 			</div>
-			<div class="row address-row">
-				<div class="col-lg-6 address-right">
-					<div class="address-info wow fadeInRight animated" data-wow-delay=".5s">
-                    <h4 class="font-weight-bold mb-3">Postres </h4>
-						<p>Para endudíalzarte el día </p>
-					</div>
-					<div class="address-info address-mdl wow fadeInRight animated" data-wow-delay=".7s">
-						<h4 class="font-weight-bold mb-3">Pasteles </h4>
-						<p>Chocolate</p>
-						<p>Caramelo</p>
-					</div>
-				</div>
+	
+			
+<!-- Este es nuestro form para agregar nuevos registros -->
+			<div class="row justify-content-center">
 				<div class="col-lg-6 address-left mt-lg-0 mt-5">
 					<div class="address-grid">
-						<h4 class="font-weight-bold mb-3">Crea tu Venta</h4>
-						<form action="#" method="post">
-                        <div class="form-group">
-                                Cliente
-                                <select name="cliente">
-                                        <option value="value1">Carolina Rodriguez</option> 
-                                        <option value="value2" selected>Eduardo Noyola</option>
-                                 </select>
-                            </div>
-                            <div class="form-group">
-                                Empleado
-                                <select name="Empleado">
-                                        <option value="value1">Victor Ramirez</option> 
-                                        <option value="value2" selected>Joel Figueroa</option>
-                                 </select>
-                                 <br/><br/>
+						<h4 class="font-weight-bold mb-3">Ingresa un tipo de pago</h4>
+						<!-- Definimos nuestro action hacia el archivo donde queremos dirigirlo y nuestro method -->
+						<form action="process_tipo_pago.php" method="POST">   
+							<!-- Colocamos un input tipo hidden para almacenar el id de nuestro registro -->
+							<input type="hidden" name="id_pago" value="<?php echo $id; ?>"> 
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Fecha" name="fecha_compra" required="">
+								<input type="text" class="form-control" value="<?php echo $tipo_pago; ?>" placeholder="Tipo Categoria" name="txtTipoPago">
+							</div>	
+							<div class="form-group">
+								<?php
+								if ($update == true):
+								?>
+										<button type="submit" class="btn btn-primary" name="btnUpdate">Actualizar</button>
+								<?php else: ?>
+										<button type="submit" class="btn btn-success" name="btnSave">Guardar</button>
+								<?php endif; ?>
 							</div>
-							<div class="form-group">
-								<input type="email" class="form-control" placeholder="Hora" name="hora_compra" required="">
-							</div><br/>
-							Tipo Pago
-                                <select name="TipoPago">
-                                        <option value="value1">Efectivo</option> 
-                                        <option value="value2" selected>Crédito</option>
-                                 </select><br/><br/>
-                                 Producto
-                                <select name="Producto">
-                                        <option value="value1">Harina</option> 
-                                        <option value="value2" selected>Azúcar Morena</option>
-                                        <option value="value3" selected>Leche</option>
-                                 </select>
-                                 <br/><br/>
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Cantidad" name="cantidad_compra" required="">
-							</div>
-							<div class="form-group">
-								<input type="email" class="form-control" placeholder="Precio Unitario" name="precio_compra" required="">
-							</div>
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Descuento" name="descuento_compra" required="">
-                            </div><br/>
-                            <label for="name">Total:</label>
-							</div>
-                            <input type="submit" value="Comprar">
 						</form>
 					</div>
-                </div><br/><br/>
-
-<table id="customers">
-  <tr>
-    <th>Producto</th>
-    <th>Cantidad</th>
-    <th>Precio</th>
-    <th>Total</th>
-  </tr>
-  <tr>
-    <td>Huevos</td>
-    <td>50</td>
-    <td>0.10</td>
-    <td>5.00</td>
-  </tr>
-
-</table>
+				</div>
 			</div>
+
+			<br/>
+
+
+			<!-- Mostraremos nuestros registro en una tabla para ello debemos de establecer una conexion con la bd y 
+					 la consulta que queremos mostrar, esta la almacenaremos en una variable -->
+			<div class="container">
+			<?php
+				include 'db.php';
+				$result = $mysqli->query("SELECT * FROM tipos_pago") or die($mysqli->error);
+			?>
+
+		<!-- Creamos la tabla -->
+			<div class ="row justify-content-center">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>IdTipoPago</th>
+							<th>Tipo de Pago</th>
+							<th colspan="2">Acción</th>
+						</tr>
+					</thead>
+					<!-- Aqui es donde cargaremos los datos de nuestra tabla con el metodo 'fetch_assoc' nos permite
+							 retornar un array asociativo correspondiente a la fila obtenida o NULL si no hubiera más filas. 
+							 Para ello le decimos que mientras la cantidad de la fila sea igual de la tabla entonces que 
+							 nos retorne un array con esos registros-->
+					<?php
+						while ($row = $result->fetch_assoc()): ?>
+						<tr>
+							<td><?php echo $row['id_pago']; ?></td>
+							<td><?php echo $row['tipo']; ?></td>
+							<td>
+							<!-- Creamos las URLs para los casos de editar y eliminar, y les pasmos un parametro con nuestro id. -->
+								<a href="tipos_pago.php?edit=<?php echo $row['id_pago']; ?>"
+									class="btn btn-info">Editar</a>
+								<a href="tipos_pago.php?delete=<?php echo $row['id_pago']; ?>"
+									class="btn btn-danger">Eliminar</a>
+							</td>
+						</tr>
+						<?php endwhile; ?>
+				</table>
+			</div>
+			</div>
+
 		</div>
 	</div>
 	<!-- //contact page -->
@@ -293,7 +292,7 @@
 				</ul>
 			</div>
 			<!-- copyright -->
-			<p class="copy-right-grids text-light my-lg-5 my-4 pb-4">© 2019 Cake Bakery. All Rights Reserved | Design by Team Lexar
+			<p class="copy-right-grids text-light my-lg-5 my-4 pb-4">© 2019 Lexar's Bakery. All Rights Reserved| Design by Team Lexar
 			</p>
 			<!-- //copyright -->
 		</div>
