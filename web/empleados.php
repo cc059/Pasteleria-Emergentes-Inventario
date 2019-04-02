@@ -1,3 +1,35 @@
+<?php
+include('clases\master.php');
+$empleados= new camposEmpleado();
+
+if($_POST){
+	$id_empleado=$_POST['txtid'];
+	$nombre_empleado=$_POST{'txtnombre'};
+	$direccion=$_POST{'txtdireccion'};
+	$email=$_POST{'txtemail'};
+	$telefono=$_POST{'txttelefono'};
+	$sexo=$_POST{'txtsexo'};
+	$DUI=$_POST{'txtdui'};
+	$NIT=$_POST{'txtnit'};
+	$sueldo=$_POST{'txtsueldo'};
+	$usuario=$_POST{'txtusuario'};
+	$contra=$_POST{'txtcontra'};
+	$cargo=$_POST{'txtcargo'};
+	$activo=$_POST{'txtactivo'};
+
+	$empleados->asignarValor($id_empleado,$nombre_empleado,$direccion,$email,$telefono,$sexo,$DUI,$NIT,$sueldo,$usuario,$contra,$cargo,$activo);
+	$empleados->guardar();
+}
+elseif(isset($_GET{'eliminar'})){
+		$empleados->eliminar($_GET{'eliminar'});
+	}
+elseif(isset($_GET{'modificar'})){
+	$empleados->modificar($_GET{'modificar'});
+	}
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -191,59 +223,62 @@
 				<div class="col-lg-6 address-left mt-lg-0 mt-5">
 					<div class="address-grid">
 						<h4 class="font-weight-bold mb-3">Ingresas los datos</h4>
-						<form action="#" method="post">
+						<form action="empleados.php" method="post">
                     
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Nombre" name="nombre_cliente" required="">
+							<input type="hidden" class="form-control" placeholder="Nombre" name="txtid" value ="<?php echo $empleados->id_empleado;?>"/>
+								<input type="text" class="form-control" placeholder="Nombre" name="txtnombre" required=""  value ="<?php echo $empleados->nombre_empleado;?>"> 
 							</div>
 							<div class="form-group">
-								<input type="email" class="form-control" placeholder="Dirección" name="direccion_cliente" required="">
+								<input type="text" class="form-control" placeholder="Dirección" name="txtdireccion" required=""  value ="<?php echo $empleados->direccion;?>">
                             </div>                    
                             <div class="form-group">
-								<input type="text" class="form-control" placeholder="Email" name="email" required="">
+								<input type="text" class="form-control" placeholder="Email" name="txtemail" required=""  value ="<?php echo $empleados->email;?>">
                             </div>
                             <div class="form-group">
-								<input type="text" class="form-control" placeholder="Teléfono" name="telefono_cliente" required="">
+								<input type="text" class="form-control" placeholder="Teléfono" name="txttelefono" required=""  value ="<?php echo $empleados->telefono;?>">
                             </div><br/>
 							 Sexo
-                                <select name="sexo">
+                                <select name="txtsexo"  value ="<?php echo $empleados->sexo;?>">
                                         <option value="value1">Femenino</option> 
                                         <option value="value2" selected>Masculino</option>
                                  </select><br/><br/>
                                  <div class="form-group">
-								<input type="text" class="form-control" placeholder="DUI" name="telefono_cliente" required="">
+								<input type="text" class="form-control" placeholder="DUI" name="txtdui" required=""  value ="<?php echo $empleados->DUI;?>">
                             </div>
                             <div class="form-group">
-								<input type="text" class="form-control" placeholder="NIT" name="telefono_cliente" required="">
+								<input type="text" class="form-control" placeholder="NIT" name="txtnit" required=""  value ="<?php echo $empleados->NIT;?>">
                             </div>
                             <div class="form-group">
-								<input type="text" class="form-control" placeholder="Sueldo" name="telefono_cliente" required="">
+								<input type="text" class="form-control" placeholder="Sueldo" name="txtsueldo" required=""  value ="<?php echo $empleados->sueldo;?>">
                             </div>
                             <div class="form-group">
-								<input type="text" class="form-control" placeholder="Usuario" name="telefono_cliente" required="">
+								<input type="text" class="form-control" placeholder="Usuario" name="txtusuario" required=""  value ="<?php echo $empleados->usuario;?>">
                             </div>
                             <div class="form-group">
-								<input type="text" class="form-control" placeholder="Contraseña" name="telefono_cliente" required="">
+								<input type="text" class="form-control" placeholder="Contraseña" name="txtcontra" required=""  value ="<?php echo $empleados->contra;?>">
                             </div>
                             Cargo
-                            <select name="cargo">
+                            <select name="txtcargo" value ="<?php echo $empleados->cargo;?>">
                                         <option value="value1">Vendedor</option> 
                                         <option value="value2" selected>Gerente</option>
                                  </select><br/><br/>
                                  Estado
-                                 <select name="Estado">
+                                 <select name="txtactivo"  value ="<?php echo $empleados->activo;?>">
                                         <option value="value1">Activo</option> 
                                         <option value="value2" selected>NoActivo</option>
-                                 </select><br/><br/>
+                                 </select>
 							</div>
-                            <input type="submit" value="Crear">
+                            <input type="submit" value="Crear"><br/>
+														<button type="button" onclick="window.location= 'empleados.php'">Limpiar</button>
+
 						</form>
 					</div>
-                </div><br/><br/>
-
+            </div>
+						<br/><br/>
 <table id="customers">
   <tr>
-    <th>Nombre</th>
+	<th>Nombre</th>
     <th>Dirección</th>
     <th>Correo</th>
     <th>Telefono</th>
@@ -255,14 +290,32 @@
     <th>Contraseña</th>
     <th>Cargo</th>
     <th>Estado</th>
-
   </tr>
-  <tr>
-    <td></td>
-  </tr>
-
+<?php
+$datosClientes=camposEmpleado::listarEmpleados();
+foreach($datosClientes as $proveedor){
+	$id_empleado= $proveedor['id_empleado'];
+	echo <<<EMPLEADOS
+	<tr>
+	<td>{$proveedor['nombre_empleado']}</td><br/>
+	<td>{$proveedor['direccion']}</td><br/>
+	<td>{$proveedor['email']}</td><br/>
+	<td>{$proveedor['telefono']}</td><br/>
+	<td>{$proveedor['sexo']}</td><br/>
+	<td>{$proveedor['DUI']}</td><br/>
+	<td>{$proveedor['NIT']}</td><br/>
+	<td>{$proveedor['sueldo']}</td><br/>
+	<td>{$proveedor['usuario']}</td><br/>
+	<td>{$proveedor['contra']}</td><br/>
+	<td>{$proveedor['cargo']}</td><br/>
+	<td>{$proveedor['activo']}</td><br/>
+	<td><a href ="empleados.php?eliminar=($id_empleado)">Eliminar</a></td>
+	<td><a href ="empleados.php?modificar=($id_empleado)">Modificar</a></td>
+	</tr>		
+EMPLEADOS;
+}
+?>
 </table>
-
 			</div>
 		</div>
 	</div>
