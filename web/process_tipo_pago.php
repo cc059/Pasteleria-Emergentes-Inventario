@@ -26,6 +26,7 @@ if(isset($_POST['btnSave'])){
     header("location: tipos_pago.php");
 }
 
+//En caso que le de click al boton eliminar
 if (isset($_GET['delete'])){
     $id = $_GET['delete'];
     $mysqli->query("DELETE FROM tipos_pago WHERE id_pago=$id") or die($mysqli->error());
@@ -37,6 +38,7 @@ if (isset($_GET['delete'])){
     header("location: tipos_pago.php");
 }
 
+//En caso que le de click al boton editar
 if (isset($_GET['edit'])){
     $id = $_GET['edit'];
     $update = true;
