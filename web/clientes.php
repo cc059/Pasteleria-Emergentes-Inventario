@@ -1,3 +1,28 @@
+<?php
+include('clases\master.php');
+$clientes= new camposCliente();
+
+if($_POST){
+	$id_cliente=$_POST['txtid'];
+	$nombre_cliente=$_POST{'txtnombre'};
+	$direccion=$_POST{'txtdireccion'};
+	$telefono=$_POST{'txttelefono'};
+	$DUI=$_POST{'txtdui'};
+	$sexo=$_POST{'txtsexo'};
+	$email=$_POST{'txtemail'};
+	$clientes->asignarValor($id_cliente,$nombre_cliente,$direccion,$telefono,$DUI,$sexo,$email);
+	$clientes->guardar();
+}
+elseif(isset($_GET{'eliminar'})){
+		$clientes->eliminar($_GET{'eliminar'});
+	}
+elseif(isset($_GET{'modificar'})){
+	$clientes->modificar($_GET{'modificar'});
+	}
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -195,54 +220,66 @@
 				<div class="col-lg-6 address-left mt-lg-0 mt-5">
 					<div class="address-grid">
 						<h4 class="font-weight-bold mb-3">Ingresas los datos</h4>
-						<form action="#" method="post">
+						<form action="clientes.php" method="post">
                     
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Nombre" name="nombre_cliente" required="">
+								<input type="text" class="form-control" placeholder="Nombre" name="txtnombre" required=""value ="<?php echo $clientes->nombre_cliente;?>" />
 							</div>
 							<div class="form-group">
-								<input type="email" class="form-control" placeholder="Dirección" name="direccion_cliente" required="">
+								<input type="text" class="form-control" placeholder="Dirección" name="txtdireccion" required="" value ="<?php echo $clientes->direccion;?>" />
                             </div>
                             <div class="form-group">
-								<input type="text" class="form-control" placeholder="Teléfono" name="telefono_cliente" required="">
+								<input type="text" class="form-control" placeholder="Teléfono" name="txttelefono" required="" value ="<?php echo $clientes->telefono;?>">
                             </div>
                             <div class="form-group">
-								<input type="text" class="form-control" placeholder="DUI" name="dui_cliente" required="">
+								<input type="text" class="form-control" placeholder="DUI" name="txtdui" required="" value ="<?php echo $clientes->DUI;?>">
 							</div><br/>
 							 Sexo
-                                <select name="sexo">
-                                        <option value="value1">Femenino</option> 
-                                        <option value="value2" selected>Masculino</option>
+                                <select name="txtsexo">
+                                        <option value="1">Femenino</option> 
+                                        <option value="2" selected>Masculino</option>
                                  </select><br/><br/>
                                  <div class="form-group">
-								<input type="text" class="form-control" placeholder="Correo" name="correo_cliente" required="">
+								<input type="email" class="form-control" placeholder="Correo" name="txtemail" required="" value ="<?php echo $clientes->email;?>">
+								<input type="hidden" class="form-control" placeholder="Nombre" name="txtid" value ="<?php echo $clientes->id_cliente;?>" />
 							</div>
 							</div>
-                            <input type="submit" value="Crear">
+														<input type="submit" value="Enviar"><br/><br/>
+														<button type="button" onclick="window.location= 'clientes.php'">Limpiar</button>
 						</form>
 					</div>
                 </div><br/><br/>
-
-<table id="customers">
+								<fieldset>
+<table  id="customers">
   <tr>
-    <th>Nombre</th>
+	  <th>Nombre</th>
     <th>Dirección</th>
     <th>Teléfono</th>
     <th>Dui</th>
     <th>Sexo</th>
     <th>Correo</th>
+	</tr>
 
-  </tr>
-  <tr>
-    <td>Carolina Rodriguez</td>
-    <td>El Refugio, Ahuachapan</td>
-    <td>72663215</td>
-		<td>02587888-1</td>
-		<td>Femenino</td>
-    <td>carolina@gmail.com</td>
-  </tr>
-
+<?php
+	$datosClientes=camposCliente::listarClientes();
+	foreach($datosClientes as $cliente){
+		$id_cliente= $cliente['id_cliente'];
+		echo <<<CLIENTES
+		<tr>
+		<td>{$cliente['nombre_cliente']}</td><br/>
+		<td>{$cliente['direccion']}</td><br/>
+		<td>{$cliente['telefono']}</td><br/>
+		<td>{$cliente['DUI']}</td><br/>
+		<td>{$cliente['sexo']}</td><br/>
+		<td>{$cliente['email']}</td><br/>
+		<td><a href ="clientes.php?eliminar=($id_cliente)">Eliminar</a></td>
+		<td><a href ="clientes.php?modificar=($id_cliente)">Modificar</a></td>
+		</tr>		
+CLIENTES;
+	}
+?>
 </table>
+</fieldset>
 
 			</div>
 		</div>
