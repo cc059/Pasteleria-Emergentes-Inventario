@@ -44,7 +44,7 @@
         }
         function eliminar($id_producto){
             $sql="DELETE FROM inventario_producto WHERE id_producto=($id_producto)";
-            myqli_query(conexion::obtenerInstancia(),$sql);
+            mysqli_query(conexion::obtenerInstancia(),$sql);
         }
         function modificar($id_producto){
             $sql="SELECT * FROM inventario_producto WHERE  id_producto= ($id_producto)";

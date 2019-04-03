@@ -270,7 +270,7 @@ elseif(isset($_GET{'modificar'})){
                                  </select>
 							</div>
                             <input type="submit" value="Crear"><br/>
-
+														<button type="button" onclick="window.location= 'empleados.php'">Limpiar</button>
 						</form>
 					</div>
             </div>

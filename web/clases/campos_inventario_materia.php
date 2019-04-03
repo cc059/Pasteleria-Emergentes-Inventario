@@ -4,7 +4,7 @@
         public $producto='';
         public $medida='';
         public $cantidad=0;
-        public $precio=0.0;
+        public $precio=0;
         public $activo='';
 
         function asignarValor($id_producto, $producto, $medida, $cantidad, $precio, $activo){
@@ -26,11 +26,11 @@
                 mysqli_query(conexion::obtenerInstancia(), $sql);
                 }
                 else{
-                $sql="INSERT INTO inventario_materia_prima(producto,medida,cantidad,precio,activo) VALUES('{$this->producto}',{$this->medida},{$this->cantidad},{$this->precio},'{$this->activo}';";
+                $sql="INSERT INTO inventario_materia_prima(producto,medida,cantidad,precio,activo) VALUES('{$this->producto}',{$this->medida},{$this->cantidad},{$this->precio},'{$this->activo}');";
                 mysqli_query(conexion::obtenerInstancia(),$sql);
                 }
         }
-        static function listarInventarioProd(){
+        static function listarInventarioMateria(){
             $productos=array();
             $result=0;
             $sql="SELECT * FROM inventario_materia_prima";
@@ -44,7 +44,7 @@
         }
         function eliminar($id_producto){
             $sql="DELETE FROM inventario_materia_prima WHERE id_producto=($id_producto)";
-            myqli_query(conexion::obtenerInstancia(),$sql);
+            mysqli_query(conexion::obtenerInstancia(),$sql);
         }
         function modificar($id_producto){
             $sql="SELECT * FROM inventario_materia_prima WHERE  id_producto= ($id_producto)";

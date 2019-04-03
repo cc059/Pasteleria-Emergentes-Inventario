@@ -1,3 +1,25 @@
+<?php
+include('clases\master.php');
+$materia= new camposInventarioMateria();
+
+if($_POST){
+	$id_producto=$_POST['txtid'];
+	$producto=$_POST{'txtproduc'};
+	$medida=$_POST{'txtmedida'};
+	$cantidad=$_POST{'txtcantidad'};
+	$precio=$_POST{'txtprecio'};
+	$activo=$_POST{'txtactivo'};
+	$materia->asignarValor($id_producto,$producto,$medida,$cantidad,$precio,$activo);
+	$materia->guardar();
+}
+elseif(isset($_GET{'eliminar'})){
+	$materia->eliminar($_GET{'eliminar'});
+	}
+elseif(isset($_GET{'modificar'})){
+	$materia->modificar($_GET{'modificar'});
+	}
+
+?>
 
 <!DOCTYPE html>
 <html lang="zxx">
@@ -202,49 +224,62 @@
 				<div class="col-lg-6 address-left mt-lg-0 mt-5">
 					<div class="address-grid">
 						<h4 class="font-weight-bold mb-3">Crear Producto</h4>
-						<form action="#" method="post">
+						<form action="inventario_materia_prima.php" method="POST">
 						<div class="form-group">
-								<input type="text" class="form-control" placeholder="Nombre" name="nombre_producto" required="">
+								<input type="hidden" class="form-control" placeholder="Nombre" name="txtid" value ="<?php echo $materia->id_producto;?>">
+								<input type="text" class="form-control" placeholder="Nombre" name="txtproduc" required="" value ="<?php echo $materia->producto;?>">
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Medida" name="producto_medida" required="">
+								<input type="text" class="form-control" placeholder="Medida" name="txtmedida" required="" value ="<?php echo $materia->medida;?>">
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Cantidad" name="cantidad" required="">
+								<input type="number" class="form-control" placeholder="Cantidad" name="txtcantidad" required="" value ="<?php echo $materia->cantidad;?>">
 							</div>
 							<div class="form-group">
-								<input type="email" class="form-control" placeholder="Precio" name="precio" required="">
+								<input type="decimal" class="form-control" placeholder="Precio" name="txtprecio" required="" value ="<?php echo $materia->precio;?>">
 							</div>
                             <div class="form-group">
                                 Estado
-                                <select name="Estado">
-                                        <option value="value1">Activo</option> 
-                                        <option value="value2" selected>No activo</option>
+                                <select name="txtactivo" value ="<?php echo $materia->activo;?>">
+                                        <option value ="1">Activo</option> 
+                                        <option value="0" selected>Inactivo</option>
                                  </select>
 							</div>
-							<input type="submit" value="Crear">
+							<input type="submit" value="Guardar">
+							<button type="button" onclick="window.location= 'inventario_materia_prima.php'">Limpiar</button>
 						</form>
 					</div>
                 </div>
                 <br/><br/>
-
+<fieldset>
 <table id="customers">
-  <tr>
-		<th>Producto</th>
-		<th>Medida</th>
-		<th>Cantidad</th>
-    <th>Precio</th>
-    <th>Estado</th>
-  </tr>
-  <tr>
-    <td>Harina</td>
-    <td>Libras</td>
-		<td>100</td>
-		<td>1.00</td>
-    <td>Activo</td>
-  </tr>
+<tr>
+	<th>Materia Prima</th>
+	<th>Medida</th>
+	<th>Cantidad</th>
+	<th>Precio</th>
+	<th>Activo</th>
+</tr>
 
+<?php
+	$datosMateria=camposInventarioMateria::listarInventarioMateria();
+	foreach($datosMateria as $materia){
+		$id_producto= $materia['id_producto'];
+		echo <<<MATERIA
+		<tr>
+		<td>{$materia['producto']}</td><br/>
+		<td>{$materia['medida']}</td><br/>
+		<td>{$materia['cantidad']}</td><br/>
+		<td>{$materia['precio']}</td><br/>
+		<td>{$materia['activo']}</td><br/>
+		<td><a href ="inventario_materia_prima.php?eliminar=($id_producto)">Eliminar</a></td>
+		<td><a href ="inventario_materia_prima.php?modificar=($id_producto)">Modificar</a></td>
+		</tr>		
+MATERIA;
+	}
+?>
 </table>
+</fieldset>
 			</div>
 		</div>
 	</div>
