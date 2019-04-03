@@ -22,11 +22,11 @@
         }
         function guardar(){
             if($this->id_producto>0){
-                $sql="UPDATE inventario_materia_prima SET producto='{$this->producto}',medida={$this->medida}, cantidad={$this->cantidad}, precio={$this->precio}, activo='{$this->activo}' WHERE id_producto={$this->id_producto};";
+                $sql="UPDATE inventario_materia_prima SET producto='{$this->producto}',medida='{$this->medida}', cantidad={$this->cantidad}, precio={$this->precio}, activo='{$this->activo}' WHERE id_producto={$this->id_producto};";
                 mysqli_query(conexion::obtenerInstancia(), $sql);
                 }
                 else{
-                $sql="INSERT INTO inventario_materia_prima(producto,medida,cantidad,precio,activo) VALUES('{$this->producto}',{$this->medida},{$this->cantidad},{$this->precio},'{$this->activo}');";
+                $sql="INSERT INTO inventario_materia_prima(producto,medida,cantidad,precio,activo) VALUES('{$this->producto}','{$this->medida}',{$this->cantidad},{$this->precio},'{$this->activo}');";
                 mysqli_query(conexion::obtenerInstancia(),$sql);
                 }
         }

@@ -245,7 +245,7 @@ elseif(isset($_GET{'modificar'})){
                                         <option value="0" selected>Inactivo</option>
                                  </select>
 							</div>
-							<input type="submit" value="Guardar">
+							<input type="submit" value="Guardar"></br>
 							<button type="button" onclick="window.location= 'inventario_materia_prima.php'">Limpiar</button>
 						</form>
 					</div>

@@ -1,4 +1,25 @@
+<?php
+include('clases\master.php');
+$producto= new camposInventarioProd();
 
+if($_POST){
+	$id_producto=$_POST['txtid'];
+	$producto=$_POST{'txtproduc'};
+	$precio=$_POST{'txtprecio'};
+	$cantidad=$_POST{'txtcantidad'};
+	$id_categoria=$_POST{'txtcategoria'};
+	$activo=$_POST{'txtactivo'};
+	$producto->asignarValor($id_producto,$producto,$precio,$cantidad,$id_categoria,$activo);
+	$producto->guardar();
+}
+elseif(isset($_GET{'eliminar'})){
+	$producto->eliminar($_GET{'eliminar'});
+	}
+elseif(isset($_GET{'modificar'})){
+	$producto->modificar($_GET{'modificar'});
+	}
+
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -202,19 +223,20 @@
 				<div class="col-lg-6 address-left mt-lg-0 mt-5">
 					<div class="address-grid">
 						<h4 class="font-weight-bold mb-3">Crear Producto</h4>
-						<form action="#" method="post">
+						<form action="inventario_producto.php" method="post">
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Producto" name="producto_name" required="">
+							<input type="hidden" class="form-control" placeholder="Nombre" name="txtid" value ="<?php echo $materia->id_producto;?>">
+								<input type="text" class="form-control" placeholder="Producto" name="txtproduc" required="" value ="<?php echo $producto->producto;?>">
 							</div>
 							<div class="form-group">
-								<input type="email" class="form-control" placeholder="Precio" name="precio" required="">
+								<input type="email" class="form-control" placeholder="Precio" name="txtprecio" required="" value ="<?php echo $producto->precio;?>">
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Cantidad" name="cantidad" required="">
+								<input type="text" class="form-control" placeholder="Cantidad" name="txtcantidad" required="" value ="<?php echo $producto->cantidad;?>">
 							</div>
 							<div class="form-group">
                                 Categoría
-                                <select name="Categoria">
+                                <select name="txtcategoria" value ="<?php echo $materia->id_categoria;?>">
                                         <option value="value1">Postres</option> 
                                         <option value="value2" selected>Pasteles</option>
                                         <option value="value3">Repostería</option>
@@ -222,7 +244,7 @@
                             </div>
                             <div class="form-group">
                                 Estado
-                                <select name="Estado">
+                                <select name="txtactivo" value ="<?php echo $producto->activo;?>">
                                         <option value="value1">Activo</option> 
                                         <option value="value2" selected>No activo</option>
                                  </select>
@@ -233,22 +255,35 @@
                 </div>
                 <br/><br/>
 
+								<fieldset>
 <table id="customers">
-  <tr>
-    <th>Producto</th>
-    <th>Precio</th>
-    <th>Cantidad</th>
-    <th>Categoria</th>
-    <th>Estado</th>
-  </tr>
-  <tr>
-    <td>Pastelito de leche</td>
-    <td>0.25</td>
-    <td>10</td>
-    <td>Activo</td>
-  </tr>
+<tr>
+	<th>Producto</th>
+	<th>Precio</th>
+	<th>Cantidad</th>
+	<th>Id_Categoria/th>
+	<th>Activo</th>
+</tr>
 
+<?php
+	$datosMateria=camposInventarioMateria::listarInventarioMateria();
+	foreach($datosMateria as $materia){
+		$id_producto= $materia['id_producto'];
+		echo <<<MATERIA
+		<tr>
+		<td>{$materia['producto']}</td><br/>
+		<td>{$materia['medida']}</td><br/>
+		<td>{$materia['cantidad']}</td><br/>
+		<td>{$materia['precio']}</td><br/>
+		<td>{$materia['activo']}</td><br/>
+		<td><a href ="inventario_materia_prima.php?eliminar=($id_producto)">Eliminar</a></td>
+		<td><a href ="inventario_materia_prima.php?modificar=($id_producto)">Modificar</a></td>
+		</tr>		
+MATERIA;
+	}
+?>
 </table>
+</fieldset>
 			</div>
 		</div>
 	</div>
