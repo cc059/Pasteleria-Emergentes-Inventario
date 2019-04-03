@@ -4,6 +4,6 @@ include('clases\campos_categoria.php');
 include('clases\campos_cliente.php');
 include('clases\campos_proveedores.php');
 include('clases\campos_empleados.php');
-include('clases\campos_inventario_producto');
-include('clases\campos_inventario_materia');
+include('clases\campos_inventario_producto.php');
+include('clases\campos_inventario_materia.php');
 include('clases\conexion.php');
