@@ -24,18 +24,18 @@
             if($this->id_producto>0){
                 $sql="UPDATE inventario_materia_prima SET producto='{$this->producto}',medida={$this->medida}, cantidad={$this->cantidad}, precio={$this->precio}, activo='{$this->activo}' WHERE id_producto={$this->id_producto};";
                 mysqli_query(conexion::obtenerInstancia(), $sql);
+                }
                 else{
                 $sql="INSERT INTO inventario_materia_prima(producto,medida,cantidad,precio,activo) VALUES('{$this->producto}',{$this->medida},{$this->cantidad},{$this->precio},'{$this->activo}';";
                 mysqli_query(conexion::obtenerInstancia(),$sql);
                 }
-            }
         }
         static function listarInventarioProd(){
             $productos=array();
             $result=0;
             $sql="SELECT * FROM inventario_materia_prima";
             $rs=mysqli_query(conexion::obtenerInstancia(),$sql);
-            if(){
+            if(mysqli_num_rows($rs)>0){
                 while($fila = mysqli_fetch_assoc($rs)){
                     $productos[]=$fila;
                 }
