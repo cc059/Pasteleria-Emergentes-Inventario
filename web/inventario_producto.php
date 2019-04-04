@@ -4,12 +4,12 @@ $producto= new camposInventarioProd();
 
 if($_POST){
 	$id_producto=$_POST['txtid'];
-	$producto=$_POST{'txtproduc'};
+	$produc=$_POST{'txtproduc'};
 	$precio=$_POST{'txtprecio'};
 	$cantidad=$_POST{'txtcantidad'};
 	$id_categoria=$_POST{'txtcategoria'};
 	$activo=$_POST{'txtactivo'};
-	$producto->asignarValor($id_producto,$producto,$precio,$cantidad,$id_categoria,$activo);
+	$producto->asignarValor($id_producto,$produc,$precio,$cantidad,$id_categoria,$activo);
 	$producto->guardar();
 }
 elseif(isset($_GET{'eliminar'})){
@@ -237,25 +237,26 @@ elseif(isset($_GET{'modificar'})){
 							<div class="form-group">
                                 Categoría
                                 <select name="txtcategoria" value ="<?php echo $producto->id_categoria;?>">
-                                        <option value="1">Postres</option> 
-                                        <option value="2" selected>Pasteles</option>
-                                        <option value="3">Repostería</option>
+                                        <option value="41">Cupcake</option> 
+                                        <option value="42" selected>Cheesecakes</option>
+                                        <option value="3">Reposteria</option>
                                  </select>
                             </div>
                             <div class="form-group">
                                 Estado
                                 <select name="txtactivo" value ="<?php echo $producto->activo;?>">
                                         <option value="1">Activo</option> 
-                                        <option value="2" selected>No activo</option>
+                                        <option value="0" selected>No activo</option>
                                  </select>
 							</div>
-							<input type="submit" value="Crear">
+							<input type="submit" value="Crear"></br></br>
+							<button type="button" onclick="window.location= 'inventario_producto.php'">Limpiar</button>
 						</form>
 					</div>
                 </div>
                 <br/><br/>
 
-								<fieldset>
+	</br><fieldset>
 <table id="customers">
 <tr>
 	<th>Producto</th>

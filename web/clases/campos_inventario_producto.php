@@ -26,7 +26,7 @@
                 mysqli_query(conexion::obtenerInstancia(), $sql);
                 }
                 else{
-                $sql="INSERT INTO inventario_producto(producto,precio,cantidad,categoria,activo) VALUES('{$this->producto}',{$this->precio},{$this->cantidad},{$this->id_categoria},'{$this->activo}';";
+                $sql="INSERT INTO inventario_producto(producto,precio,cantidad,id_categoria,activo) VALUES('{$this->producto}',{$this->precio},{$this->cantidad},{$this->id_categoria},'{$this->activo}');";
                 mysqli_query(conexion::obtenerInstancia(),$sql);
                 }
         }
