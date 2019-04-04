@@ -64,6 +64,9 @@
 </head>
 
 <body>
+<!-- Hace que requiera del archivo process_compra.php -->
+<?php require_once 'process_compra.php'; ?>
+
 	<div class="mian-content">
 		<!-- header -->
 		<header>
@@ -161,108 +164,206 @@
 		<!-- //banner 2 -->
 	</div>
 	<!-- main -->
-	<!-- page details -->
-	<div class="breadcrumb-agile">
-		<nav aria-label="breadcrumb">
-			<ol class="breadcrumb m-0">
-				<li class="breadcrumb-item">
-					<a href="index.php">Inicio</a>
-				</li>
-			</ol>
-		</nav>
-	</div>
-	<!-- //page details -->
 
 	<!-- contact page -->
-	<div class="address py-5">
-		<div class="container py-xl-5 py-lg-3">
-			<div class="title text-center mb-5">
-				<h2 class="text-dark mb-2">Compras</h2>
-				<p>Registra tus compras.</p>
-			</div>
-			<div class="row address-row">
-				<div class="col-lg-6 address-right">
-					<div class="address-info wow fadeInRight animated" data-wow-delay=".5s">
-										<h4 class="font-weight-bold mb-3">Harina </h4>
-										<h4 class="font-weight-bold mb-3">Azúcar </h4>
-										<h4 class="font-weight-bold mb-3">Vainilla </h4>
-										<h4 class="font-weight-bold mb-3">Leche </h4>
-                    <h4 class="font-weight-bold mb-3">Caramelo </h4>
+<!-- ----------MENSAJE INICIO--------------- -->
+	<!-- Mostraremos un mensaje arriba segun la accion que se haya realizado este puede ser
+			 de succees si se ha guardado, warning si se ha editado y danger si se ha eliminado un registro -->
+<?php 
+	
+	if (isset($_SESSION['message'])): ?>
+	<!-- Le pasamos el valor de la SESSION y el mensaje que queremos que muestre -->
+	<div class="alert alert-<?=$_SESSION['msg_type']?>">
 
+		<?php
+			echo $_SESSION['message'];
+			unset($_SESSION['message']);
+		?>
+	</div>
+<?php endif ?>
+<!-- ----------MENSAJE FIN--------------- -->	
 
-					</div>			
+<!-- contact page -->
+<div class="address py-5">
+<div class="container py-xl-5 py-lg-3">
+		<div class="title text-center mb-5">
+			<h2 class="text-dark mb-2">Compras</h2>
+			<p>Registra tus compras.</p>
+		</div>
+
+		
+		<!-- Este es nuestro form para agregar nuevos registros -->
+		<div class="row justify-content-center">
+			<div class="col-lg-6 address-left mt-lg-0 mt-5">
+				<div class="address-grid">
+					<h4 class="font-weight-bold mb-3">Crea tu compra</h4>
+					<!-- Definimos nuestro action hacia el archivo donde queremos dirigirlo y nuestro method -->
+					<form action="process_compra.php" method="POST">   
+						<!-- Colocamos un input tipo hidden para almacenar el id de nuestro registro -->
+						<input type="hidden" name="id_compra" value="<?php echo $id; ?>"> 
+
+						<div class="form-group">
+							<!-- Cargar datos a combobox proveedor -->
+							<?php
+								include 'db.php';
+								$resultSetProv = $mysqli->query("SELECT id_proveedor, nombre_proveedor FROM proveedor");
+							?>
+							<label>Selecciona algún proveedor </label>
+							<select name = "cb_proveedores">
+							<?php
+								while($row = $resultSetProv->fetch_assoc())
+								{
+									$nombre_proveedor = $row['nombre_proveedor'];
+									$id_proveedor = $row['id_proveedor'];
+									echo "<option value='$id_proveedor'>$nombre_proveedor</option>";
+								}
+							?>
+							</select>
+						</div>
+
+						<div class="form-group">
+							<!-- Cargar datos a combobox empleados -->
+							<?php
+								include 'db.php';
+								$resultSetEmp = $mysqli->query("SELECT id_empleado, nombre_empleado FROM empleado");
+							?>
+							<label>Selecciona el empleado  </label>
+							<select name = "cb_empleados">
+							<?php
+								while($row = $resultSetEmp->fetch_assoc())
+								{
+									$nombre_empleado = $row['nombre_empleado'];
+									$id_empleado = $row['id_empleado'];
+									echo "<option value='$id_empleado'>$nombre_empleado</option>";
+								}
+							?>
+							</select>
+						</div>	
+
+						<div class="form-group">
+							<!-- Cargar datos a combobox tipo pago-->
+							<?php
+								include 'db.php';
+								$resultSetPago = $mysqli->query("SELECT id_pago, tipo FROM tipos_pago");
+							?>
+							<label>Selecciona el tipo de pago  </label>
+							<select name = "cb_tipospago">
+							<?php
+								while($row = $resultSetPago->fetch_assoc())
+								{
+									$tipo = $row['tipo'];
+									$id_pago = $row['id_pago'];
+									echo "<option value='$id_pago'>$tipo</option>";
+								}
+							?>
+							</select>
+						</div>	
+
+						<div class="form-group">
+							<!-- Cargar datos a combobox productos-->
+							<?php
+								include 'db.php';
+								$resultSetProd = $mysqli->query("SELECT id_producto, producto FROM inventario_materia_prima");
+							?>
+							<label>Selecciona la materia prima  </label>
+							<select name = "cb_materia_prima">
+							<?php
+								while($row = $resultSetProd->fetch_assoc())
+								{
+									$producto = $row['producto'];
+									$id_producto = $row['id_producto'];
+									echo "<option value='$id_producto'>$producto</option>";
+								}
+							?>
+							</select>
+						</div>	
+
+						<div class="form-group">
+							<input type="number" step="0.01" class="form-control" value="<?php echo $cantidad_compra; ?>" placeholder="Cantidad" name="txtCantidad">
+						</div>	
+						<div class="form-group">
+							<input type="number" step="0.01" class="form-control" value="<?php echo $precio_compra; ?>" placeholder="Precio" name="txtPrecio">
+						</div>	
+						<div class="form-group">
+							<input type="number" step="0.01" class="form-control" value="<?php echo $decuento_compra; ?>" placeholder="Descuento" name="txtDescuento">
+						</div>	
+						<div class="form-group">
+							<?php
+							if ($update == true):
+							?>
+									<button type="submit" class="btn btn-primary" name="btnUpdate">Actualizar</button>
+							<?php else: ?>
+									<button type="submit" class="btn btn-success" name="btnSave">Guardar</button>
+							<?php endif; ?>
+						</div>
+
+					</form>
 				</div>
-				<div class="col-lg-6 address-left mt-lg-0 mt-5">
-					<div class="address-grid">
-						<h4 class="font-weight-bold mb-3">Crea tu compra</h4>
-						<form action="#" method="post">
-                        <div class="form-group">
-                                Proveedor
-                                <select name="Proveedor">
-                                        <option value="value1">Carolina Rodriguez</option> 
-                                        <option value="value2" selected>Eduardo Noyola</option>
-                                 </select>
-                            </div>
-                            <div class="form-group">
-                                Empleado
-                                <select name="Empleado">
-                                        <option value="value1">Victor Ramirez</option> 
-                                        <option value="value2" selected>Joel Figueroa</option>
-                                 </select>
-                                 <br/><br/>
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Fecha" name="fecha_compra" required="">
-							</div>
-							<div class="form-group">
-								<input type="email" class="form-control" placeholder="Hora" name="hora_compra" required="">
-							</div><br/>
-							Tipo Pago
-                                <select name="TipoPago">
-                                        <option value="value1">Efectivo</option> 
-                                        <option value="value2" selected>Crédito</option>
-                                 </select><br/><br/>
-                                 Producto
-                                <select name="Producto">
-                                        <option value="value1">Azúcar Morena</option> 
-                                        <option value="value2" selected>Harina</option>
-                                        <option value="value3" selected>Leche</option>
-                                 </select>
-                                 <br/><br/>
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Cantidad" name="cantidad_compra" required="">
-							</div>
-							<div class="form-group">
-								<input type="email" class="form-control" placeholder="Precio" name="precio_compra" required="">
-							</div>
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Descuento" name="descuento_compra" required="">
-							</div><br/>
-							<label for="name">Total:</label>
-							</div>
-                            <input type="submit" value="Comprar">
-						</form>
-					</div>
-                </div><br/><br/>
-
-<table id="customers">
-  <tr>
-    <th>Producto</th>
-    <th>Cantidad</th>
-    <th>Precio</th>
-    <th>Total</th>
-  </tr>
-  <tr>
-    <td>Huevos</td>
-    <td>50</td>
-    <td>0.10</td>
-    <td>5.00</td>
-  </tr>
-
-</table>
-
 			</div>
 		</div>
+
+		<br/>
+
+
+		<!-- Mostraremos nuestros registro en una tabla para ello debemos de establecer una conexion con la bd y 
+				 la consulta que queremos mostrar, esta la almacenaremos en una variable -->
+	<div class="container">
+		<?php
+			include 'db.php';
+			$result = $mysqli->query("SELECT cc.id_compra, pp.nombre_proveedor, ee.nombre_empleado, mp.producto, dc.cantidad, 
+			dc.precio_uni, dc.descuento, cc.fecha_compra, dc.precio_uni * dc.cantidad as Total FROM compra cc 
+			INNER JOIN proveedor pp ON cc.id_proveedor = pp.id_proveedor INNER JOIN empleado ee ON cc.id_empleado = ee.id_empleado
+			INNER JOIN detalle_compra dc ON cc.id_compra = dc.id_compra INNER JOIN inventario_materia_prima mp
+			ON dc.id_producto = mp.id_producto") or die($mysqli->error);
+		?>
+
+		<!-- Creamos la tabla -->
+		<div class ="row justify-content-center">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Id Compra</th>
+						<th>Proveedor</th>
+						<th>Empleado</th>
+						<th>Producto</th>
+						<th>Cantidad</th>
+						<th>Precio Uni</th>
+						<th>Descuento</th>
+						<th>Fecha Compra</th>
+						<th>Total</th>
+						<th colspan="2">Acción</th>
+					</tr>
+				</thead>
+				<!-- Aqui es donde cargaremos los datos de nuestra tabla con el metodo 'fetch_assoc' nos permite
+						 retornar un array asociativo correspondiente a la fila obtenida o NULL si no hubiera más filas. 
+						 Para ello le decimos que mientras la cantidad de la fila sea igual de la tabla entonces que 
+						 nos retorne un array con esos registros-->
+				<?php
+					while ($row = $result->fetch_assoc()): ?>
+					<tr>
+						<td><?php echo $row['id_compra']; ?></td>
+						<td><?php echo $row['nombre_proveedor']; ?></td>
+						<td><?php echo $row['nombre_empleado']; ?></td>
+						<td><?php echo $row['producto']; ?></td>
+						<td><?php echo $row['cantidad']; ?></td>
+						<td><?php echo $row['precio_uni']; ?></td>
+						<td><?php echo $row['descuento']; ?></td>
+						<td><?php echo $row['fecha_compra']; ?></td>
+						<td><?php echo $row['Total']; ?></td>
+						<td>
+						<!-- Creamos las URLs para los casos de editar y eliminar, y les pasmos un parametro con nuestro id. -->
+							<a href="tipos_pago.php?edit=<?php echo $row['id_compra']; ?>"
+								class="btn btn-info">Editar</a>
+							<a href="tipos_pago.php?delete=<?php echo $row['id_compra']; ?>"
+								class="btn btn-danger">Eliminar</a>
+						</td>
+					</tr>
+					<?php endwhile; ?>
+			</table>
+		</div>
 	</div>
+</div>
+</div>
 	<!-- //contact page -->
 
 

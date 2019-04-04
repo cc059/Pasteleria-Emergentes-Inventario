@@ -182,15 +182,15 @@
 <!-- ----------MENSAJE FIN--------------- -->	
 
 	<!-- contact page -->
-	<div class="address py-5">
-		<div class="container py-xl-5 py-lg-3">
+<div class="address py-5">
+	<div class="container py-xl-5 py-lg-3">
 			<div class="title text-center mb-5">
 				<h2 class="text-dark mb-2">Tipos de Pago</h2>
 				<p>Agrega, Edita y Elimina algun tipo de pago.</p>
 			</div>
 	
 			
-<!-- Este es nuestro form para agregar nuevos registros -->
+			<!-- Este es nuestro form para agregar nuevos registros -->
 			<div class="row justify-content-center">
 				<div class="col-lg-6 address-left mt-lg-0 mt-5">
 					<div class="address-grid">
@@ -221,13 +221,13 @@
 
 			<!-- Mostraremos nuestros registro en una tabla para ello debemos de establecer una conexion con la bd y 
 					 la consulta que queremos mostrar, esta la almacenaremos en una variable -->
-			<div class="container">
+		<div class="container">
 			<?php
 				include 'db.php';
 				$result = $mysqli->query("SELECT * FROM tipos_pago") or die($mysqli->error);
 			?>
 
-		<!-- Creamos la tabla -->
+			<!-- Creamos la tabla -->
 			<div class ="row justify-content-center">
 				<table class="table">
 					<thead>
@@ -257,10 +257,9 @@
 						<?php endwhile; ?>
 				</table>
 			</div>
-			</div>
-
 		</div>
 	</div>
+</div>
 	<!-- //contact page -->
 
 

@@ -65,7 +65,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</button>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-lg-auto text-lg-right text-center">
-						<li class="nav-item">
+						<li class="nav-item active">
 							<a class="nav-link" href="index.php">Inicio
 								<span class="sr-only">(current)</span>
 							</a>
@@ -85,7 +85,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<a class="dropdown-item" href="about.html" title="">Team</a>
 							</div>
 						</li>-->
-						<li class="nav-item active dropdown">
+						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
 							    aria-haspopup="true" aria-expanded="false">
 								Inventario
