@@ -288,7 +288,7 @@ elseif(isset($_GET{'modificar'})){
 		<td>{$proveedor['servicio']}</td>
 		<td>{$proveedor['email']}</td>
 		<td><a 	class="btn btn-danger" href ="proveedores.php?eliminar=($id_proveedor)">Eliminar</a></td>
-		<td><a 	class="btn btn-info href ="proveedores.php?modificar=($id_proveedor)">Modificar</a></td>
+		<td><a 	class="btn btn-info" href ="proveedores.php?modificar=($id_proveedor)">Modificar</a></td>
 		</tr>		
 PROVEEDORES;
 	}
