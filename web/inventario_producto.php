@@ -225,28 +225,28 @@ elseif(isset($_GET{'modificar'})){
 						<h4 class="font-weight-bold mb-3">Crear Producto</h4>
 						<form action="inventario_producto.php" method="post">
 							<div class="form-group">
-							<input type="hidden" class="form-control" placeholder="Nombre" name="txtid" value ="<?php echo $materia->id_producto;?>">
+							<input type="hidden" class="form-control" placeholder="Nombre" name="txtid" value ="<?php echo $producto->id_producto;?>">
 								<input type="text" class="form-control" placeholder="Producto" name="txtproduc" required="" value ="<?php echo $producto->producto;?>">
 							</div>
 							<div class="form-group">
-								<input type="email" class="form-control" placeholder="Precio" name="txtprecio" required="" value ="<?php echo $producto->precio;?>">
+								<input type="decimal" class="form-control" placeholder="Precio" name="txtprecio" required="" value ="<?php echo $producto->precio;?>">
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Cantidad" name="txtcantidad" required="" value ="<?php echo $producto->cantidad;?>">
+								<input type="number" class="form-control" placeholder="Cantidad" name="txtcantidad" required="" value ="<?php echo $producto->cantidad;?>">
 							</div>
 							<div class="form-group">
                                 Categoría
-                                <select name="txtcategoria" value ="<?php echo $materia->id_categoria;?>">
-                                        <option value="value1">Postres</option> 
-                                        <option value="value2" selected>Pasteles</option>
-                                        <option value="value3">Repostería</option>
+                                <select name="txtcategoria" value ="<?php echo $producto->id_categoria;?>">
+                                        <option value="1">Postres</option> 
+                                        <option value="2" selected>Pasteles</option>
+                                        <option value="3">Repostería</option>
                                  </select>
                             </div>
                             <div class="form-group">
                                 Estado
                                 <select name="txtactivo" value ="<?php echo $producto->activo;?>">
-                                        <option value="value1">Activo</option> 
-                                        <option value="value2" selected>No activo</option>
+                                        <option value="1">Activo</option> 
+                                        <option value="2" selected>No activo</option>
                                  </select>
 							</div>
 							<input type="submit" value="Crear">
@@ -261,25 +261,25 @@ elseif(isset($_GET{'modificar'})){
 	<th>Producto</th>
 	<th>Precio</th>
 	<th>Cantidad</th>
-	<th>Id_Categoria/th>
+	<th>Id_Categoria</th>
 	<th>Activo</th>
 </tr>
 
 <?php
-	$datosMateria=camposInventarioMateria::listarInventarioMateria();
-	foreach($datosMateria as $materia){
-		$id_producto= $materia['id_producto'];
-		echo <<<MATERIA
+	$datosProducto=camposInventarioProd::listarInventarioProd();
+	foreach($datosProducto as $producto){
+		$id_producto= $producto['id_producto'];
+		echo <<<PRODUCTO
 		<tr>
-		<td>{$materia['producto']}</td><br/>
-		<td>{$materia['medida']}</td><br/>
-		<td>{$materia['cantidad']}</td><br/>
-		<td>{$materia['precio']}</td><br/>
-		<td>{$materia['activo']}</td><br/>
-		<td><a href ="inventario_materia_prima.php?eliminar=($id_producto)">Eliminar</a></td>
-		<td><a href ="inventario_materia_prima.php?modificar=($id_producto)">Modificar</a></td>
+		<td>{$producto['producto']}</td><br/>
+		<td>{$producto['precio']}</td><br/>
+		<td>{$producto['cantidad']}</td><br/>
+		<td>{$producto['id_categoria']}</td><br/>
+		<td>{$producto['activo']}</td><br/>
+		<td><a href ="inventario_producto.php?eliminar=($id_producto)">Eliminar</a></td>
+		<td><a href ="inventario_producto.php?modificar=($id_producto)">Modificar</a></td>
 		</tr>		
-MATERIA;
+PRODUCTO;
 	}
 ?>
 </table>

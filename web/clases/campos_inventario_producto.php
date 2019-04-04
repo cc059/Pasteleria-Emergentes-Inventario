@@ -2,7 +2,7 @@
     class camposInventarioProd{
         public $id_producto=0;
         public $producto='';
-        public $precio=0.0;
+        public $precio=0;
         public $cantidad=0;
         public $id_categoria=0;
         public $activo='';
