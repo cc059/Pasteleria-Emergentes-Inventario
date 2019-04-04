@@ -296,18 +296,18 @@ foreach($datosClientes as $proveedor){
 	$id_empleado= $proveedor['id_empleado'];
 	echo <<<EMPLEADOS
 	<tr>
-	<td>{$proveedor['nombre_empleado']}</td><br/>
-	<td>{$proveedor['direccion']}</td><br/>
-	<td>{$proveedor['email']}</td><br/>
-	<td>{$proveedor['telefono']}</td><br/>
-	<td>{$proveedor['sexo']}</td><br/>
-	<td>{$proveedor['DUI']}</td><br/>
-	<td>{$proveedor['NIT']}</td><br/>
-	<td>{$proveedor['sueldo']}</td><br/>
-	<td>{$proveedor['usuario']}</td><br/>
-	<td>{$proveedor['contra']}</td><br/>
-	<td>{$proveedor['cargo']}</td><br/>
-	<td>{$proveedor['activo']}</td><br/>
+	<td>{$proveedor['nombre_empleado']}</td>
+	<td>{$proveedor['direccion']}</td>
+	<td>{$proveedor['email']}</td>
+	<td>{$proveedor['telefono']}</td>
+	<td>{$proveedor['sexo']}</td>
+	<td>{$proveedor['DUI']}</td>
+	<td>{$proveedor['NIT']}</td>
+	<td>{$proveedor['sueldo']}</td>
+	<td>{$proveedor['usuario']}</td>
+	<td>{$proveedor['contra']}</td>
+	<td>{$proveedor['cargo']}</td>
+	<td>{$proveedor['activo']}</td>
 	<td><a href ="empleados.php?eliminar=($id_empleado)">Eliminar</a></td>
 	<td><a href ="empleados.php?modificar=($id_empleado)">Modificar</a></td>
 	</tr>		

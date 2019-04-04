@@ -266,12 +266,12 @@ elseif(isset($_GET{'modificar'})){
 		$id_cliente= $cliente['id_cliente'];
 		echo <<<CLIENTES
 		<tr>
-		<td>{$cliente['nombre_cliente']}</td><br/>
-		<td>{$cliente['direccion']}</td><br/>
-		<td>{$cliente['telefono']}</td><br/>
-		<td>{$cliente['DUI']}</td><br/>
-		<td>{$cliente['sexo']}</td><br/>
-		<td>{$cliente['email']}</td><br/>
+		<td>{$cliente['nombre_cliente']}</td>
+		<td>{$cliente['direccion']}</td>
+		<td>{$cliente['telefono']}</td>
+		<td>{$cliente['DUI']}</td>
+		<td>{$cliente['sexo']}</td>
+		<td>{$cliente['email']}</td>
 		<td><a href ="clientes.php?eliminar=($id_cliente)">Eliminar</a></td>
 		<td><a href ="clientes.php?modificar=($id_cliente)">Modificar</a></td>
 		</tr>		

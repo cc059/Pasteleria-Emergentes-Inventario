@@ -256,13 +256,13 @@ elseif(isset($_GET{'modificar'})){
                 </div>
                 <br/><br/>
 
-	</br><fieldset>
+	<fieldset>
 <table id="customers">
 <tr>
 	<th>Producto</th>
 	<th>Precio</th>
 	<th>Cantidad</th>
-	<th>Id_Categoria</th>
+	<th>Categoria</th>
 	<th>Activo</th>
 </tr>
 
@@ -272,11 +272,11 @@ elseif(isset($_GET{'modificar'})){
 		$id_producto= $producto['id_producto'];
 		echo <<<PRODUCTO
 		<tr>
-		<td>{$producto['producto']}</td><br/>
-		<td>{$producto['precio']}</td><br/>
-		<td>{$producto['cantidad']}</td><br/>
-		<td>{$producto['id_categoria']}</td><br/>
-		<td>{$producto['activo']}</td><br/>
+		<td>{$producto['producto']}</td>
+		<td>{$producto['precio']}</td>
+		<td>{$producto['cantidad']}</td>
+		<td>{$producto['id_categoria']}</td>
+		<td>{$producto['activo']}</td>
 		<td><a href ="inventario_producto.php?eliminar=($id_producto)">Eliminar</a></td>
 		<td><a href ="inventario_producto.php?modificar=($id_producto)">Modificar</a></td>
 		</tr>		

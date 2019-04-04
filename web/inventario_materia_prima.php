@@ -245,7 +245,7 @@ elseif(isset($_GET{'modificar'})){
                                         <option value="0" selected>Inactivo</option>
                                  </select>
 							</div>
-							<input type="submit" value="Guardar"></br>
+							<input type="submit" value="Guardar">
 							<button type="button" onclick="window.location= 'inventario_materia_prima.php'">Limpiar</button>
 						</form>
 					</div>
@@ -267,11 +267,11 @@ elseif(isset($_GET{'modificar'})){
 		$id_producto= $materia['id_producto'];
 		echo <<<MATERIA
 		<tr>
-		<td>{$materia['producto']}</td><br/>
-		<td>{$materia['medida']}</td><br/>
-		<td>{$materia['cantidad']}</td><br/>
-		<td>{$materia['precio']}</td><br/>
-		<td>{$materia['activo']}</td><br/>
+		<td>{$materia['producto']}</td>
+		<td>{$materia['medida']}</td>
+		<td>{$materia['cantidad']}</td>
+		<td>{$materia['precio']}</td>
+		<td>{$materia['activo']}</td>
 		<td><a href ="inventario_materia_prima.php?eliminar=($id_producto)">Eliminar</a></td>
 		<td><a href ="inventario_materia_prima.php?modificar=($id_producto)">Modificar</a></td>
 		</tr>		

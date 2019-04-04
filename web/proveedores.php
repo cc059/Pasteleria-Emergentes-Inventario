@@ -277,14 +277,14 @@ elseif(isset($_GET{'modificar'})){
 		$id_proveedor= $proveedor['id_proveedor'];
 		echo <<<PROVEEDORES
 		<tr>
-		<td>{$proveedor['nombre_proveedor']}</td><br/>
-		<td>{$proveedor['direccion']}</td><br/>
-		<td>{$proveedor['telefono']}</td><br/>
-		<td>{$proveedor['fax']}</td><br/>
+		<td>{$proveedor['nombre_proveedor']}</td>
+		<td>{$proveedor['direccion']}</td>
+		<td>{$proveedor['telefono']}</td>
+		<td>{$proveedor['fax']}</td>
 		<td>{$proveedor['NIT']}</td><br/>
-		<td>{$proveedor['num_registro']}</td><br/>
-		<td>{$proveedor['servicio']}</td><br/>
-		<td>{$proveedor['email']}</td><br/>
+		<td>{$proveedor['num_registro']}</td>
+		<td>{$proveedor['servicio']}</td>
+		<td>{$proveedor['email']}</td>
 		<td><a href ="proveedores.php?eliminar=($id_proveedor)">Eliminar</a></td>
 		<td><a href ="proveedores.php?modificar=($id_proveedor)">Modificar</a></td>
 		</tr>		
