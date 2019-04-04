@@ -244,17 +244,18 @@
 					</div>
                 </div><br/><br/>
 
-<table id="customers">
-  <tr>
+								<table class="table">
+
+								<tr>
     <th>Producto</th>
     <th>Cantidad</th>
     <th>Precio</th>
     <th>Total</th>
   </tr>
   <tr>
-    <td>Huevos</td>
-    <td>50</td>
-    <td>0.10</td>
+    <td>Pastel de leche</td>
+    <td>5</td>
+    <td>1.00</td>
     <td>5.00</td>
   </tr>
 

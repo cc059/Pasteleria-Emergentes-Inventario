@@ -253,14 +253,16 @@ elseif(isset($_GET{'modificar'})){
 							</div>
 							</div>
 														<input type="submit" value="Crear"><br/><br/>
-														<button type="button" onclick="window.location= 'proveedores.php'">Limpiar</button>
+														<button 	class="btn btn-info" type="button" onclick="window.location= 'proveedores.php'">Limpiar</button>
 
 						</form>
 					</div>
-                </div><br/><br/>
+                </div>
 								<fieldset>
-<table  id="customers">
-  <tr>
+								<br/><br/><br/><br/>
+								<table class="table">
+
+								<tr>
 	<th>Nombre</th>
     <th>Dirección</th>
     <th>Teléfono</th>
@@ -285,8 +287,8 @@ elseif(isset($_GET{'modificar'})){
 		<td>{$proveedor['num_registro']}</td>
 		<td>{$proveedor['servicio']}</td>
 		<td>{$proveedor['email']}</td>
-		<td><a href ="proveedores.php?eliminar=($id_proveedor)">Eliminar</a></td>
-		<td><a href ="proveedores.php?modificar=($id_proveedor)">Modificar</a></td>
+		<td><a 	class="btn btn-danger" href ="proveedores.php?eliminar=($id_proveedor)">Eliminar</a></td>
+		<td><a 	class="btn btn-info href ="proveedores.php?modificar=($id_proveedor)">Modificar</a></td>
 		</tr>		
 PROVEEDORES;
 	}

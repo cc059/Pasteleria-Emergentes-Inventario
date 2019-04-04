@@ -242,9 +242,10 @@
                             <input type="submit" value="Comprar">
 						</form>
 					</div>
-                </div><br/><br/>
-
-<table id="customers">
+								</div>
+								
+								<table class="table">
+								<br/><br/><br/><br/>
   <tr>
     <th>Producto</th>
     <th>Cantidad</th>
