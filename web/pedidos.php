@@ -249,8 +249,9 @@
 					</div>
                 </div><br/><br/>
 
-<table id="customers">
-  <tr>
+								<table class="table">
+
+								<tr>
     <th>Producto</th>
     <th>Cantidad</th>
     <th>Precio</th>

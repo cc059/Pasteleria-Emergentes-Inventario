@@ -249,15 +249,17 @@ elseif(isset($_GET{'modificar'})){
                                         <option value="0" selected>No activo</option>
                                  </select>
 							</div>
-							<input type="submit" value="Crear"></br></br>
+							<input type="submit" value="Crear"><br/><br/>
 							<button type="button" onclick="window.location= 'inventario_producto.php'">Limpiar</button>
 						</form>
 					</div>
                 </div>
-                <br/><br/>
+
 
 	<fieldset>
-<table id="customers">
+	<br/><br/><br/><br/>
+	<table class="table">
+
 <tr>
 	<th>Producto</th>
 	<th>Precio</th>
@@ -277,8 +279,8 @@ elseif(isset($_GET{'modificar'})){
 		<td>{$producto['cantidad']}</td>
 		<td>{$producto['id_categoria']}</td>
 		<td>{$producto['activo']}</td>
-		<td><a href ="inventario_producto.php?eliminar=($id_producto)">Eliminar</a></td>
-		<td><a href ="inventario_producto.php?modificar=($id_producto)">Modificar</a></td>
+		<td><a  	class="btn btn-danger" href ="inventario_producto.php?eliminar=($id_producto)">Eliminar</a></td>
+		<td><a 	class="btn btn-info" href ="inventario_producto.php?modificar=($id_producto)">Modificar</a></td>
 		</tr>		
 PRODUCTO;
 	}

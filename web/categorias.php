@@ -227,7 +227,7 @@ elseif(isset($_GET{'modificar'})){
 					</div>
                 </div><br/><br/>
 <fieldset>
-<table  id="customers">
+<table class="table">
   <tr>
 	<th>Nombre Categoria</th>
 	</tr>
@@ -239,9 +239,10 @@ elseif(isset($_GET{'modificar'})){
 		echo <<<CATEGORIAS
 		<tr>
 		<td>{$categoria['nombre_categoria']}</td><br/>
-		<td><a href ="categorias.php?eliminar=($id_categoria)">Eliminar</a></td>
-		<td><a href ="categorias.php?modificar=($id_categoria)">Modificar</a></td>
+		<td><a  	class="btn btn-danger" href ="categorias.php?eliminar=($id_categoria)">Eliminar</a></td>
+		<td><a 	class="btn btn-info" href ="categorias.php?modificar=($id_categoria)">Modificar</a></td>
 		</tr>		
+		
 CATEGORIAS;
 	}
 ?>

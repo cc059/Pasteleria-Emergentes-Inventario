@@ -183,6 +183,7 @@
 <?php endif ?>
 <!-- ----------MENSAJE FIN--------------- -->	
 
+<<<<<<< HEAD
 <!-- contact page -->
 <div class="address py-5">
 <div class="container py-xl-5 py-lg-3">
@@ -201,7 +202,6 @@
 					<form action="process_compra.php" method="POST">   
 						<!-- Colocamos un input tipo hidden para almacenar el id de nuestro registro -->
 						<input type="hidden" name="id_compra" value="<?php echo $id; ?>"> 
-
 						<div class="form-group">
 							<!-- Cargar datos a combobox proveedor -->
 							<?php

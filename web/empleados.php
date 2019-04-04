@@ -269,13 +269,13 @@ elseif(isset($_GET{'modificar'})){
                                         <option value="value2" selected>NoActivo</option>
                                  </select>
 							</div>
-                            <input type="submit" value="Crear"><br/>
-														<button type="button" onclick="window.location= 'empleados.php'">Limpiar</button>
+                            <input type="submit" value="Crear"><br/><br/>
+														<button 	class="btn btn-info" type="button" onclick="window.location= 'empleados.php'">Limpiar</button>
 						</form>
 					</div>
             </div>
-						<br/><br/>
-<table id="customers">
+						<br/><br/><br/><br/>
+	<table class="table">
   <tr>
   	<th>Nombre</th>
     <th>Dirección</th>
@@ -308,8 +308,8 @@ foreach($datosClientes as $proveedor){
 	<td>{$proveedor['contra']}</td>
 	<td>{$proveedor['cargo']}</td>
 	<td>{$proveedor['activo']}</td>
-	<td><a href ="empleados.php?eliminar=($id_empleado)">Eliminar</a></td>
-	<td><a href ="empleados.php?modificar=($id_empleado)">Modificar</a></td>
+	<td><a 	class="btn btn-danger" href ="empleados.php?eliminar=($id_empleado)">Eliminar</a></td>
+	<td><a 	class="btn btn-info" href ="empleados.php?modificar=($id_empleado)">Modificar</a></td>
 	</tr>		
 EMPLEADOS;
 }

@@ -250,9 +250,10 @@ elseif(isset($_GET{'modificar'})){
 						</form>
 					</div>
                 </div>
-                <br/><br/>
 <fieldset>
-<table id="customers">
+<br/><br/><br/><br/>
+<table class="table">
+
 <tr>
 	<th>Materia Prima</th>
 	<th>Medida</th>
@@ -272,8 +273,8 @@ elseif(isset($_GET{'modificar'})){
 		<td>{$materia['cantidad']}</td>
 		<td>{$materia['precio']}</td>
 		<td>{$materia['activo']}</td>
-		<td><a href ="inventario_materia_prima.php?eliminar=($id_producto)">Eliminar</a></td>
-		<td><a href ="inventario_materia_prima.php?modificar=($id_producto)">Modificar</a></td>
+		<td><a 	class="btn btn-danger" href ="inventario_materia_prima.php?eliminar=($id_producto)">Eliminar</a></td>
+		<td><a 	class="btn btn-info" href ="inventario_materia_prima.php?modificar=($id_producto)">Modificar</a></td>
 		</tr>		
 MATERIA;
 	}

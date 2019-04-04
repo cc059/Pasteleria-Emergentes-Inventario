@@ -245,12 +245,13 @@ elseif(isset($_GET{'modificar'})){
 							</div>
 							</div>
 														<input type="submit" value="Enviar"><br/><br/>
-														<button type="button" onclick="window.location= 'clientes.php'">Limpiar</button>
+														<button type="submit" class="btn btn-primary" onclick="window.location= 'clientes.php'">Limpiar</button>
 						</form>
 					</div>
-                </div><br/><br/>
+                </div>
 								<fieldset>
-<table  id="customers">
+								<br/><br/><br/><br/>
+								<table class="table">
   <tr>
 	  <th>Nombre</th>
     <th>Dirección</th>
@@ -272,8 +273,8 @@ elseif(isset($_GET{'modificar'})){
 		<td>{$cliente['DUI']}</td>
 		<td>{$cliente['sexo']}</td>
 		<td>{$cliente['email']}</td>
-		<td><a href ="clientes.php?eliminar=($id_cliente)">Eliminar</a></td>
-		<td><a href ="clientes.php?modificar=($id_cliente)">Modificar</a></td>
+		<td><a 	class="btn btn-danger" href ="clientes.php?eliminar=($id_cliente)">Eliminar</a></td>
+		<td><a 	class="btn btn-info" href ="clientes.php?modificar=($id_cliente)">Modificar</a></td>
 		</tr>		
 CLIENTES;
 	}
