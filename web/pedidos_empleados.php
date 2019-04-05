@@ -201,6 +201,7 @@
 							<label for="name">Total:</label>
 							</div>
                             <input type="submit" value="Pedir">
+														</br></br><button class="btn btn-warning" type="button" onclick="window.location= 'pedidos_empleados.php'">Limpiar</button>
 						</form>
 					</div>
                 </div><br/><br/>

@@ -236,10 +236,19 @@ elseif(isset($_GET{'modificar'})){
 							</div>
 							<div class="form-group">
                                 Categoría
-                                <select name="txtcategoria" value ="<?php echo $producto->id_categoria;?>">
-                                        <option value="41">Cupcake</option> 
-                                        <option value="42" selected>Cheesecakes</option>
-                                        <option value="3">Reposteria</option>
+                                <select name="txtcategoria">
+																<?php 
+																	include 'db.php';
+																	$resulSetCategoria= $mysqli->query("SELECT id_categoria, nombre_categoria FROM categoria");
+																?>
+																			<?php
+																			while($row=$resulSetCategoria->fetch_assoc())
+																			{
+																				$id_categorias=$row['id_categoria'];
+																				$categorias=$row['nombre_categoria'];
+																				echo "<option value='$id_categorias'>$categorias</option>";
+																			} 
+																			?>  
                                  </select>
                             </div>
                             <div class="form-group">
@@ -250,7 +259,7 @@ elseif(isset($_GET{'modificar'})){
                                  </select>
 							</div>
 							<input type="submit" value="Crear"><br/><br/>
-							<button type="button" onclick="window.location= 'inventario_producto.php'">Limpiar</button>
+							</br></br><button class="btn btn-warning" type="button" onclick="window.location= 'inventario_producto.php'">Limpiar</button>
 						</form>
 					</div>
                 </div>
