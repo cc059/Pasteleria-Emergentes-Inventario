@@ -289,10 +289,10 @@
 							<input type="number" class="form-control" value="<?php echo $cantidad_venta; ?>" placeholder="Cantidad" name="txtCantidad">
 						</div>	
 						<div class="form-group">
-							<input type="number"  class="form-control" value="<?php echo $precio_venta; ?>" placeholder="Precio" name="txtPrecio">
+							<input type="decimal"  class="form-control" value="<?php echo $precio_venta; ?>" placeholder="Precio" name="txtPrecio">
 						</div>	
 						<div class="form-group">
-							<input type="number"  class="form-control" value="<?php echo $decuento_venta; ?>" placeholder="Descuento" name="txtDescuento">
+							<input type="decimal"  class="form-control" value="<?php echo $descuento_venta; ?>" placeholder="Descuento" name="txtDescuento">
 						</div>
 						
 						<br/>
@@ -303,21 +303,67 @@
 					</div>
                 </div><br/><br/>
 
-	<table class="table">
-	<tr>
-    <th>Producto</th>
-    <th>Cantidad</th>
-    <th>Precio</th>
-    <th>Total</th>
-  </tr>
-  <tr>
-    <td>Huevos</td>
-    <td>50</td>
-    <td>0.10</td>
-    <td>5.00</td>
-  </tr>
 
-</table>
+			<div class="container">
+
+			<?php
+			include 'db.php';
+			$result = $mysqli->query("SELECT vv.id_pedido, cc.nombre_cliente, ee.nombre_empleado,vv.fecha_pedido,vv.fecha_entrega, inv.producto, dv.cantidad, 
+			dv.precio_uni, dv.descuento, dv.precio_uni * dv.cantidad as Total FROM pedidos vv 
+			INNER JOIN cliente cc ON vv.id_cliente = cc.id_cliente INNER JOIN empleado ee ON vv.id_empleado = ee.id_empleado
+			INNER JOIN detalle_pedido dv ON vv.id_pedido = dv.id_pedido INNER JOIN inventario_producto inv
+			ON dv.id_producto = inv.id_producto") or die($mysqli->error);
+		  ?>
+
+		<!-- Creamos la tabla -->
+		<div class ="row justify-content-center">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Id Pedido</th>
+						<th>Cliente</th>
+						<th>Empleado</th>
+						<th>Fecha Pedido</th>
+						<th>Fecha Entrega</th>
+						<th>Producto</th>
+						<th>Cantidad</th>
+						<th>Precio Uni</th>
+						<th>Descuento</th>
+						<th>Total</th>
+						<th colspan="2">Acción</th>
+					</tr>
+				</thead>
+				<!-- Aqui es donde cargaremos los datos de nuestra tabla con el metodo 'fetch_assoc' nos permite
+						 retornar un array asociativo correspondiente a la fila obtenida o NULL si no hubiera más filas. 
+						 Para ello le decimos que mientras la cantidad de la fila sea igual de la tabla entonces que 
+						 nos retorne un array con esos registros-->
+				<?php
+					while ($row = $result->fetch_assoc()): ?>
+					<tr>
+						<td><?php echo $row['id_pedido']; ?></td>
+						<td><?php echo $row['nombre_cliente']; ?></td>
+						<td><?php echo $row['nombre_empleado']; ?></td>
+						<td><?php echo $row['fecha_pedido']; ?></td>
+						<td><?php echo $row['fecha_entrega']; ?></td>
+						<td><?php echo $row['producto']; ?></td>
+						<td><?php echo $row['cantidad']; ?></td>
+						<td><?php echo $row['precio_uni']; ?></td>
+						<td><?php echo $row['descuento']; ?></td>
+						<td><?php echo $row['Total']; ?></td>
+						<td>
+						<!-- Creamos las URLs para los casos de editar y eliminar, y les pasmos un parametro con nuestro id. -->
+							<a href="tipos_pago.php?edit=<?php echo $row['id_pedido']; ?>"
+								class="btn btn-info">Editar</a>
+							<a href="tipos_pago.php?delete=<?php echo $row['id_pedido']; ?>"
+								class="btn btn-danger">Eliminar</a>
+						</td>
+					</tr>
+					<?php endwhile; ?>
+			</table>
+
+			</div>
+
+
 			</div>
 		</div>
 	</div>
