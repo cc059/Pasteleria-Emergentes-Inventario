@@ -317,7 +317,7 @@
 
 		<!-- Creamos la tabla -->
 		<div class ="row justify-content-center">
-			<table class="table">
+			<table class="table table-striped table-responsive">
 				<thead>
 					<tr>
 						<th>Id Pedido</th>
