@@ -60,38 +60,46 @@ if(isset($_GET['btn_entregado']))
 //En caso que le de click al boton eliminar
 if (isset($_GET['delete'])){
     $id = $_GET['delete'];
-    $mysqli->query("DELETE FROM tipos_pago WHERE id_pago=$id") or die($mysqli->error());
+    $mysqli->query("DELETE FROM pedidos WHERE id_pedido=$id") or die($mysqli->error());
 
-    $_SESSION['message'] = "Se ha eliminado el tipo de pago!";
+    $_SESSION['message'] = "Se ha eliminado el pedido!";
     $_SESSION['msg_type'] = "danger";
 
     
-    header("location: tipos_pago.php");
+    header("location: pedidos.php");
 }
 
 //En caso que le de click al boton editar
 if (isset($_GET['edit'])){
     $id = $_GET['edit'];
     $update = true;
-    $result = $mysqli->query("SELECT * FROM tipos_pago WHERE id_pago=$id") or die($mysqli->error());
+    $result = $mysqli->query("SELECT * FROM pedidos WHERE id_pedido=$id") or die($mysqli->error());
     //Verificar si existe es registro
     if (count($result)==1){
         $row = $result->fetch_array();
-        $tipo_pago = $row['tipo'];
+        $id = $row['id_pedido'];
     }
 }
 
 //Para el boton actualizar en la variable $id le colocamos el id del registro que lo colocamos en un input tipo hidden
 //Y le pasamos el valor del campo txt
 if (isset($_POST['btnUpdate'])){
-        $id = $_POST['id_pago'];
-        $tipo_pago = $_POST['txtTipoPago'];
+        $id = $_POST['id_pedido'];
+        $selected_cli = $_POST['cb_pedido_clientes'];
+        $selected_emp = $_POST['cb_pedido_empleado'];
+        $selected_pago = $_POST['cb_tipospago'];
+        $selected_producto = $_POST['cb_producto'];
+        $fecha_pedido = $_POST['fecha_pedido'];
+        $fecha_entrega = $_POST['fecha_entrega'];
+        $cantidad_venta = $_POST['txtCantidad'];
+        $precio_venta = $_POST['txtPrecio'];
+        $descuento_venta = $_POST['txtDescuento'];
 
-        $mysqli->query("UPDATE tipos_pago SET tipo='$tipo_pago' WHERE id_pago=$id") or
+        $mysqli->query("UPDATE pedidos SET id_cliente=$selected_cli,id_empleado=$selected_emp,fecha_pedido='$fecha_pedido',fecha_entrega='$fecha_entrega',entregado='No', id_pago=$selected_pago WHERE id_pedido=$id") or
             die($mysqli->error);
 
         $_SESSION['message'] = "El registro ha sido actualizado!";
         $_SESSION['msg_type'] = "warning";
 
-        header('location: tipos_pago.php');
+        header('location: pedidos.php');
 }

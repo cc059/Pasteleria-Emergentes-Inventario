@@ -352,9 +352,9 @@
 						<td><?php echo $row['Total']; ?></td>
 						<td>
 						<!-- Creamos las URLs para los casos de editar y eliminar, y les pasmos un parametro con nuestro id. -->
-							<a href="tipos_pago.php?edit=<?php echo $row['id_pedido']; ?>"
+							<a href="pedidos_empleados.php?edit=<?php echo $row['id_pedido']; ?>"
 								class="btn btn-info">Editar</a>
-							<a href="tipos_pago.php?delete=<?php echo $row['id_pedido']; ?>"
+							<a href="pedidos_empleados.php?delete=<?php echo $row['id_pedido']; ?>"
 								class="btn btn-danger">Eliminar</a>
 						</td>
 					</tr>
