@@ -52,13 +52,13 @@ if(isset($_POST['btnSave'])){
 //En caso que le de click al boton eliminar
 if (isset($_GET['delete'])){
     $id = $_GET['delete'];
-    $mysqli->query("DELETE FROM tipos_pago WHERE id_pago=$id") or die($mysqli->error());
+    $mysqli->query("DELETE FROM venta WHERE id_venta=$id") or die($mysqli->error());
 
-    $_SESSION['message'] = "Se ha eliminado el tipo de pago!";
+    $_SESSION['message'] = "Se ha eliminado la venta!";
     $_SESSION['msg_type'] = "danger";
 
     
-    header("location: tipos_pago.php");
+    header("location: ventas.php");
 }
 
 //En caso que le de click al boton editar
