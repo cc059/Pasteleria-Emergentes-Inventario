@@ -4,7 +4,14 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<?php
+session_start();
 
+if ($_SESSION['cargo'] != "Administrador") {
+    header("Location: login.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -115,9 +122,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<li class="nav-item">
 							<a class="nav-link" href="gallery.html">Galeria</a>
 						</li>
-											<!-- menu contactanos -->
 						<li class="nav-item">
-							<a class="nav-link" href="contact.html">Contáctanos</a>
+							<a class="nav-link" href="logout.php">Cerrar Sesión</a>
 						</li>
 					</ul>
 					<!-- menu button -->

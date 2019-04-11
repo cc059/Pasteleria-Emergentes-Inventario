@@ -17,14 +17,17 @@ if(isset($_POST['btn_entrar']))
     $query_ven = $mysqli->query("SELECT * FROM empleado WHERE usuario='$user' 
               AND contra='$password' AND cargo='$vendedor'") or die($mysqli->error());
 
+
     if(mysqli_num_rows($query_admin)==1)
     {
         $row = $query_admin->fetch_array();
-        $_SESSION['user_id'] = $row['id_empleado'];
+        $_SESSION['cargo'] = $row['cargo'];
         header("location: index.php");
     }
     else if(mysqli_num_rows($query_ven)==1)
     {
+        $row = $query_admin->fetch_array();
+        $_SESSION['cargo2'] = $row['cargo'];
         header("location: index_empleados.php");
     }
     else

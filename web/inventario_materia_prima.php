@@ -1,4 +1,12 @@
 <?php
+session_start();
+
+if ($_SESSION['cargo'] != "Administrador") {
+    header("Location: login.php");
+    exit;
+}
+?>
+<?php
 include('clases\master.php');
 $materia= new camposInventarioMateria();
 
@@ -141,7 +149,7 @@ elseif(isset($_GET{'modificar'})){
 						</li>
 											<!-- menu contactanos -->
 						<li class="nav-item">
-							<a class="nav-link" href="contact.html">Contáctanos</a>
+						<a class="nav-link" href="logout.php">Cerrar Sesión</a>
 						</li>
 					</ul>
 					<!-- menu button -->
