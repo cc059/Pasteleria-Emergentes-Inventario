@@ -245,7 +245,7 @@ elseif(isset($_GET{'modificar'})){
 							</div>
 							</div>
 														<input type="submit" value="Enviar"><br/><br/>
-														<button type="submit" class="btn btn-primary" onclick="window.location= 'clientes.php'">Limpiar</button>
+														</br></br><button type="submit" class="btn btn-warning" onclick="window.location= 'clientes.php'">Limpiar</button>
 						</form>
 					</div>
                 </div>

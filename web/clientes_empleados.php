@@ -176,6 +176,7 @@
 							</div>
 							</div>
                             <input type="submit" value="Crear">
+														</br></br><button class="btn btn-warning" type="button" onclick="window.location= 'clientes_empleados.php'">Limpiar</button>
 						</form>
 					</div>
                 </div><br/><br/>

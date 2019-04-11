@@ -294,6 +294,7 @@
 							<?php else: ?>
 									<button type="submit" class="btn btn-success" name="btnSave">Guardar</button>
 							<?php endif; ?>
+							</br></br><button class="btn btn-warning" type="button" onclick="window.location= 'compras.php'">Limpiar</button>
 						</div>
 
 					</form>

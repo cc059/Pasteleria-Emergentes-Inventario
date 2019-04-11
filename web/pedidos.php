@@ -64,6 +64,7 @@
 </head>
 
 <body>
+<?php require_once 'process_pedido.php'; ?>
 	<div class="mian-content">
 		<!-- header -->
 		<header>
@@ -195,76 +196,174 @@
 				<div class="col-lg-6 address-left mt-lg-0 mt-5">
 					<div class="address-grid">
 						<h4 class="font-weight-bold mb-3">Crea tu Pedido</h4>
-						<form action="#" method="post">
-                        <div class="form-group">
-                                Cliente
-                                <select name="Cliente">
-                                        <option value="value1">Carolina Rodriguez</option> 
-                                        <option value="value2" selected>Eduardo Noyola</option>
-                                 </select>
-                            </div>
-                            <div class="form-group">
-                                Empleado
-                                <select name="Empleado">
-                                        <option value="value1">Victor Ramirez</option> 
-                                        <option value="value2" selected>Joel Figueroa</option>
-                                 </select>
-                                 <br/><br/>
+						<form action="process_pedido.php" method="post">
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Fecha Pedido" name="fecha_pedido" required="">
+							<!-- Cargar datos a combobox cliente -->
+							<?php
+								include 'db.php';
+								$resultSetCli = $mysqli->query("SELECT id_cliente, nombre_cliente FROM cliente");
+							?>
+							<label>Cliente </label>
+							<select name = "cb_pedido_clientes" class="form-control">
+							<?php
+								while($row = $resultSetCli->fetch_assoc())
+								{
+									$nombre_cliente = $row['nombre_cliente'];
+									$id_cliente = $row['id_cliente'];
+									echo "<option value='$id_cliente'>$nombre_cliente</option>";
+								}
+							?>
+							</select>
+						</div>
+
+
+						<div class="form-group">
+							<!-- Cargar datos a combobox empleados -->
+							<?php
+								include 'db.php';
+								$resultSetCli = $mysqli->query("SELECT id_empleado, nombre_empleado FROM empleado");
+							?>
+							<label>Empleado </label>
+							<select name = "cb_pedido_empleado" class="form-control">
+							<?php
+								while($row = $resultSetCli->fetch_assoc())
+								{
+									$nombre_empleado = $row['nombre_empleado'];
+									$id_empleado = $row['id_empleado'];
+									echo "<option value='$id_empleado'>$nombre_empleado</option>";
+								}
+							?>
+							</select>
+						</div>
+
+							<div class="form-group">
+							<label>Fecha Pedido </label>
+								<input type="date" class="form-control" value="<?php echo $fecha_pedido; ?>" placeholder="Fecha Pedido" name="fecha_pedido" required="">
 							</div>
+
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Fecha Entrega" name="fecha_entrega" required="">
-							</div><br/>
-							Tipo Pago
-                                <select name="TipoPago">
-                                        <option value="value1">Efectivo</option> 
-                                        <option value="value2" selected>Crédito</option>
-                                 </select><br/><br/>
-                                 Estado Pedido
-                                <select name="EstadoPedido">
-                                        <option value="value1">Entregado</option> 
-                                        <option value="value2" selected>NoEntregado</option>
-                                 </select><br/><br/>
-                                 Producto
-                                <select name="Producto">
-                                        <option value="value1">Pastel de chocolate</option> 
-                                        <option value="value2" selected>Pastelito de leche</option>
-                                        <option value="value3" selected>oreja</option>
-                                 </select>
-                                 <br/><br/>
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Cantidad" name="cantidad_compra" required="">
+							<label>Fecha Entrega </label>
+								<input type="date" class="form-control" value="<?php echo $fecha_entrega; ?>" placeholder="Fecha Entrega" name="fecha_entrega" required="">
 							</div>
+							
 							<div class="form-group">
-								<input type="email" class="form-control" placeholder="Precio" name="precio_compra" required="">
-							</div>
+							<!-- Cargar datos a combobox tipo pago-->
+							<?php
+								include 'db.php';
+								$resultSetPago = $mysqli->query("SELECT id_pago, tipo FROM tipos_pago");
+							?>
+							<label>Tipo de Pago  </label>
+							<select name = "cb_tipospago" class="form-control">
+							<?php
+								while($row = $resultSetPago->fetch_assoc())
+								{
+									$tipo = $row['tipo'];
+									$id_pago = $row['id_pago'];
+									echo "<option value='$id_pago'>$tipo</option>";
+								}
+							?>
+							</select>
+						</div>															 						 
+
+								<br>
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Descuento" name="descuento_compra" required="">
-							</div><br/>
-							<label for="name">Total:</label>
-							</div>
-                            <input type="submit" value="Pedir">
-						</form>
+							<!-- Cargar datos a combobox productos-->
+							<?php
+								include 'db.php';
+								$resultSetProd = $mysqli->query("SELECT id_producto, producto FROM inventario_producto");
+							?>
+							<label>Seleccione el Producto </label>
+							<select name = "cb_producto" class="form-control">
+							<?php
+								while($row = $resultSetProd->fetch_assoc())
+								{
+									$producto = $row['producto'];
+									$id_producto = $row['id_producto'];
+									echo "<option value='$id_producto'>$producto</option>";
+								}
+							?>
+							</select>
+						</div>	
+
+						<div class="form-group">
+							<input type="number" class="form-control" value="<?php echo $cantidad_venta; ?>" placeholder="Cantidad" name="txtCantidad">
+						</div>	
+						<div class="form-group">
+							<input type="decimal"  class="form-control" value="<?php echo $precio_venta; ?>" placeholder="Precio" name="txtPrecio">
+						</div>	
+						<div class="form-group">
+							<input type="decimal"  class="form-control" value="<?php echo $descuento_venta; ?>" placeholder="Descuento" name="txtDescuento">
+						</div>
+						
+						<br/>
+						<button type="submit" class="btn btn-success btn-block" name="Pedir">Pedir</button>
+				</div>
+                  
+				</form>
 					</div>
                 </div><br/><br/>
 
-								<table class="table">
 
-								<tr>
-    <th>Producto</th>
-    <th>Cantidad</th>
-    <th>Precio</th>
-    <th>Total</th>
-  </tr>
-  <tr>
-    <td>Huevos</td>
-    <td>50</td>
-    <td>0.10</td>
-    <td>5.00</td>
-  </tr>
+			<div class="container">
 
-</table>
+			<?php
+			include 'db.php';
+			$result = $mysqli->query("SELECT vv.id_pedido, cc.nombre_cliente, ee.nombre_empleado,vv.fecha_pedido,vv.fecha_entrega, inv.producto, dv.cantidad, 
+			dv.precio_uni, dv.descuento, dv.precio_uni * dv.cantidad as Total FROM pedidos vv 
+			INNER JOIN cliente cc ON vv.id_cliente = cc.id_cliente INNER JOIN empleado ee ON vv.id_empleado = ee.id_empleado
+			INNER JOIN detalle_pedido dv ON vv.id_pedido = dv.id_pedido INNER JOIN inventario_producto inv
+			ON dv.id_producto = inv.id_producto") or die($mysqli->error);
+		  ?>
+
+		<!-- Creamos la tabla -->
+		<div class ="row justify-content-center">
+			<table class="table table-striped table-responsive">
+				<thead>
+					<tr>
+						<th>Id Pedido</th>
+						<th>Cliente</th>
+						<th>Empleado</th>
+						<th>Fecha Pedido</th>
+						<th>Fecha Entrega</th>
+						<th>Producto</th>
+						<th>Cantidad</th>
+						<th>Precio Uni</th>
+						<th>Descuento</th>
+						<th>Total</th>
+						<th colspan="2">Acción</th>
+					</tr>
+				</thead>
+				<!-- Aqui es donde cargaremos los datos de nuestra tabla con el metodo 'fetch_assoc' nos permite
+						 retornar un array asociativo correspondiente a la fila obtenida o NULL si no hubiera más filas. 
+						 Para ello le decimos que mientras la cantidad de la fila sea igual de la tabla entonces que 
+						 nos retorne un array con esos registros-->
+				<?php
+					while ($row = $result->fetch_assoc()): ?>
+					<tr>
+						<td><?php echo $row['id_pedido']; ?></td>
+						<td><?php echo $row['nombre_cliente']; ?></td>
+						<td><?php echo $row['nombre_empleado']; ?></td>
+						<td><?php echo $row['fecha_pedido']; ?></td>
+						<td><?php echo $row['fecha_entrega']; ?></td>
+						<td><?php echo $row['producto']; ?></td>
+						<td><?php echo $row['cantidad']; ?></td>
+						<td><?php echo $row['precio_uni']; ?></td>
+						<td><?php echo $row['descuento']; ?></td>
+						<td><?php echo $row['Total']; ?></td>
+						<td>
+						<!-- Creamos las URLs para los casos de editar y eliminar, y les pasmos un parametro con nuestro id. -->
+							<a href="tipos_pago.php?edit=<?php echo $row['id_pedido']; ?>"
+								class="btn btn-info">Editar</a>
+							<a href="tipos_pago.php?delete=<?php echo $row['id_pedido']; ?>"
+								class="btn btn-danger">Eliminar</a>
+						</td>
+					</tr>
+					<?php endwhile; ?>
+			</table>
+
+			</div>
+
+
 			</div>
 		</div>
 	</div>
@@ -299,7 +398,7 @@
 				</ul>
 			</div>
 			<!-- copyright -->
-			<p class="copy-right-grids text-light my-lg-5 my-4 pb-4">© 2019 Cake Bakery. All Rights Reserved | Design by Team Lexar
+			<p class="copy-right-grids text-light my-lg-5 my-4 pb-4">© 2019 Lexar's Bakery. All Rights Reserved | Design by Team Lexar
 			</p>
 			<!-- //copyright -->
 		</div>
