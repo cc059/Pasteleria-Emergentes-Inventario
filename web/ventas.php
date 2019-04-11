@@ -292,7 +292,7 @@
 							<?php else: ?>
 									<button type="submit" class="btn btn-success" name="btnSave">Guardar</button>
 							<?php endif; ?>
-							</br></br><button class="btn btn-warning" type="button" onclick="window.location= 'ventas.php'">Limpiar</button>
+							<br/><br/><button class="btn btn-warning" type="button" onclick="window.location= 'ventas.php'">Limpiar</button>
 						</div>
 
 					</form>
@@ -348,7 +348,11 @@
 						<td><?php echo $row['descuento']; ?></td>
 						<td><?php echo $row['fecha_venta']; ?></td>
 						<td><?php echo round($row['Total'], 2); ?></td>
-					
+						<td>
+						<!-- Creamos las URLs para los casos de editar y eliminar, y les pasmos un parametro con nuestro id. -->
+							<a href="ventas.php?delete=<?php echo $row['id_venta']; ?>"
+								class="btn btn-danger">Eliminar</a>
+						</td>
 					</tr>
 					<?php endwhile; ?>
 			</table>

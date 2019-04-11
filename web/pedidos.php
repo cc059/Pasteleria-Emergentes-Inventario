@@ -320,7 +320,6 @@
 			<table class="table table-striped table-responsive">
 				<thead>
 					<tr>
-						<th>Id Pedido</th>
 						<th>Cliente</th>
 						<th>Empleado</th>
 						<th>Fecha Pedido</th>
@@ -330,7 +329,7 @@
 						<th>Precio Uni</th>
 						<th>Descuento</th>
 						<th>Total</th>
-						<th colspan="2">Acción</th>
+						<th>Acción</th>
 					</tr>
 				</thead>
 				<!-- Aqui es donde cargaremos los datos de nuestra tabla con el metodo 'fetch_assoc' nos permite
@@ -340,7 +339,6 @@
 				<?php
 					while ($row = $result->fetch_assoc()): ?>
 					<tr>
-						<td><?php echo $row['id_pedido']; ?></td>
 						<td><?php echo $row['nombre_cliente']; ?></td>
 						<td><?php echo $row['nombre_empleado']; ?></td>
 						<td><?php echo $row['fecha_pedido']; ?></td>
@@ -352,9 +350,9 @@
 						<td><?php echo $row['Total']; ?></td>
 						<td>
 						<!-- Creamos las URLs para los casos de editar y eliminar, y les pasmos un parametro con nuestro id. -->
-							<a href="tipos_pago.php?edit=<?php echo $row['id_pedido']; ?>"
+							<a href="pedidos.php?edit=<?php echo $row['id_pedido']; ?>"
 								class="btn btn-info">Editar</a>
-							<a href="tipos_pago.php?delete=<?php echo $row['id_pedido']; ?>"
+							<a href="pedidos.php?delete=<?php echo $row['id_pedido']; ?>"
 								class="btn btn-danger">Eliminar</a>
 						</td>
 					</tr>

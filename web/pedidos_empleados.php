@@ -82,28 +82,13 @@
 					</span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav ml-lg-auto text-lg-right text-center">
-						<li class="nav-item">
+				<ul class="navbar-nav ml-lg-auto text-lg-right text-center">
+						<li class="nav-item active">
 							<a class="nav-link" href="index_empleados.php">Inicio
 								<span class="sr-only">(current)</span>
 							</a>
 						</li>
-					<!--<li class="nav-item">
-							<a class="nav-link" href="about.html">About Us</a>
-						</li>-->
-					<!--	<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-							    aria-haspopup="true" aria-expanded="false">
-								Dropdown
-							</a>
-							<div class="dropdown-menu text-lg-left text-center" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item scroll" href="#services">Services</a>
-								<a class="dropdown-item scroll" href="#products" title="">New Products</a>
-								<a class="dropdown-item scroll" href="#news" title="">Company News</a>
-								<a class="dropdown-item" href="about.html" title="">Team</a>
-							</div>
-						</li>-->
-                        <li class="nav-item active">
+                        <li class="nav-item">
 							<a class="nav-link" href="ventas_empleados.php">Ventas</a>
                         </li>
                         <li class="nav-item">
@@ -116,7 +101,9 @@
 							<a class="nav-link" href="gallery_empleados.html">Galeria</a>
 						</li>
 					</ul>
-
+						</div>
+					</div>
+					<!-- //menu button -->
 				</div>
 			</nav>
 		</header>
@@ -275,7 +262,6 @@
 			<table class="table table-striped table-responsive">
 				<thead>
 					<tr>
-						<th>Id Pedido</th>
 						<th>Cliente</th>
 						<th>Empleado</th>
 						<th>Fecha Pedido</th>
@@ -295,7 +281,6 @@
 				<?php
 					while ($row = $result->fetch_assoc()): ?>
 					<tr>
-						<td><?php echo $row['id_pedido']; ?></td>
 						<td><?php echo $row['nombre_cliente']; ?></td>
 						<td><?php echo $row['nombre_empleado']; ?></td>
 						<td><?php echo $row['fecha_pedido']; ?></td>
@@ -307,9 +292,9 @@
 						<td><?php echo $row['Total']; ?></td>
 						<td>
 						<!-- Creamos las URLs para los casos de editar y eliminar, y les pasmos un parametro con nuestro id. -->
-							<a href="tipos_pago.php?edit=<?php echo $row['id_pedido']; ?>"
+							<a href="pedidos_empleados.php?edit=<?php echo $row['id_pedido']; ?>"
 								class="btn btn-info">Editar</a>
-							<a href="tipos_pago.php?delete=<?php echo $row['id_pedido']; ?>"
+							<a href="pedidos_empleados.php?delete=<?php echo $row['id_pedido']; ?>"
 								class="btn btn-danger">Eliminar</a>
 						</td>
 					</tr>

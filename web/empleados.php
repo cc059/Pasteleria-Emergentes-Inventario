@@ -269,8 +269,9 @@ elseif(isset($_GET{'modificar'})){
                                         <option value="value2" selected>NoActivo</option>
                                  </select>
 							</div>
-                            <input type="submit" value="Crear"><br/><br/>
-														</br></br><button 	class="btn btn-warning" type="button" onclick="window.location= 'empleados.php'">Limpiar</button>
+                            <input type="submit" value="Crear">
+														<br/><br/><button class="btn btn-warning" type="button" onclick="window.location= 'empleados.php'">Limpiar</button>
+
 						</form>
 					</div>
             </div>

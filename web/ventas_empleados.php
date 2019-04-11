@@ -64,13 +64,14 @@
 </head>
 
 <body>
+<?php require_once 'process_venta.php'; ?>
 	<div class="mian-content">
 		<!-- header -->
 		<header>
 			<nav class="navbar navbar-expand-lg navbar-light">
 				<div class="logo text-left">
 					<h1>
-						<a class="navbar-brand" href="index_empleados.php">
+						<a class="navbar-brand" href="index.php">
 							<img src="images/logo.png" alt="" class="img-fluid">Lexar's Bakery</a>
 					</h1>
 				</div>
@@ -81,27 +82,12 @@
 					</span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav ml-lg-auto text-lg-right text-center">
-						<li class="nav-item">
+				<ul class="navbar-nav ml-lg-auto text-lg-right text-center">
+						<li class="nav-item ">
 							<a class="nav-link" href="index_empleados.php">Inicio
 								<span class="sr-only">(current)</span>
 							</a>
 						</li>
-					<!--<li class="nav-item">
-							<a class="nav-link" href="about.html">About Us</a>
-						</li>-->
-					<!--	<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-							    aria-haspopup="true" aria-expanded="false">
-								Dropdown
-							</a>
-							<div class="dropdown-menu text-lg-left text-center" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item scroll" href="#services">Services</a>
-								<a class="dropdown-item scroll" href="#products" title="">New Products</a>
-								<a class="dropdown-item scroll" href="#news" title="">Company News</a>
-								<a class="dropdown-item" href="about.html" title="">Team</a>
-							</div>
-						</li>-->
                         <li class="nav-item active">
 							<a class="nav-link" href="ventas_empleados.php">Ventas</a>
                         </li>
@@ -115,10 +101,37 @@
 							<a class="nav-link" href="gallery_empleados.html">Galeria</a>
 						</li>
 					</ul>
-
+					<!-- menu button -->
+					<div class="menu">
+						<a href="#" class="navicon"></a>
+						<div class="toggle">
+							<ul class="toggle-menu list-unstyled">
+							<li>
+									<a href="index.php">Inicio</a>
+								</li>
+								<li>
+									<a class="scroll" href="#products">Nuevos Productos</a>
+								</li>
+								<li>
+									<a href="gallery.html">Ultimos Pasteles</a>
+								</li>
+								<li>
+									<a class="scroll" href="#order">Ordenar Pastel</a>
+								</li>
+								<li>
+									<a class="scroll" href="faq.html">Preguntas Frecuentes</a>
+								</li>
+								<li>
+									<a href="contact.html">Contactanos</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!-- //menu button -->
 				</div>
 			</nav>
 		</header>
+		<!-- //header -->
 
 		<!-- banner 2 -->
 		<div class="banner2-w3ls">
@@ -308,6 +321,10 @@
 						<td><?php echo $row['fecha_venta']; ?></td>
 						<td><?php echo round($row['Total'], 2); ?></td>
 					
+						<!-- Creamos las URLs para los casos de editar y eliminar, y les pasmos un parametro con nuestro id. -->
+							<a href="ventas_empleados.php?delete=<?php echo $row['id_venta']; ?>"
+								class="btn btn-danger">Eliminar</a>
+						</td>
 					</tr>
 					<?php endwhile; ?>
 			</table>

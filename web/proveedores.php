@@ -249,11 +249,12 @@ elseif(isset($_GET{'modificar'})){
                             <div class="form-group">
 								<input type="text" class="form-control" placeholder="Correo" name="txtemail" required="" value ="<?php echo $proveedores->email;?>" >
 								<input type="hidden" class="form-control" placeholder="Nombre" name="txtid" value ="<?php echo $proveedores->id_proveedor;?>" />
-
+<br/><br/>
+<button type="submit" class="btn btn-success" name="btnSave">Guardar</button>
+						   <button 	class="btn btn-warning" type="button" onclick="window.location= 'proveedores.php'">Limpiar</button>
 							</div>
 							</div>
-														<input type="submit" value="Crear"><br/><br/>
-														</br></br><button 	class="btn btn-warning" type="button" onclick="window.location= 'proveedores.php'">Limpiar</button>
+						
 
 						</form>
 					</div>

@@ -1,8 +1,33 @@
+<?php
+include('clases\master.php');
+$clientes= new camposCliente();
+
+if($_POST){
+	$id_cliente=$_POST['txtid'];
+	$nombre_cliente=$_POST{'txtnombre'};
+	$direccion=$_POST{'txtdireccion'};
+	$telefono=$_POST{'txttelefono'};
+	$DUI=$_POST{'txtdui'};
+	$sexo=$_POST{'txtsexo'};
+	$email=$_POST{'txtemail'};
+	$clientes->asignarValor($id_cliente,$nombre_cliente,$direccion,$telefono,$DUI,$sexo,$email);
+	$clientes->guardar();
+}
+elseif(isset($_GET{'eliminar'})){
+		$clientes->eliminar($_GET{'eliminar'});
+	}
+elseif(isset($_GET{'modificar'})){
+	$clientes->modificar($_GET{'modificar'});
+	}
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
 <head>
-  <link rel='icon' type='image/x-icon' href='images/favicon.ico' />
+	<link rel='icon' type='image/x-icon' href='images/favicon.ico' />
 	<title>Lexar's Bakery|Pasteles con amor</title>
 	<!-- Meta tag Keywords -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -70,7 +95,7 @@
 			<nav class="navbar navbar-expand-lg navbar-light">
 				<div class="logo text-left">
 					<h1>
-						<a class="navbar-brand" href="index_empleados.php">
+						<a class="navbar-brand" href="index.php">
 							<img src="images/logo.png" alt="" class="img-fluid">Lexar's Bakery</a>
 					</h1>
 				</div>
@@ -81,41 +106,52 @@
 					</span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav ml-lg-auto text-lg-right text-center">
-						<li class="nav-item">
+				<ul class="navbar-nav ml-lg-auto text-lg-right text-center">
+						<li class="nav-item active">
 							<a class="nav-link" href="index_empleados.php">Inicio
 								<span class="sr-only">(current)</span>
 							</a>
 						</li>
-					<!--<li class="nav-item">
-							<a class="nav-link" href="about.html">About Us</a>
-						</li>-->
-					<!--	<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-							    aria-haspopup="true" aria-expanded="false">
-								Dropdown
-							</a>
-							<div class="dropdown-menu text-lg-left text-center" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item scroll" href="#services">Services</a>
-								<a class="dropdown-item scroll" href="#products" title="">New Products</a>
-								<a class="dropdown-item scroll" href="#news" title="">Company News</a>
-								<a class="dropdown-item" href="about.html" title="">Team</a>
-							</div>
-						</li>-->
                         <li class="nav-item">
 							<a class="nav-link" href="ventas_empleados.php">Ventas</a>
                         </li>
                         <li class="nav-item">
 							<a class="nav-link" href="pedidos_empleados.php">Pedidos</a>
 						</li>
-						<li class="nav-item active">
+						<li class="nav-item">
 							<a class="nav-link" href="clientes_empleados.php">Clientes</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="gallery_empleados.html">Galeria</a>
 						</li>
 					</ul>
-
+					<!-- menu button -->
+					<div class="menu">
+						<a href="#" class="navicon"></a>
+						<div class="toggle">
+							<ul class="toggle-menu list-unstyled">
+								<li>
+									<a href="index.php">Index Page</a>
+								</li>
+								<li>
+									<a class="scroll" href="#products">Nuevos Productos</a>
+								</li>
+								<li>
+									<a href="gallery.html">Ultimos Pasteles</a>
+								</li>
+								<li>
+									<a class="scroll" href="#order">Ordenar Pastel</a>
+								</li>
+								<li>
+									<a class="scroll" href="faq.html">Preguntas Frecuentes</a>
+								</li>
+								<li>
+									<a href="contact.html">Contactanos</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!-- //menu button -->
 				</div>
 			</nav>
 		</header>
@@ -128,7 +164,17 @@
 		<!-- //banner 2 -->
 	</div>
 	<!-- main -->
-
+	<!-- page details -->
+	<div class="breadcrumb-agile">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb m-0">
+				<li class="breadcrumb-item">
+					<a href="index.php">Inicio</a>
+				</li>
+			</ol>
+		</nav>
+	</div>
+	<!-- //page details -->
 
 	<!-- contact page -->
 	<div class="address py-5">
@@ -152,55 +198,67 @@
 				<div class="col-lg-6 address-left mt-lg-0 mt-5">
 					<div class="address-grid">
 						<h4 class="font-weight-bold mb-3">Ingresas los datos</h4>
-						<form action="#" method="post">
+						<form action="clientes.php" method="post">
                     
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Nombre" name="nombre_cliente" required="">
+								<input type="text" class="form-control" placeholder="Nombre" name="txtnombre" required=""value ="<?php echo $clientes->nombre_cliente;?>" />
 							</div>
 							<div class="form-group">
-								<input type="email" class="form-control" placeholder="Dirección" name="direccion_cliente" required="">
+								<input type="text" class="form-control" placeholder="Dirección" name="txtdireccion" required="" value ="<?php echo $clientes->direccion;?>" />
                             </div>
                             <div class="form-group">
-								<input type="text" class="form-control" placeholder="Teléfono" name="telefono_cliente" required="">
+								<input type="text" class="form-control" placeholder="Teléfono" name="txttelefono" required="" value ="<?php echo $clientes->telefono;?>">
                             </div>
                             <div class="form-group">
-								<input type="text" class="form-control" placeholder="DUI" name="dui_cliente" required="">
+								<input type="text" class="form-control" placeholder="DUI" name="txtdui" required="" value ="<?php echo $clientes->DUI;?>">
 							</div><br/>
 							 Sexo
-                                <select name="sexo">
-                                        <option value="value1">Femenino</option> 
-                                        <option value="value2" selected>Masculino</option>
+                                <select name="txtsexo">
+                                        <option value="1">Femenino</option> 
+                                        <option value="2" selected>Masculino</option>
                                  </select><br/><br/>
                                  <div class="form-group">
-								<input type="text" class="form-control" placeholder="Correo" name="correo_cliente" required="">
+								<input type="email" class="form-control" placeholder="Correo" name="txtemail" required="" value ="<?php echo $clientes->email;?>">
+								<input type="hidden" class="form-control" placeholder="Nombre" name="txtid" value ="<?php echo $clientes->id_cliente;?>" />
+								<button type="submit" class="btn btn-success" name="btnSave">Guardar</button>
+<button class="btn btn-warning" type="button" onclick="window.location= 'clientes_empleados.php'">Limpiar</button>
 							</div>
 							</div>
-                            <input type="submit" value="Crear">
-														</br></br><button class="btn btn-warning" type="button" onclick="window.location= 'clientes_empleados.php'">Limpiar</button>
 						</form>
 					</div>
-                </div><br/><br/>
-
-<table id="customers">
+                </div>
+								<fieldset>
+								<br/><br/><br/><br/>
+								<table class="table">
   <tr>
-    <th>Nombre</th>
+	  <th>Nombre</th>
     <th>Dirección</th>
     <th>Teléfono</th>
     <th>Dui</th>
     <th>Sexo</th>
     <th>Correo</th>
+	</tr>
 
-  </tr>
-  <tr>
-    <td>Carolina Rodriguez</td>
-    <td>El Refugio, Ahuachapan</td>
-    <td>72663215</td>
-		<td>02587888-1</td>
-		<td>Femenino</td>
-    <td>carolina@gmail.com</td>
-  </tr>
-
+<?php
+	$datosClientes=camposCliente::listarClientes();
+	foreach($datosClientes as $cliente){
+		$id_cliente= $cliente['id_cliente'];
+		echo <<<CLIENTES
+		<tr>
+		<td>{$cliente['nombre_cliente']}</td>
+		<td>{$cliente['direccion']}</td>
+		<td>{$cliente['telefono']}</td>
+		<td>{$cliente['DUI']}</td>
+		<td>{$cliente['sexo']}</td>
+		<td>{$cliente['email']}</td>
+		<td><a 	class="btn btn-danger" href ="clientes_empleados.php?eliminar=($id_cliente)">Eliminar</a></td>
+		<td><a 	class="btn btn-info" href ="clientes_empleados.php?modificar=($id_cliente)">Modificar</a></td>
+		</tr>		
+CLIENTES;
+	}
+?>
 </table>
+</fieldset>
 
 			</div>
 		</div>

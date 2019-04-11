@@ -221,8 +221,9 @@ elseif(isset($_GET{'modificar'})){
 								<input type="hidden" class="form-control" placeholder="Nombre" name="txtid" value ="<?php echo $categorias->id_categoria;?>" />
 
 							</div>	
-							<button type="submit">Enviar</button>
-							</br></br><button class="btn btn-warning" type="button" onclick="window.location= 'categorias.php'">Limpiar</button>
+
+							<button type="submit" class="btn btn-success" name="btnSave">Guardar</button>
+							<button class="btn btn-warning" type="button" onclick="window.location= 'categorias.php'">Limpiar</button>
 							</div>
 						</form>
 					</div>
