@@ -281,14 +281,11 @@ elseif(isset($_GET{'modificar'})){
     <th>Dirección</th>
     <th>Correo</th>
     <th>Telefono</th>
-    <th>Sexo</th>
     <th>DUI</th>
-    <th>NIT</th>
     <th>Sueldo</th>
     <th>Usuario</th>
-    <th>Contraseña</th>
     <th>Cargo</th>
-    <th>Estado</th>
+		<th colspan="2">Acción</th>
   </tr>
 <?php
 $datosClientes=camposEmpleado::listarEmpleados();
@@ -300,16 +297,12 @@ foreach($datosClientes as $proveedor){
 	<td>{$proveedor['direccion']}</td>
 	<td>{$proveedor['email']}</td>
 	<td>{$proveedor['telefono']}</td>
-	<td>{$proveedor['sexo']}</td>
 	<td>{$proveedor['DUI']}</td>
-	<td>{$proveedor['NIT']}</td>
 	<td>{$proveedor['sueldo']}</td>
 	<td>{$proveedor['usuario']}</td>
-	<td>{$proveedor['contra']}</td>
 	<td>{$proveedor['cargo']}</td>
-	<td>{$proveedor['activo']}</td>
-	<td><a 	class="btn btn-danger" href ="empleados.php?eliminar=($id_empleado)">Eliminar</a></td>
 	<td><a 	class="btn btn-info" href ="empleados.php?modificar=($id_empleado)">Modificar</a></td>
+	<td><a 	class="btn btn-danger" href ="empleados.php?eliminar=($id_empleado)">Eliminar</a></td>
 	</tr>		
 EMPLEADOS;
 }

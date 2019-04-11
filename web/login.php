@@ -29,27 +29,27 @@
 	<div class="row">
 		<div class="col-md-4 login-sec">
 		    <h2 class="text-center">Iniciar Sesión</h2>
-		    <form class="login-form">
+
+<form action="process_login.php" method="POST">
   <div class="form-group">
     <label for="exampleInputEmail1" class="text-uppercase">Usuario</label>
-    <input type="text" class="form-control" placeholder="">
-    
+    <input type="text" class="form-control" name="usuario" placeholder="">
   </div>
+
   <div class="form-group">
     <label for="exampleInputPassword1" class="text-uppercase">Contraseña</label>
-    <input type="password" class="form-control" placeholder="">
+    <input type="password" class="form-control" name="contraseña" placeholder="">
   </div>
   
-  
-    <div class="form-check">
+  <div class="form-check">
     <label class="form-check-label">
       <input type="checkbox" class="form-check-input">
       <small>Recordarme</small>
     </label>
-    <button type="submit" class="btn btn-login float-right">Entrar</button>
+    <button type="submit" class="btn btn-login float-right" name="btn_entrar">Entrar</button>
   </div>
-  
 </form>
+
 <div class="copy-text">Lexar's Bakery <i class="fa fa-heart"></i> te da la bienvenida!</div>
 		</div>
 		<div class="col-md-8 banner-sec">

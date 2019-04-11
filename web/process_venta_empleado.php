@@ -15,28 +15,30 @@ date_default_timezone_set('America/El_Salvador');
 $date = date("d-m-Y");
 $time = date("H:i:s"); 
 
-//Si el boton Pedir ha sido presionado
-if(isset($_POST['Pedir'])){
+//Si el boton btnSave ha sido presionado
+if(isset($_POST['btnSave'])){
     //Guarda en una variable el contenido del campo que se puso
-    $selected_cli = $_POST['cb_pedido_clientes'];
-    $selected_emp = $_POST['cb_pedido_empleado'];
+    $selected_cli = $_POST['cb_clientes'];
+    $selected_emp = $_POST['cb_empleados'];
     $selected_pago = $_POST['cb_tipospago'];
     $selected_producto = $_POST['cb_producto'];
-    $fecha_pedido = $_POST['fecha_pedido'];
-    $fecha_entrega = $_POST['fecha_entrega'];
     $cantidad_venta = $_POST['txtCantidad'];
     $precio_venta = $_POST['txtPrecio'];
     $descuento_venta = $_POST['txtDescuento'];
-    
+
     
     //Ejecuta una consulta INSERT para poder insertar el dato pasando la variable
-    $mysqli->query("INSERT INTO pedidos (id_cliente, id_empleado, fecha_pedido, fecha_entrega, entregado, id_pago) 
-                    VALUES($selected_cli, $selected_emp, $fecha_pedido, $fecha_entrega, 'no', $selected_pago)") or die($mysqli->error);
+    $mysqli->query("INSERT INTO venta (id_cliente, id_empleado, fecha_venta, id_pago, hora) 
+                    VALUES($selected_cli, $selected_emp, '$date', $selected_pago, '$time')") or die($mysqli->error);
 
     //Ejecuta una consulta INSERT para poder insertar el dato pasando la variable
-    $mysqli->query("INSERT INTO detalle_pedido (id_pedido, id_producto, cantidad, precio_uni, descuento) 
-                    VALUES((SELECT MAX(id_pedido) FROM pedidos), $selected_producto,
+    $mysqli->query("INSERT INTO detalle_venta (id_venta, id_producto, cantidad, precio_uni, descuento) 
+                    VALUES((SELECT MAX(id_venta) FROM venta), $selected_producto,
                     $cantidad_venta, $precio_venta, $descuento_venta)") or die($mysqli->error);
+
+    //Ejecuta una consulta INSERT para poder insertar el dato pasando la variable
+    $mysqli->query("UPDATE inventario_producto SET cantidad = cantidad - $cantidad_venta 
+                    WHERE id_producto = $selected_producto") or die($mysqli->error);
 
 
     //Creamos una sesion para mostrar un mensaje de exito al guardar un registro
@@ -44,18 +46,8 @@ if(isset($_POST['Pedir'])){
     $_SESSION['msg_type'] = "success";
 
     //Hacemos que al presionar el boton con la accion regrese a la pagina principal de la tabla
-    header("location: pedidos.php");
+    header("location: ventas_empleados.php");
 }
-
-//En caso que le de click al boton entregado
-if(isset($_GET['btn_entregado']))
-{
-        //Ejecuta una consulta INSERT para poder insertar el dato pasando la variable
-        $mysqli->query("UPDATE inventario_producto SET cantidad = cantidad - $cantidad_venta 
-        WHERE id_producto = $selected_producto") or die($mysqli->error);
-
-}
-
 
 //En caso que le de click al boton eliminar
 if (isset($_GET['delete'])){

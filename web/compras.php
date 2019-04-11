@@ -349,7 +349,7 @@
 						<td><?php echo $row['precio_uni']; ?></td>
 						<td><?php echo $row['descuento']; ?></td>
 						<td><?php echo $row['fecha_compra']; ?></td>
-						<td><?php echo $row['Total']; ?></td>
+						<td><?php echo round($row['Total'], 2); ?></td>
 						
 					</tr>
 					<?php endwhile; ?>

@@ -12,7 +12,7 @@ $precio_venta = '';
 $descuento_venta = '';
 
 date_default_timezone_set('America/El_Salvador'); 
-$date = date("Y-m-d");
+$date = date("d-m-Y");
 $time = date("H:i:s"); 
 
 //Si el boton btnSave ha sido presionado

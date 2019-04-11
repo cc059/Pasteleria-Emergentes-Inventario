@@ -128,97 +128,195 @@
 	</div>
 	<!-- main -->
 
-	<!-- contact page -->
-	<div class="address py-5">
-		<div class="container py-xl-5 py-lg-3">
-			<div class="title text-center mb-5">
-				<h2 class="text-dark mb-2">Ventas</h2>
-				<p>Registra tus ventas.</p>
-			</div>
-			<div class="row address-row">
-				<div class="col-lg-6 address-right">
-					<div class="address-info wow fadeInRight animated" data-wow-delay=".5s">
-                    <h4 class="font-weight-bold mb-3">Postres </h4>
-						<p>Para endudíalzarte el día </p>
-					</div>
-					<div class="address-info address-mdl wow fadeInRight animated" data-wow-delay=".7s">
-						<h4 class="font-weight-bold mb-3">Pasteles </h4>
-						<p>Chocolate</p>
-						<p>Caramelo</p>
-					</div>
+	<!-- ----------MENSAJE INICIO--------------- -->
+	<!-- Mostraremos un mensaje arriba segun la accion que se haya realizado este puede ser
+			 de succees si se ha guardado, warning si se ha editado y danger si se ha eliminado un registro -->
+			 <?php 
+	
+	if (isset($_SESSION['message'])): ?>
+	<!-- Le pasamos el valor de la SESSION y el mensaje que queremos que muestre -->
+	<div class="alert alert-<?=$_SESSION['msg_type']?>">
+
+		<?php
+			echo $_SESSION['message'];
+			unset($_SESSION['message']);
+		?>
+	</div>
+<?php endif ?>
+<!-- ----------MENSAJE FIN--------------- -->	
+
+<!-- contact page -->
+<div class="address py-5">
+<div class="container py-xl-5 py-lg-3">
+		<div class="title text-center mb-5">
+			<h2 class="text-dark mb-2">Ventas</h2>
+			<p>Registra tus ventas.</p>
+		</div>
+
+		
+		<!-- Este es nuestro form para agregar nuevos registros -->
+		<div class="row justify-content-center">
+			<div class="col-lg-6 address-left mt-lg-0 mt-5">
+				<div class="address-grid">
+					<h4 class="font-weight-bold mb-3">Crea tu venta</h4>
+					<!-- Definimos nuestro action hacia el archivo donde queremos dirigirlo y nuestro method -->
+					<form action="process_venta_empleado.php" method="POST">   
+						<!-- Colocamos un input tipo hidden para almacenar el id de nuestro registro -->
+						<input type="hidden" name="id_venta" value="<?php echo $id; ?>"> 
+
+						<div class="form-group">
+							<!-- Cargar datos a combobox proveedor -->
+							<?php
+								include 'db.php';
+								$resultSetCli = $mysqli->query("SELECT id_cliente, nombre_cliente FROM cliente");
+							?>
+							<label>Seleccione algún cliente </label>
+							<select name = "cb_clientes">
+							<?php
+								while($row = $resultSetCli->fetch_assoc())
+								{
+									$nombre_cliente = $row['nombre_cliente'];
+									$id_cliente = $row['id_cliente'];
+									echo "<option value='$id_cliente'>$nombre_cliente</option>";
+								}
+							?>
+							</select>
+						</div>
+
+						<div class="form-group">
+							<!-- Cargar datos a combobox empleados -->
+							<?php
+								include 'db.php';
+								$resultSetEmp = $mysqli->query("SELECT id_empleado, nombre_empleado FROM empleado");
+							?>
+							<label>Seleccione el empleado  </label>
+							<select name = "cb_empleados">
+							<?php
+								while($row = $resultSetEmp->fetch_assoc())
+								{
+									$nombre_empleado = $row['nombre_empleado'];
+									$id_empleado = $row['id_empleado'];
+									echo "<option value='$id_empleado'>$nombre_empleado</option>";
+								}
+							?>
+							</select>
+						</div>	
+
+						<div class="form-group">
+							<!-- Cargar datos a combobox tipo pago-->
+							<?php
+								include 'db.php';
+								$resultSetPago = $mysqli->query("SELECT id_pago, tipo FROM tipos_pago");
+							?>
+							<label>Seleccione el tipo de pago  </label>
+							<select name = "cb_tipospago">
+							<?php
+								while($row = $resultSetPago->fetch_assoc())
+								{
+									$tipo = $row['tipo'];
+									$id_pago = $row['id_pago'];
+									echo "<option value='$id_pago'>$tipo</option>";
+								}
+							?>
+							</select>
+						</div>	
+
+						<div class="form-group">
+							<!-- Cargar datos a combobox productos-->
+							<?php
+								include 'db.php';
+								$resultSetProd = $mysqli->query("SELECT id_producto, producto FROM inventario_producto");
+							?>
+							<label>Seleccione el producto  </label>
+							<select name = "cb_producto">
+							<?php
+								while($row = $resultSetProd->fetch_assoc())
+								{
+									$producto = $row['producto'];
+									$id_producto = $row['id_producto'];
+									echo "<option value='$id_producto'>$producto</option>";
+								}
+							?>
+							</select>
+						</div>	
+
+						<div class="form-group">
+							<input type="number" step="0.01" class="form-control" value="<?php echo $cantidad_venta; ?>" placeholder="Cantidad" name="txtCantidad">
+						</div>	
+						<div class="form-group">
+							<input type="number" step="0.01" class="form-control" value="<?php echo $precio_venta; ?>" placeholder="Precio" name="txtPrecio">
+						</div>	
+						<div class="form-group">
+							<input type="number" step="0.01" class="form-control" value="<?php echo $decuento_venta; ?>" placeholder="Descuento" name="txtDescuento">
+						</div>	
+						<div class="form-group">		
+									<button type="submit" class="btn btn-success" name="btnSave">Guardar</button>
+							<button class="btn btn-warning" type="button" onclick="window.location= 'ventas.php'">Limpiar</button>
+						</div>
+
+					</form>
 				</div>
-				<div class="col-lg-6 address-left mt-lg-0 mt-5">
-					<div class="address-grid">
-						<h4 class="font-weight-bold mb-3">Crea tu Venta</h4>
-						<form action="#" method="post">
-                        <div class="form-group">
-                                Cliente
-                                <select name="cliente">
-                                        <option value="value1">Carolina Rodriguez</option> 
-                                        <option value="value2" selected>Eduardo Noyola</option>
-                                 </select>
-                            </div>
-                            <div class="form-group">
-                                Empleado
-                                <select name="Empleado">
-                                        <option value="value1">Victor Ramirez</option> 
-                                        <option value="value2" selected>Joel Figueroa</option>
-                                 </select>
-                                 <br/><br/>
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Fecha" name="fecha_compra" required="">
-							</div>
-							<div class="form-group">
-								<input type="email" class="form-control" placeholder="Hora" name="hora_compra" required="">
-							</div><br/>
-							Tipo Pago
-                                <select name="TipoPago">
-                                        <option value="value1">Efectivo</option> 
-                                        <option value="value2" selected>Crédito</option>
-                                 </select><br/><br/>
-                                 Producto
-                                <select name="Producto">
-                                        <option value="value1">Harina</option> 
-                                        <option value="value2" selected>Azúcar Morena</option>
-                                        <option value="value3" selected>Leche</option>
-                                 </select>
-                                 <br/><br/>
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Cantidad" name="cantidad_compra" required="">
-							</div>
-							<div class="form-group">
-								<input type="email" class="form-control" placeholder="Precio Unitario" name="precio_compra" required="">
-							</div>
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Descuento" name="descuento_compra" required="">
-                            </div><br/>
-                            <label for="name">Total:</label>
-							</div>
-                            <input type="submit" value="Vender">
-														</br></br><button class="btn btn-warning" type="button" onclick="window.location= 'ventas_empleados.php'">Limpiar</button>
-						</form>
-					</div>
-                </div><br/><br/>
-
-<table id="customers">
-  <tr>
-    <th>Producto</th>
-    <th>Cantidad</th>
-    <th>Precio</th>
-    <th>Total</th>
-  </tr>
-  <tr>
-    <td>Huevos</td>
-    <td>50</td>
-    <td>0.10</td>
-    <td>5.00</td>
-  </tr>
-
-</table>
 			</div>
 		</div>
+
+		<br/>
+
+
+		<!-- Mostraremos nuestros registro en una tabla para ello debemos de establecer una conexion con la bd y 
+				 la consulta que queremos mostrar, esta la almacenaremos en una variable -->
+	<div class="container">
+		<?php
+			include 'db.php';
+			$result = $mysqli->query("SELECT vv.id_venta, cc.nombre_cliente, ee.nombre_empleado, inv.producto, dv.cantidad, 
+			dv.precio_uni, dv.descuento, vv.fecha_venta, dv.precio_uni * dv.cantidad as Total FROM venta vv 
+			INNER JOIN cliente cc ON vv.id_cliente = cc.id_cliente INNER JOIN empleado ee ON vv.id_empleado = ee.id_empleado
+			INNER JOIN detalle_venta dv ON vv.id_venta = dv.id_venta INNER JOIN inventario_producto inv
+			ON dv.id_producto = inv.id_producto") or die($mysqli->error);
+		?>
+
+		<!-- Creamos la tabla -->
+		<div class ="row justify-content-center">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Id Venta</th>
+						<th>Cliente</th>
+						<th>Empleado</th>
+						<th>Producto</th>
+						<th>Cantidad</th>
+						<th>Precio Uni</th>
+						<th>Descuento</th>
+						<th>Fecha Venta</th>
+						<th>Total</th>
+		
+					</tr>
+				</thead>
+				<!-- Aqui es donde cargaremos los datos de nuestra tabla con el metodo 'fetch_assoc' nos permite
+						 retornar un array asociativo correspondiente a la fila obtenida o NULL si no hubiera más filas. 
+						 Para ello le decimos que mientras la cantidad de la fila sea igual de la tabla entonces que 
+						 nos retorne un array con esos registros-->
+				<?php
+					while ($row = $result->fetch_assoc()): ?>
+					<tr>
+						<td><?php echo $row['id_venta']; ?></td>
+						<td><?php echo $row['nombre_cliente']; ?></td>
+						<td><?php echo $row['nombre_empleado']; ?></td>
+						<td><?php echo $row['producto']; ?></td>
+						<td><?php echo $row['cantidad']; ?></td>
+						<td><?php echo $row['precio_uni']; ?></td>
+						<td><?php echo $row['descuento']; ?></td>
+						<td><?php echo $row['fecha_venta']; ?></td>
+						<td><?php echo round($row['Total'], 2); ?></td>
+					
+					</tr>
+					<?php endwhile; ?>
+			</table>
+		</div>
 	</div>
+</div>
+</div>
 	<!-- //contact page -->
+
 
 
 	<!-- footer -->

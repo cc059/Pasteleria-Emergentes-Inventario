@@ -65,13 +65,13 @@
 
 <body>
 <?php require_once 'process_pedido.php'; ?>
-	<div class="mian-content">
+<div class="mian-content">
 		<!-- header -->
 		<header>
 			<nav class="navbar navbar-expand-lg navbar-light">
 				<div class="logo text-left">
 					<h1>
-						<a class="navbar-brand" href="index.php">
+						<a class="navbar-brand" href="index_empleados.php">
 							<img src="images/logo.png" alt="" class="img-fluid">Lexar's Bakery</a>
 					</h1>
 				</div>
@@ -84,76 +84,42 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-lg-auto text-lg-right text-center">
 						<li class="nav-item">
-							<a class="nav-link" href="index.php">Inicio
+							<a class="nav-link" href="index_empleados.php">Inicio
 								<span class="sr-only">(current)</span>
 							</a>
 						</li>
-						<li class="nav-item active dropdown">
+					<!--<li class="nav-item">
+							<a class="nav-link" href="about.html">About Us</a>
+						</li>-->
+					<!--	<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
 							    aria-haspopup="true" aria-expanded="false">
-								Inventario
+								Dropdown
 							</a>
 							<div class="dropdown-menu text-lg-left text-center" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item link"  href="compras.php">Compras</a>
-								<a class="dropdown-item link"  href="ventas.php">Ventas</a>
-								<a class="dropdown-item link"  href="pedidos.php">Pedidos</a>
-								<a class="dropdown-item link"  href="inventario_producto.php">Inventario Producto</a>
-								<a class="dropdown-item link"  href="inventario_materia_prima.php">Inventario Materia Prima</a>
-								<a class="dropdown-item link"  href="categorias.php">Categorias</a>
-								<a class="dropdown-item link"  href="tipos_pago.php">Tipos de pago</a>
+								<a class="dropdown-item scroll" href="#services">Services</a>
+								<a class="dropdown-item scroll" href="#products" title="">New Products</a>
+								<a class="dropdown-item scroll" href="#news" title="">Company News</a>
+								<a class="dropdown-item" href="about.html" title="">Team</a>
 							</div>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-							    aria-haspopup="true" aria-expanded="false">
-								Personal
-							</a>
-							<div class="dropdown-menu text-lg-left text-center" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item link"  href="clientes.php">Clientes</a>
-								<a class="dropdown-item link"  href="empleados.php">Empleados</a>
-								<a class="dropdown-item link"  href="proveedores.php">Proveedores</a>
-
-							</div>
+						</li>-->
+                        <li class="nav-item active">
+							<a class="nav-link" href="ventas_empleados.php">Ventas</a>
+                        </li>
+                        <li class="nav-item">
+							<a class="nav-link" href="pedidos_empleados.php">Pedidos</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="gallery.html">Galeria</a>
+							<a class="nav-link" href="clientes_empleados.php">Clientes</a>
 						</li>
-											<!-- menu contactanos -->
 						<li class="nav-item">
-							<a class="nav-link" href="contact.html">Contáctanos</a>
+							<a class="nav-link" href="gallery_empleados.html">Galeria</a>
 						</li>
 					</ul>
-					<!-- menu button -->
-					<div class="menu">
-						<a href="#" class="navicon"></a>
-						<div class="toggle">
-							<ul class="toggle-menu list-unstyled">
-							<li>
-									<a href="index.php">Inicio</a>
-								</li>
-								<li>
-									<a class="scroll" href="#products">Nuevos Productos</a>
-								</li>
-								<li>
-									<a href="gallery.html">Ultimos Pasteles</a>
-								</li>
-								<li>
-									<a class="scroll" href="#order">Ordenar Pastel</a>
-								</li>
-								<li>
-									<a class="scroll" href="faq.html">Preguntas Frecuentes</a>
-								</li>
-								<li>
-									<a href="contact.html">Contactanos</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<!-- //menu button -->
+
 				</div>
 			</nav>
 		</header>
-		<!-- //header -->
 
 		<!-- banner 2 -->
 		<div class="banner2-w3ls">
@@ -162,18 +128,7 @@
 		<!-- //banner 2 -->
 	</div>
 	<!-- main -->
-	<!-- page details -->
-	<div class="breadcrumb-agile">
-		<nav aria-label="breadcrumb">
-			<ol class="breadcrumb m-0">
-				<li class="breadcrumb-item">
-					<a href="index.php">Inicio</a>
-				</li>
-			</ol>
-		</nav>
-	</div>
-	<!-- //page details -->
-
+	
 	<!-- contact page -->
 	<div class="address py-5">
 		<div class="container py-xl-5 py-lg-3">
