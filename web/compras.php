@@ -183,7 +183,6 @@
 <?php endif ?>
 <!-- ----------MENSAJE FIN--------------- -->	
 
-<<<<<<< HEAD
 <!-- contact page -->
 <div class="address py-5">
 <div class="container py-xl-5 py-lg-3">
@@ -331,7 +330,7 @@
 						<th>Descuento</th>
 						<th>Fecha Compra</th>
 						<th>Total</th>
-						<th colspan="2">Acción</th>
+						
 					</tr>
 				</thead>
 				<!-- Aqui es donde cargaremos los datos de nuestra tabla con el metodo 'fetch_assoc' nos permite
@@ -350,13 +349,7 @@
 						<td><?php echo $row['descuento']; ?></td>
 						<td><?php echo $row['fecha_compra']; ?></td>
 						<td><?php echo $row['Total']; ?></td>
-						<td>
-						<!-- Creamos las URLs para los casos de editar y eliminar, y les pasmos un parametro con nuestro id. -->
-							<a href="tipos_pago.php?edit=<?php echo $row['id_compra']; ?>"
-								class="btn btn-info">Editar</a>
-							<a href="tipos_pago.php?delete=<?php echo $row['id_compra']; ?>"
-								class="btn btn-danger">Eliminar</a>
-						</td>
+						
 					</tr>
 					<?php endwhile; ?>
 			</table>
