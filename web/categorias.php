@@ -232,6 +232,7 @@ elseif(isset($_GET{'modificar'})){
 <table class="table">
   <tr>
 	<th>Nombre Categoria</th>
+	<th colspan="2">Acción</th>
 	</tr>
 
 <?php

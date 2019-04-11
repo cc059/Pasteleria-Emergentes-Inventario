@@ -294,7 +294,7 @@
 							<?php else: ?>
 									<button type="submit" class="btn btn-success" name="btnSave">Guardar</button>
 							<?php endif; ?>
-							<br/><br/><button class="btn btn-warning" type="button" onclick="window.location= 'compras.php'">Limpiar</button>
+							<button class="btn btn-warning" type="button" onclick="window.location= 'compras.php'">Limpiar</button>
 						</div>
 
 					</form>
@@ -322,6 +322,7 @@
 			<table class="table">
 				<thead>
 					<tr>
+						<th>IdCompra</th>
 						<th>Proveedor</th>
 						<th>Empleado</th>
 						<th>Producto</th>
@@ -330,7 +331,7 @@
 						<th>Descuento</th>
 						<th>Fecha Compra</th>
 						<th>Total</th>
-						
+						<th>Acción</th>
 					</tr>
 				</thead>
 				<!-- Aqui es donde cargaremos los datos de nuestra tabla con el metodo 'fetch_assoc' nos permite
@@ -340,6 +341,7 @@
 				<?php
 					while ($row = $result->fetch_assoc()): ?>
 					<tr>
+						<td><?php echo $row['id_compra']; ?></td>
 						<td><?php echo $row['nombre_proveedor']; ?></td>
 						<td><?php echo $row['nombre_empleado']; ?></td>
 						<td><?php echo $row['producto']; ?></td>
@@ -348,7 +350,7 @@
 						<td><?php echo $row['descuento']; ?></td>
 						<td><?php echo $row['fecha_compra']; ?></td>
 						<td><?php echo round($row['Total'], 2); ?></td>
-						
+						<td>
 						<!-- Creamos las URLs para los casos de editar y eliminar, y les pasmos un parametro con nuestro id. -->
 							<a href="compras.php?delete=<?php echo $row['id_compra']; ?>"
 								class="btn btn-danger">Eliminar</a>

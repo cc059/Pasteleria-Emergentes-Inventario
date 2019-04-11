@@ -164,17 +164,6 @@ elseif(isset($_GET{'modificar'})){
 		<!-- //banner 2 -->
 	</div>
 	<!-- main -->
-	<!-- page details -->
-	<div class="breadcrumb-agile">
-		<nav aria-label="breadcrumb">
-			<ol class="breadcrumb m-0">
-				<li class="breadcrumb-item">
-					<a href="index.php">Inicio</a>
-				</li>
-			</ol>
-		</nav>
-	</div>
-	<!-- //page details -->
 
 	<!-- contact page -->
 	<div class="address py-5">
@@ -234,9 +223,10 @@ elseif(isset($_GET{'modificar'})){
 	  <th>Nombre</th>
     <th>Dirección</th>
     <th>Teléfono</th>
-    <th>Dui</th>
+    <th>DUI</th>
     <th>Sexo</th>
-    <th>Correo</th>
+		<th>Correo</th>
+		<th colspan="2">Acción</th>
 	</tr>
 
 <?php
@@ -251,8 +241,8 @@ elseif(isset($_GET{'modificar'})){
 		<td>{$cliente['DUI']}</td>
 		<td>{$cliente['sexo']}</td>
 		<td>{$cliente['email']}</td>
-		<td><a 	class="btn btn-danger" href ="clientes_empleados.php?eliminar=($id_cliente)">Eliminar</a></td>
 		<td><a 	class="btn btn-info" href ="clientes_empleados.php?modificar=($id_cliente)">Modificar</a></td>
+		<td><a 	class="btn btn-danger" href ="clientes_empleados.php?eliminar=($id_cliente)">Eliminar</a></td>
 		</tr>		
 CLIENTES;
 	}

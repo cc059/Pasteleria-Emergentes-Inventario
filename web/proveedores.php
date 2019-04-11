@@ -249,7 +249,7 @@ elseif(isset($_GET{'modificar'})){
                             <div class="form-group">
 								<input type="text" class="form-control" placeholder="Correo" name="txtemail" required="" value ="<?php echo $proveedores->email;?>" >
 								<input type="hidden" class="form-control" placeholder="Nombre" name="txtid" value ="<?php echo $proveedores->id_proveedor;?>" />
-<br/><br/>
+<br/>
 <button type="submit" class="btn btn-success" name="btnSave">Guardar</button>
 						   <button 	class="btn btn-warning" type="button" onclick="window.location= 'proveedores.php'">Limpiar</button>
 							</div>
@@ -271,7 +271,8 @@ elseif(isset($_GET{'modificar'})){
     <th>NIT</th>
     <th>Número de Registro</th>
     <th>Servicio</th>
-    <th>Correo</th>
+		<th>Correo</th>
+		<th colspan="2">Acción</th>
 	</tr>
 
 <?php
@@ -288,8 +289,9 @@ elseif(isset($_GET{'modificar'})){
 		<td>{$proveedor['num_registro']}</td>
 		<td>{$proveedor['servicio']}</td>
 		<td>{$proveedor['email']}</td>
-		<td><a 	class="btn btn-danger" href ="proveedores.php?eliminar=($id_proveedor)">Eliminar</a></td>
 		<td><a 	class="btn btn-info" href ="proveedores.php?modificar=($id_proveedor)">Modificar</a></td>
+		<td><a 	class="btn btn-danger" href ="proveedores.php?eliminar=($id_proveedor)">Eliminar</a></td>
+
 		</tr>		
 PROVEEDORES;
 	}

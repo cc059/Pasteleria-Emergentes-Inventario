@@ -236,8 +236,8 @@ elseif(isset($_GET{'modificar'})){
 							</div><br/>
 							 Sexo
                                 <select name="txtsexo">
-                                        <option value="1">Femenino</option> 
-                                        <option value="2" selected>Masculino</option>
+                                        <option value="M">Femenino</option> 
+                                        <option value="F" selected>Masculino</option>
                                  </select><br/><br/>
                                  <div class="form-group">
 								<input type="email" class="form-control" placeholder="Correo" name="txtemail" required="" value ="<?php echo $clientes->email;?>">
@@ -256,9 +256,10 @@ elseif(isset($_GET{'modificar'})){
 	  <th>Nombre</th>
     <th>Dirección</th>
     <th>Teléfono</th>
-    <th>Dui</th>
+    <th>DUI</th>
     <th>Sexo</th>
-    <th>Correo</th>
+		<th>Correo</th>
+		<th colspan="2">Acción</th>	
 	</tr>
 
 <?php
@@ -273,8 +274,9 @@ elseif(isset($_GET{'modificar'})){
 		<td>{$cliente['DUI']}</td>
 		<td>{$cliente['sexo']}</td>
 		<td>{$cliente['email']}</td>
-		<td><a 	class="btn btn-danger" href ="clientes.php?eliminar=($id_cliente)">Eliminar</a></td>
 		<td><a 	class="btn btn-info" href ="clientes.php?modificar=($id_cliente)">Modificar</a></td>
+		<td><a 	class="btn btn-danger" href ="clientes.php?eliminar=($id_cliente)">Eliminar</a></td>
+		
 		</tr>		
 CLIENTES;
 	}
