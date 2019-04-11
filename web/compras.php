@@ -322,7 +322,6 @@
 			<table class="table">
 				<thead>
 					<tr>
-						<th>Id Compra</th>
 						<th>Proveedor</th>
 						<th>Empleado</th>
 						<th>Producto</th>
@@ -341,7 +340,6 @@
 				<?php
 					while ($row = $result->fetch_assoc()): ?>
 					<tr>
-						<td><?php echo $row['id_compra']; ?></td>
 						<td><?php echo $row['nombre_proveedor']; ?></td>
 						<td><?php echo $row['nombre_empleado']; ?></td>
 						<td><?php echo $row['producto']; ?></td>

@@ -242,10 +242,10 @@ elseif(isset($_GET{'modificar'})){
                                  <div class="form-group">
 								<input type="email" class="form-control" placeholder="Correo" name="txtemail" required="" value ="<?php echo $clientes->email;?>">
 								<input type="hidden" class="form-control" placeholder="Nombre" name="txtid" value ="<?php echo $clientes->id_cliente;?>" />
+								<button type="submit" class="btn btn-success" name="btnSave">Guardar</button>
+<button class="btn btn-warning" type="button" onclick="window.location= 'clientes.php'">Limpiar</button>
 							</div>
 							</div>
-														<input type="submit" value="Enviar"><br/><br/>
-														</br></br><button type="submit" class="btn btn-warning" onclick="window.location= 'clientes.php'">Limpiar</button>
 						</form>
 					</div>
                 </div>

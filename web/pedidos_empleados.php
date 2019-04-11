@@ -82,71 +82,25 @@
 					</span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav ml-lg-auto text-lg-right text-center">
-						<li class="nav-item">
-							<a class="nav-link" href="index.php">Inicio
+				<ul class="navbar-nav ml-lg-auto text-lg-right text-center">
+						<li class="nav-item active">
+							<a class="nav-link" href="index_empleados.php">Inicio
 								<span class="sr-only">(current)</span>
 							</a>
 						</li>
-						<li class="nav-item active dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-							    aria-haspopup="true" aria-expanded="false">
-								Inventario
-							</a>
-							<div class="dropdown-menu text-lg-left text-center" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item link"  href="compras.php">Compras</a>
-								<a class="dropdown-item link"  href="ventas.php">Ventas</a>
-								<a class="dropdown-item link"  href="pedidos.php">Pedidos</a>
-								<a class="dropdown-item link"  href="inventario_producto.php">Inventario Producto</a>
-								<a class="dropdown-item link"  href="inventario_materia_prima.php">Inventario Materia Prima</a>
-								<a class="dropdown-item link"  href="categorias.php">Categorias</a>
-								<a class="dropdown-item link"  href="tipos_pago.php">Tipos de pago</a>
-							</div>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-							    aria-haspopup="true" aria-expanded="false">
-								Personal
-							</a>
-							<div class="dropdown-menu text-lg-left text-center" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item link"  href="clientes.php">Clientes</a>
-								<a class="dropdown-item link"  href="empleados.php">Empleados</a>
-								<a class="dropdown-item link"  href="proveedores.php">Proveedores</a>
-
-							</div>
+                        <li class="nav-item">
+							<a class="nav-link" href="ventas_empleados.php">Ventas</a>
+                        </li>
+                        <li class="nav-item">
+							<a class="nav-link" href="pedidos_empleados.php">Pedidos</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="gallery.html">Galeria</a>
+							<a class="nav-link" href="clientes_empleados.php">Clientes</a>
 						</li>
-											<!-- menu contactanos -->
 						<li class="nav-item">
-							<a class="nav-link" href="contact.html">Contáctanos</a>
+							<a class="nav-link" href="gallery_empleados.html">Galeria</a>
 						</li>
 					</ul>
-					<!-- menu button -->
-					<div class="menu">
-						<a href="#" class="navicon"></a>
-						<div class="toggle">
-							<ul class="toggle-menu list-unstyled">
-							<li>
-									<a href="index.php">Inicio</a>
-								</li>
-								<li>
-									<a class="scroll" href="#products">Nuevos Productos</a>
-								</li>
-								<li>
-									<a href="gallery.html">Ultimos Pasteles</a>
-								</li>
-								<li>
-									<a class="scroll" href="#order">Ordenar Pastel</a>
-								</li>
-								<li>
-									<a class="scroll" href="faq.html">Preguntas Frecuentes</a>
-								</li>
-								<li>
-									<a href="contact.html">Contactanos</a>
-								</li>
-							</ul>
 						</div>
 					</div>
 					<!-- //menu button -->
@@ -320,7 +274,6 @@
 			<table class="table table-striped table-responsive">
 				<thead>
 					<tr>
-						<th>Id Pedido</th>
 						<th>Cliente</th>
 						<th>Empleado</th>
 						<th>Fecha Pedido</th>
@@ -340,7 +293,6 @@
 				<?php
 					while ($row = $result->fetch_assoc()): ?>
 					<tr>
-						<td><?php echo $row['id_pedido']; ?></td>
 						<td><?php echo $row['nombre_cliente']; ?></td>
 						<td><?php echo $row['nombre_empleado']; ?></td>
 						<td><?php echo $row['fecha_pedido']; ?></td>

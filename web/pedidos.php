@@ -320,7 +320,6 @@
 			<table class="table table-striped table-responsive">
 				<thead>
 					<tr>
-						<th>Id Pedido</th>
 						<th>Cliente</th>
 						<th>Empleado</th>
 						<th>Fecha Pedido</th>
@@ -330,7 +329,7 @@
 						<th>Precio Uni</th>
 						<th>Descuento</th>
 						<th>Total</th>
-						<th colspan="2">Acción</th>
+						<th>Acción</th>
 					</tr>
 				</thead>
 				<!-- Aqui es donde cargaremos los datos de nuestra tabla con el metodo 'fetch_assoc' nos permite
@@ -340,7 +339,6 @@
 				<?php
 					while ($row = $result->fetch_assoc()): ?>
 					<tr>
-						<td><?php echo $row['id_pedido']; ?></td>
 						<td><?php echo $row['nombre_cliente']; ?></td>
 						<td><?php echo $row['nombre_empleado']; ?></td>
 						<td><?php echo $row['fecha_pedido']; ?></td>
